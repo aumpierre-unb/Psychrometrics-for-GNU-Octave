@@ -4,16 +4,16 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Psychrometrics-for-GNU-Octave) -->
 
-![Illustrative graphical output](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/blob/main/pics/chart.png "Example of graphical output")
+<!-- ![Illustrative graphical output](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/blob/main/pics/chart.png "Example of graphical output") -->
 
 ## Installing and Loading `psychrometrics`
 
-```dotnetcli
+<!-- ```dotnetcli
 # use this call to install version 0.1.0, or modify the command line for match the version
 pkg install https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/archive/refs/tags/v0.1.0.tar.gz
 pkg update psychrometrics
 pkg load psychrometrics
-```
+``` -->
 
 <!-- ## Citation of `psychrometrics`
 
