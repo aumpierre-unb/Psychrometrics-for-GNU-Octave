@@ -1,0 +1,11 @@
+Name: psychrometrics
+Version: 0.1.0-alpha
+Date: 2022-12-14
+Author: Alexandre Umpierre (aumpierre@gmail.com)
+Maintainer: Alexandre Umpierre
+Title: Psychrometrics
+Description: A toolbox for psychrometrics for GNU Octave.
+Categories: package
+Depends: octave (>=4.0.0)
+License: GPLv3+
+Url: https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave
