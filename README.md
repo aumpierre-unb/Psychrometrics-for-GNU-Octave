@@ -1,4 +1,4 @@
-# `psychrometrics` Toolbox for GNU-Octave
+# `psychrometrics` Toolbox for GNU-Octave (under construction)
 
 <!-- [![DOI](https://zenodo.org/badge/509427410.svg)](https://zenodo.org/badge/latestdoi/509427410)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
@@ -15,7 +15,7 @@ pkg update psychrometrics
 pkg load psychrometrics
 ```
 
-## Citation of `psychrometrics`
+<!-- ## Citation of `psychrometrics`
 
 You can cite all versions (both released and pre-released), by using
 [DOI 105281/zenodo.6960263](https://doi.org/10.5281/zenodo.xxxxx).
@@ -23,25 +23,23 @@ You can cite all versions (both released and pre-released), by using
 This DOI represents all versions, and will always resolve to the latest one.
 
 To cite the last released version, please check
-https://zenodo.org/account/settings/github/repository/aumpierre-unb/Psychrometrics-for-GNU-Octave.
+https://zenodo.org/account/settings/github/repository/aumpierre-unb/Psychrometrics-for-GNU-Octave. -->
 
 ---
 
 The following is a very short introduction to psychrometrics and to the `psychrometrics` toolbox for GNU Octave.
 
-The psychrometric chart is a two dimensional diagram used for engineers to characterize the thermodynamical state of a gaseous mixture of air and water vapor.
-That is a mandatory task for a series of processes related to umidification and desumidification. These unit operations are the basis of air-conditioning.
+Psychrometrics (or psychrometry) is the field of physics concerned with the thermodynamic properties of a mixture of a condensable vapor and a non condensable gas. The most usual situation in engineering is the mixture of water vapor in the atmospheric air at atmospheric pressure.
 
-The basic readings from a psychrometric chart are the thermodynamic temperature and the humidity, the mass ratio of water vapor to dry air.
-Alongside with the heat of vaporization of water and the heat capacities of water vapor and dry air,
-material and energy balances allow to calculate the enthalpy and volume of the mixture with some equation of state.
-In most cases, water vapor and dry air are assumed to be ideal gases at room temparature.
-Also, alongside with material and energy diffusivities of water vapor, the combined mass and energy transport phenomena allow to calculate
-the temperature of a thin layer of liquid water providing water vapor to the gaseous mixture.
-This temperature is refered to as wet bulb temperature, while the thermodynamic temmerature is refered to as dry bulb temperature.
+A psychrometric chart is a two dimensional diagram used for engineers to predict the thermodynamical state of humid air. In most cases, engineers are concerned with the properties of mixtures of water vapor and atmospheric air at atmospheric pressure. The prediction of the properties of such systems are mandatory for a series of industrial processes related to humidification and dehumidification as well as with air-conditioning processes.
 
-Most psychrometric charts show families of lines of constant specific volume, specific enthalpy and wet bulb temprature.
-All toghether they allow a thorough characterization of the themodynamic state of a misture of water vapor and dry air.
+The basic readings from a psychrometric chart are the thermodynamic temperature and the humidity. Humidity is the mass ratio of water vapor to dry air.
+
+Alongside with thermochemical properties of water vapor and dry air, the material and energy balances allow to calculate the specific enthalpy and the specific volume of the system using some equation of state. The ideal gas equations of state is usually used since water vapor and dry air present negligible deviation from ideality at room temperature.
+
+Also, alongside with material diffusivity and energy diffusivity of water vapor, the combined mass and energy transport phenomena allow to calculate the temperature of a thin layer of liquid water providing water vapor to the gaseous mixture. This temperature is refereed to as wet bulb temperature, while the thermodynamic temperature is refereed to as dry bulb temperature.
+
+Most psychrometric charts show sets of lines of constant specific volume, constant specific enthalpy and constant wet bulb temperature. Set all together, they produce a fairly complete chart of the thermodynamic state of humid air.
 
 This text is divided in two main sections: The Theory and The `psychrometrics` Toolbox.
 
@@ -64,7 +62,7 @@ $$
 h=f{v^2 \over 2g} {L \over D}
 $$
 
-### Dry Bulb Temperaure & Wet Bulb Temperaure
+### Dry Bulb Temperature & Wet Bulb Temperature
 
 xxxxxxxxxx
 
