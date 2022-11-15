@@ -159,7 +159,7 @@ $$
 
 where $p^*_{sat}$ is given in Pa and $T$, in K.
 
-As the saturation of air in ice and water is negligible, the water vapor pressure over pure ice or water is almost the same as the saturation pressure over ice or water.
+As the saturation of air in ice and water is negligible, the water vapor pressure over pure ice or water is almost the same as the saturation pressure over ice or water when there is air in the gaseous phase.
 
 The specific volume and the specific enthalpy (volume and enthalpy of the gaseous phase per unit of mass of dry air) are given by
 
