@@ -18,6 +18,6 @@
 # It is also available at https://www.gnu.org/licenses/.
 
 function W=humidity(pw,p=101325)
-    W=0.622*pw/(p-pw);
+    W=0.621945*pw/(p-pw);
 end
 

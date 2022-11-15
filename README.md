@@ -58,13 +58,13 @@ The thermodynamic state where the smallest amount of energy removed from the gas
 *Humidity* is the mass ratio of water vapor and dry air. Since both water vapor and dry air are taken as ideal gases, the masses can be replaced by their the partial pressures,
 
 $$
-W = 0.622{p_v \over {p - p_v}}
+W = 0.621945 {p_v \over {p - p_v}}
 $$
 
 where $p$ is the total pressure and $p_v$ is the partial pressure of water vapor. Here, the total pressure is the atmospheric pressure at sea level, 101325 Pa. Analogously, the humidity of saturated air is the saturation humidity,
 
 $$
-W_{sat} = 0.622{p_{sat} \over {p-p_{sat}}}
+W_{sat} = 0.621945 {p_{sat} \over {p-p_{sat}}}
 $$
 
 *Relative humidity* is the material ratio of water vapor to the water vapor at saturation,
@@ -154,7 +154,7 @@ $$
 and for water in the range 0 °C to 200 °C, the water vapor pressure in equilibrium with pure water is given by
 
 $$
-\ln p^*_{sat} = {C_8 \over T} + C_9 + C_{10}T + C_{11}T^2 + C_{12}T^3 + C_{13} \ln T
+\ln p^*_{sat} = {C_8 \over T} + C_9 + C_{10} T + C_{11}T^2 + C_{12}T^3 + C_{13} \ln T
 $$
 
 where $p^*_{sat}$ is given in Pa and *T*, in K.
