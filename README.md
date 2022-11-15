@@ -157,7 +157,7 @@ $$
 \ln p_{sat}^* = {C_8 \over T} + C_9 + C_{10}T + C_{11}T^2 + C_{12}T^3 + C_{13} \ln T
 $$
 
-where $p^*_{sat}$ is given in Pa and *T*, in K.
+where $p^*_{sat}$ is given in Pa and $T$, in K.
 
 As the saturation of air in ice and water is negligible, the water vapor pressure over pure ice or water is almost the same as the saturation pressure over ice or water.
 
