@@ -154,7 +154,7 @@ $$
 and for water in the range 0 °C to 200 °C, the water vapor pressure in equilibrium with pure water is given by
 
 $$
-\ln p^*_{sat} = {C_8 \over T} + C_9 + C_{10}T + C_{11}T^2 + C_{12}T^3 + C_{13} \ln T
+\ln p^*_{sat} = {C_8 \over T} + C_9 + c_{10}T + C_{11}T^2 + C_{12}T^3 + C_{13} \ln T
 $$
 
 where $p^*_{sat}$ is given in Pa and *T*, in K.
