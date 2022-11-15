@@ -148,7 +148,7 @@ Equations used in `psychrometrics` toolbox come from the first chapter of the *2
 For ice in the range -100 °C to 0 °C, the water vapor pressure in equilibrium with pure ice is given by
 
 $$
-\ln p^*_{sat} = {C_1 \over T} + C_2 + C_3T + C_4T^2 + C_5T^3 + C_6T^4 + C_7 \ln T
+\ln p_{sat}^* = {C_1 \over T} + C_2 + C_3T + C_4T^2 + C_5T^3 + C_6T^4 + C_7 \ln T
 $$
 
 and for water in the range 0 °C to 200 °C, the water vapor pressure in equilibrium with pure water is given by
