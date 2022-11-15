@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotWetBulbTemp(Twet)
+function plotWetBulbTemp(Twet,c,w)
     T1=Twet;
     foo=@(T2) (0-humidity2(humidity(satPress(Twet),:),T2,Twet)); # using default p = 101325
     T2=bissection(foo,200+273.15,-100+273.15,1e-5);
@@ -27,7 +27,7 @@ function plotWetBulbTemp(Twet)
         foo=@(W) (W-humidity2(humidity(satPress(Twet),:),T(n),Twet)); # using default p = 101325
         W(n)=bissection(foo,0,1,1e-5);
     end
-    plot(T,W,"r");
+    plot(T,W,c,"linewidth",w);
 end
 
 #{

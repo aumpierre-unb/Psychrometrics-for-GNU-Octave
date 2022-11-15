@@ -552,6 +552,14 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
         Wsatwet=humidity(psatwet,:); # using default p = 101325
         rho=(1+Wsatwet)/v;
     end
+    doPlot;
+    hold on;plotHumidity(phi,"k",2);
+    hold on;plotEnthalpy(h,"-.r",2);
+    hold on;plotVolume(v,"-.g",2);
+    hold on;plotWetBulbTemp(Twet,"b",2);
+    hold on;plot([Tdry Twet Tdew   ],[W Wsatwet W   ],"or","markersize",8,"markerfacecolor","r");
+    hold on;plot([Tdew Tdew 340],[0 W W],"--r");
+    hold on;plot([Twet Twet 340],[0 Wsatwet Wsatwet],"--r");
 end
 
 #{

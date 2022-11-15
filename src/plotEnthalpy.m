@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotEnthalpy(h)
+function plotEnthalpy(h,c,w)
     foo=@(T1) (h-enthalpy(T1,humidity(satPress(T1),:)));
     T1=bissection(foo,-99+273.15,199+273.15,1e-5);
     foo=@(T2) (h-enthalpy(T2,0));
@@ -28,7 +28,7 @@ function plotEnthalpy(h)
         foo=@(W) (h-enthalpy(T(n),W));
         W(n)=bissection(foo,0,1,1e-5);
     end
-    plot(T,W,"b");
+    plot(T,W,c,"linewidth",w);
 end
 
 #{

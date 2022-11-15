@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotHumidity(phi)
+function plotHumidity(phi,c,w)
     T1=1+273.15;
     T2=60+273.15;
     N=100;
@@ -27,7 +27,7 @@ function plotHumidity(phi)
         pw=psat*phi;
         W(n)=humidity(pw,:);
     end
-    plot(T,W,"k");
+    plot(T,W,c,"linewidth",w);
 end
 
 #{
