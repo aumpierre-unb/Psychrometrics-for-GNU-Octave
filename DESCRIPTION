@@ -4,7 +4,7 @@ Date: 2022-12-15
 Author: Alexandre Umpierre (aumpierre@gmail.com)
 Maintainer: Alexandre Umpierre
 Title: Psychrometrics
-Description: A toolbox for psychrometrics for GNU Octave.
+Description: A toolbox for air-water vapor psychrometrics for GNU Octave.
 Categories: package
 Depends: octave (>=4.0.0)
 License: GPLv3+
