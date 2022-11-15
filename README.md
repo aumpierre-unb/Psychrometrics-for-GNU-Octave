@@ -1,29 +1,29 @@
 # `psychrometrics` Toolbox for GNU-Octave (*under construction*)
 
-<!-- [![DOI](https://zenodo.org/badge/509427410.svg)](https://zenodo.org/badge/latestdoi/509427410)
+[![DOI](https://zenodo.org/badge/565944452.svg)](https://zenodo.org/badge/latestdoi/565944452)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Psychrometrics-for-GNU-Octave) -->
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Psychrometrics-for-GNU-Octave)
 
 ![Illustrative graphical output](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/blob/main/pics/untitled.png "Example of graphical output")
 
 ## Installing and Loading `psychrometrics`
 
-<!-- ```dotnetcli
+```dotnetcli
 # use this call to install version 0.1.0, or modify the command line for match the version
 pkg install https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/archive/refs/tags/v0.1.0.tar.gz
 pkg update psychrometrics
 pkg load psychrometrics
-``` -->
+```
 
-<!-- ## Citation of `psychrometrics`
+## Citation of `psychrometrics`
 
 You can cite all versions (both released and pre-released), by using
-[DOI 105281/zenodo.6960263](https://doi.org/10.5281/zenodo.xxxxx).
+[DOI 105281/zenodo.7325079](https://doi.org/10.5281/zenodo.7325079).
 
 This DOI represents all versions, and will always resolve to the latest one.
 
 To cite the last released version, please check
-https://zenodo.org/account/settings/github/repository/aumpierre-unb/Psychrometrics-for-GNU-Octave. -->
+https://zenodo.org/account/settings/github/repository/aumpierre-unb/Psychrometrics-for-GNU-Octave.
 
 ---
 
