@@ -58,10 +58,10 @@ The thermodynamic state where the smallest amount of energy removed from the gas
 *Humidity* is the mass ratio of water vapor and dry air. Since both water vapor and dry air are taken as ideal gases, the masses can be replaced by their the partial pressures,
 
 $$
-W = 0.621945 {p_v \over {p - p_v}}
+W = 0.621945 {p_{vap} \over {p - p_{vap}}}
 $$
 
-where $p$ is the total pressure and $p_v$ is the partial pressure of water vapor. Here, the total pressure is the atmospheric pressure at sea level, 101325 Pa. Analogously, the humidity of saturated air is the saturation humidity,
+where $p$ is the total pressure and $p_{vap}$ is the partial pressure of water vapor. Here, the total pressure is the atmospheric pressure at sea level, 101325 Pa. Analogously, the humidity of saturated air is the saturation humidity,
 
 $$
 W_{sat} = 0.621945 {p_{sat} \over {p-p_{sat}}}
@@ -70,7 +70,7 @@ $$
 *Relative humidity* is the material ratio of water vapor to the water vapor at saturation,
 
 $$
-\phi = {p_v \over p_{sat}}
+\phi = {p_{vap} \over p_{sat}}
 $$
 
 Note that relative humidity is not the ratio of humidity to saturation humidity. This is so because humidities are not fractions.
@@ -80,30 +80,36 @@ Note that relative humidity is not the ratio of humidity to saturation humidity.
 Consider the adiabatic humidification of humid air with water. The amount of water is the difference of humidity between the outlet and the inlet gaseous phases. The amount of dry gas is unchanged. That is all about material balances. Taking water at the outlet temperature as reference for enthalpy, the enthalpies per mass of dry air, or *specific enthalpy*, of the three streams are:
 
 $$
-h_1 = c_g (T_1 - T_3) + H_1 (c_v (T_1 - T_3) + \lambda_3)
+h_1 = c_{dry}\ (T_1 - T_3) + H_1\ (c_{vap}\ (T_1 - T_3) + \lambda_3)
 $$
 
 $$
-h_2 = c_v (H_3 - H_1) (T_2 - T_3)
+h_2 = c_{vap}\ (H_3 - H_1)\ (T_2 - T_3)
 $$
 
 $$
-h_3 = \lambda_3 H_3
+h_3 = \lambda_3\ H_3
 $$
 
-where $c_g$ and $c_v$ are the heat capacities of the dry gas and of water and $\lambda_3$ is the vaporization heat at the outlet temperature. All together, the energy balance gives
+where $c_{dry}$ and $c_{vap}$ are the heat capacities of the dry gas and of water and $\lambda_3$ is the vaporization heat at the outlet temperature. All together, the energy balance gives
 
 $$
-{{H_1 - H_3} \over {T_1 - T_3}} = {c_1 \over {-\lambda_3 + c_v (T_2 - T_3)}}
+{{H_1 - H_3} \over {T_1 - T_3}} = {c_1 \over {-\lambda_3 + c_{vap}\ (T_2 - T_3)}}
 $$
 
 where $c_1$ is the heat capacity of the inlet humid air,
 
 $$
-c_1 = c_g + c_v (H_3 - H_1)
+c_1 = c_{dry} + c_{vap}\ (H_3 - H_1)
 $$
 
 As the vaporization heat is usually much higher than the sensible heat, the variation of humidity in the gaseous phase is fairly proportional to its variation in temperature, producing a fairly straight line in a plot of humidity and temperature.
+
+The volume of the gaseous mixture per unit of mass of dry air, or *specific volume*, is given by
+
+$$
+v = {\displaystyle{nRT \over p} \over {m_{dry}}} = {RT \over {M_{dry} (p - p_{vap})}}
+$$
 
 ### Dry Bulb Temperature & Wet Bulb Temperature
 
@@ -114,29 +120,29 @@ The temperature in the surroundings of the evaporating molecules is the *wet bul
 The spontaneous heat and mass transfer phenomena are given by
 
 $$
-q = h (T - T_{wet})
+q = h\ (T - T_{wet})
 $$
 
 $$
-N = k (p_{wet} - p_v)
+N = k\ (p_{wet} - p_{vap})
 $$
 
-where $h$ and $k_G$ are the heat and mass transfer coefficients, $p_{wet}$ is the saturation pressure at the wet bulb temperature and $p_v$ is water vapor pressure of the gaseous phase. In most cases, both pressures are much smaller than the total pressure, so the mass flux can be approximate to
+where $h$ and $k_{dry}$ are the heat and mass transfer coefficients, $p_{wet}$ is the saturation pressure at the wet bulb temperature and $p_{vap}$ is water vapor pressure of the gaseous phase. In most cases, both pressures are much smaller than the total pressure, so the mass flux can be approximate to
 
 $$
-N = k^* (H_{wet} - H)
+N = k^*\ (H_{wet} - H)
 $$
 
 where $k^*$ is a mass transfer coefficient. The energy removed from water adjacent to the wet bulb is used to evaporate part of that water
 
 $$
-q = N \lambda_{wet}
+q = N\ \lambda_{wet}
 $$
 
 where $\lambda_{wet}$ is the heat of vaporization at the wet bulb temperature. Combining mass and energy transfer phenomena, one has
 
 $$
-{{H - H_{wet}} \over {T - T_{wet}}} = -{h \over {\lambda_{wet} k^*}}
+{{H - H_{wet}} \over {T - T_{wet}}} = -{h \over {\lambda_{wet}\ k^*}}
 $$
 
 Therefore, the variation of humidity in the gaseous phase is fairly proportional to its variation in temperature, producing a fairly straight line in a plot of humidity and temperature.
@@ -148,30 +154,38 @@ Equations used in `psychrometrics` toolbox come from the first chapter of the *2
 For ice in the range -100 °C to 0 °C, the water vapor pressure in equilibrium with pure ice is given by
 
 $$
-\ln p_{sat}^* = {C_1 \over T} + C_2 + C_3T + C_4T^2 + C_5T^3 + C_6T^4 + C_7 \ln T
+\ln p_{sat}^* = {C_1 \over T} + C_2 + C_3\ T + C_4\ T^2 + C_5\ T^3 + C_6\ T^4 + C_7 \ln T
 $$
 
 and for water in the range 0 °C to 200 °C, the water vapor pressure in equilibrium with pure water is given by
 
 $$
-\ln p_{sat}^* = {C_8 \over T} + C_9 + C_{10}T + C_{11}T^2 + C_{12}T^3 + C_{13} \ln T
+\ln p_{sat}^* = {C_8 \over T} + C_9 + C_{10}\ T + C_{11}\ T^2 + C_{12}\ T^3 + C_{13} \ln T
 $$
 
-where $p^*_{sat}$ is given in Pa and $T$, in K.
+where $p^*_{sat}$ is given in Pa and dry bulb temperature $T$, in K.
 
 As the saturation of air in ice and water is negligible, the water vapor pressure over pure ice or water is almost the same as the saturation pressure over ice or water when there is air in the gaseous phase.
 
 The specific volume and the specific enthalpy (volume and enthalpy of the gaseous phase per unit of mass of dry air) are given by
 
 $$
-v = {{0.287042 (t + 273.15) (1 + 1.607858 W)} \over p}
+v = {{0.287042\ (t + 273.15)\ (1 + 1.607858 W)} \over p}
 $$
 
 $$
-h = 1.006 t + W (2501 + 1.86 t)
+h = 1.006\ t + W\ (2501 + 1.86 t)
 $$
 
-with $v$ given in m<sup>3</sup>/kg of dry air, $h$ in kJ/kg, $t$ in °C, and $p$ in kPa.
+with $v$ given in m<sup>3</sup>/kg of dry air, $h$ in kJ/kg, dry bulb temperature $t$ in °C, and total pressure $p$ in kPa.
+
+Dew point is given by
+
+$$
+t_{dew} = C_{14} + C_{15}\ \alpha + C_{16}\ \alpha^2 + C_{17}\ \alpha^3 + C_{18}\ p_{vap}\ ^{0.1984}
+$$
+
+where $\alpha = ln\ p_{vap}$, with water vapor pressure $p_{vap}$ given in kPa and dew point temperature $t_d$ in K.
 
 ## The `psychrometrics` Toolbox
 
