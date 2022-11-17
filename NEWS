@@ -3,7 +3,7 @@ TODO
 * Reduce time of computation
 * Increase precision
 
-internal-fluid-flow 0.1.1 (2022-11-16)
+internal-fluid-flow 0.1.1 (2022-11-17)
 ======================================
 * Minor changes on documentation
 * Graphical answer made optional
