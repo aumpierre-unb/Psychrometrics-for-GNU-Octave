@@ -17,26 +17,6 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-# References:
-# 2017 ASHRAE Handbook Fundamentals Systems-International Metric System
-# CHAPTER 1 PSYCHROMETRICS
-# 4. THERMODYNAMIC PROPERTIES OF WATER AT SATURATION
-# Publisher: American Society of Heating, Refrigerating and Air-Conditioning Engineers, 2017
-# ISBN-10: ‎193920058X
-# ISBN-13: ‎978-1939200587
-# BiBTeX:
-# @book{ashrae2017ashrae,
-#   title={ASHRAE Handbook Fundamentals 2017: Inch-Pound Edition},
-#   author={Ashrae},
-#   isbn={9781939200587},
-#   series={ASHRAE Handbook Fundamentals Systems-International Metric System},
-#   url={https://books.google.com.br/books?id=6VhRswEACAAJ},
-#   year={2017},
-#   publisher={American Society of Heating, Refrigerating and Air-Conditioning Engineers}
-# }
-# Acknowledgements: Professor Brent Stephens, Ph.D. (Illinois Institute of Technology)
-#   for kindly suggesting the source reference for equations.
-
 function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
         psychro(Tdry=-1,Twet=-1,Tdew=-1,W=-1,h=-1,v=-1,phi=-1,fig=false)
     # Syntax:

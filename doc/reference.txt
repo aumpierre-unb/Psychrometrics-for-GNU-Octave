@@ -1,0 +1,18 @@
+# References:
+# 2017 ASHRAE Handbook Fundamentals Systems-International Metric System
+# CHAPTER 1 PSYCHROMETRICS
+# Publisher: American Society of Heating, Refrigerating and Air-Conditioning Engineers, 2017
+# ISBN-10: ?193920058X
+# ISBN-13: ?978-1939200587
+# BiBTeX:
+# @book{ashrae2017ashrae,
+#   title={ASHRAE Handbook Fundamentals 2017: Inch-Pound Edition},
+#   author={Ashrae},
+#   isbn={9781939200587},
+#   series={ASHRAE Handbook Fundamentals Systems-International Metric System},
+#   url={https://books.google.com.br/books?id=6VhRswEACAAJ},
+#   year={2017},
+#   publisher={American Society of Heating, Refrigerating and Air-Conditioning Engineers}
+# }
+# Acknowledgements: Professor Brent Stephens, Ph.D. (Illinois Institute of Technology)
+#   for kindly suggesting the source reference for equations.
