@@ -77,30 +77,30 @@ Note that relative humidity is not the ratio of humidity to saturation humidity.
 
 ### Specific Enthalpy & Specific Volume
 
-Consider the adiabatic humidification of humid air with water. The amount of water is the difference of humidity between the outlet and the inlet gaseous phases. The amount of dry gas is unchanged. That is all about material balances. Taking water at the outlet temperature as reference for enthalpy, the enthalpies per mass of dry air, or *specific enthalpy*, of the three streams are:
+Consider the adiabatic saturation of humid air with water. The amount of water is the difference of humidity between the outlet and the inlet gaseous phases. The amount of dry gas is unchanged. That is all about material balances. Taking water at the outlet temperature as reference for enthalpy, the enthalpies per mass of dry air, or *specific enthalpy*, of the three streams are:
 
 $$
-h_1 = c_{dry}\ (T_1 - T_3) + H_1\ (c_{vap}\ (T_1 - T_3) + \lambda_3)
-$$
-
-$$
-h_2 = c_{vap}\ (H_3 - H_1)\ (T_2 - T_3)
+h = c_{dry}\ (T - T_{sat}) + H\ (c_{vap}\ (T - T_{sat}) + \lambda_{sat})
 $$
 
 $$
-h_3 = \lambda_3\ H_3
+h_{liq} = c_{liq}\ (H_{sat} - H)\ (T_{liq} - T_{sat})
 $$
 
-where $c_{dry}$ and $c_{vap}$ are the heat capacities of the dry gas and of water and $\lambda_3$ is the vaporization heat at the outlet temperature. All together, the energy balance gives
+$$
+h_{sat} = \lambda_{sat}\ H_{sat}
+$$
+
+where $c_{dry}$ and $c_{vap}$ are the heat capacities of the dry gas and of water and $\lambda_{sat}$ is the vaporization heat at the outlet temperature. All together, the energy balance gives
 
 $$
-{{H_1 - H_3} \over {T_1 - T_3}} = {c_1 \over {-\lambda_3 + c_{vap}\ (T_2 - T_3)}}
+{{H - H_{sat}} \over {T - T_{sat}}} = {c \over {-\lambda_{sat} + c_{vap}\ (T_{liq} - T_{sat})}}
 $$
 
 where $c_1$ is the heat capacity of the inlet humid air,
 
 $$
-c_1 = c_{dry} + c_{vap}\ (H_3 - H_1)
+c = c_{dry} + c_{vap}\ (H_{sat} - H)
 $$
 
 As the vaporization heat is usually much higher than the sensible heat, the variation of humidity in the gaseous phase is fairly proportional to its variation in temperature, producing a fairly straight line in a plot of humidity and temperature.
@@ -170,11 +170,11 @@ As the saturation of air in ice and water is negligible, the water vapor pressur
 The specific volume and the specific enthalpy (volume and enthalpy of the gaseous phase per unit of mass of dry air) are given by
 
 $$
-v = {{0.287042\ (t + 273.15)\ (1 + 1.607858 W)} \over p}
+v = {{0.287042\ (t + 273.15)\ (1 + 1.607858\ W)} \over p}
 $$
 
 $$
-h = 1.006\ t + W\ (2501 + 1.86 t)
+h = 1.006\ t + W\ (2501 + 1.86\ t)
 $$
 
 with $v$ given in m<sup>3</sup>/kg of dry air, $h$ in kJ/kg, dry bulb temperature $t$ in °C, and total pressure $p$ in kPa.
