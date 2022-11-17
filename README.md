@@ -61,6 +61,12 @@ $$
 W = 0.621945 {p_{vap} \over {p - p_{vap}}}
 $$
 
+or
+
+$$
+{1 \over {p - p_{vap}}} = {\displaystyle{1+{W \over 0.621945}} \over p}
+$$
+
 where $p$ is the total pressure and $p_{vap}$ is the partial pressure of water vapor. Here, the total pressure is the atmospheric pressure at sea level, 101325 Pa. Analogously, the humidity of saturated air is the saturation humidity,
 
 $$
@@ -77,39 +83,41 @@ Note that relative humidity is not the ratio of humidity to saturation humidity.
 
 ### Specific Enthalpy & Specific Volume
 
-Consider the adiabatic saturation of humid air with water. The amount of water required is the difference of humidity between the saturation and the inlet gaseous phases. The amount of dry gas is unchanged. That is all about material balances. Taking water at the saturation temperature as reference for enthalpy, the enthalpies per mass of dry air, or *specific enthalpy*, of the three streams are:
+Consider the adiabatic saturation of humid air with water. The amount of water required is the difference of humidity between the saturation and the humid air. The amount of dry gas is unchanged in the process. That is all about material balances. Taking water at the saturation temperature as reference for enthalpy, the enthalpies per mass of dry air, or *specific enthalpy*, of the inlet humid air, the inlet water and the outlet saturated air are given by
 
 $$
-h = c_{dry}\ (T - T_{sat}) + H\ (c_{vap}\ (T - T_{sat}) + \lambda_{sat})
-$$
-
-$$
-h_{liq} = c_{liq}\ (H_{sat} - H)\ (T_{liq} - T_{sat})
+h = c_{dry}\ (T - T_{sat}) + W\ (c_{vap}\ (T - T_{sat}) + \lambda_{sat})
 $$
 
 $$
-h_{sat} = \lambda_{sat}\ H_{sat}
+h_{liq} = c_{liq}\ (W_{sat} - w)\ (T_{liq} - T_{sat})
 $$
 
-where $c_{dry}$ and $c_{vap}$ are the heat capacities of the dry gas and of water and $\lambda_{sat}$ is the vaporization heat at the saturation temperature. All together, the energy balance gives
+$$
+h_{sat} = \lambda_{sat}\ W_{sat}
+$$
+
+where $c_{dry}$ and $c_{vap}$ are the heat capacities of the dry gas and of water vapor and $\lambda_{sat}$ is the vaporization latent heat at the saturation temperature. All together, the energy balance gives
 
 $$
-{{H - H_{sat}} \over {T - T_{sat}}} = {c \over {-\lambda_{sat} + c_{vap}\ (T_{liq} - T_{sat})}}
+{{W - W_{sat}} \over {T - T_{sat}}} = {c \over {-\lambda_{sat} + c_{vap}\ (T_{liq} - T_{sat})}}
 $$
 
 where $c$ is the heat capacity of the inlet humid air,
 
 $$
-c = c_{dry} + c_{vap}\ (H_{sat} - H)
+c = c_{dry} + c_{vap}\ (W_{sat} - W)
 $$
 
-As the vaporization heat is usually much higher than the sensible heat, the variation of humidity in the gaseous phase is fairly proportional to its variation in temperature, producing a fairly straight line in a plot of humidity and temperature.
+As the vaporization latent heat is usually much higher than the sensible heat, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature, producing fairly straight lines in the psychromeric chart.
 
-The volume of the gaseous mixture per unit of mass of dry air, or *specific volume*, is given by
+The volume of the gaseous mixture per mass of dry air, or *specific volume*, is given by
 
 $$
-v = {\displaystyle{nRT \over p} \over {m_{dry}}} = {RT \over {M_{dry} (p - p_{vap})}}
+v = {\displaystyle{nRT_{dry} \over p} \over {m_{dry}}} = R_{air}T_{dry} {\displaystyle{1+{W \over 0.621945}} \over p}
 $$
+
+At room temperature at atmospheric pressure, humidity is closely proportional to dry bulb temperature for constant specific volume, producing fairly straight lines in the psychromeric chart.
 
 ### Dry Bulb Temperature & Wet Bulb Temperature
 
@@ -130,7 +138,7 @@ $$
 where $h$ and $k_{dry}$ are the heat and mass transfer coefficients, $p_{wet}$ is the saturation pressure at the wet bulb temperature and $p_{vap}$ is water vapor pressure of the gaseous phase. In most cases, both pressures are much smaller than the total pressure, so the mass flux can be approximate to
 
 $$
-N = k^*\ (H_{wet} - H)
+N = k^*\ (W_{wet} - W)
 $$
 
 where $k^*$ is a mass transfer coefficient. The energy removed from water adjacent to the wet bulb is used to evaporate part of that water
@@ -142,10 +150,10 @@ $$
 where $\lambda_{wet}$ is the heat of vaporization at the wet bulb temperature. Combining mass and energy transfer phenomena, one has
 
 $$
-{{H - H_{wet}} \over {T - T_{wet}}} = -{h \over {\lambda_{wet}\ k^*}}
+{{W - W_{wet}} \over {T - T_{wet}}} = -{h \over {\lambda_{wet}\ k^*}}
 $$
 
-Therefore, the variation of humidity in the gaseous phase is fairly proportional to its variation in temperature, producing a fairly straight line in a plot of humidity and temperature.
+Therefore, the variation of humidity in the gaseous phase is fairly proportional to its variation in temperature, producing a fairly straight line in the psychromeric chart.
 
 ### Empirical Equations
 
