@@ -259,9 +259,7 @@ psychro(:,:,12+273.15,:,:,:,.29)
 
 ### Reference
 
-2017 ASHRAE Handbook Fundamentals Systems - International Metric System
-Chapter 1 - Psychrometrics
-Publisher: American Society of Heating, Refrigerating and Air-Conditioning Engineers, 2017
+The theory and the adjusted equations used in this package were taken from chapter 1 of the *2017 ASHRAE Handbook Fundamentals Systems - International Metric System*, published by the American Society of Heating, Refrigerating and Air-Conditioning Engineers. A BiBTeX format reference is available [here](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/raw/main/doc/reference.txt).
 
 ### Acknowledgements
 
