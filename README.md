@@ -109,7 +109,7 @@ $$
 c = c_{dry} + c_{vap}\ (W_{sat} - W)
 $$
 
-As the vaporization latent heat is usually much higher than the sensible heat, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature, producing fairly straight lines in the psychromeric chart.
+As the vaporization latent heat is usually much higher than the sensible heat, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature for constant specific enthalpy, producing fairly straight lines in the psychromeric chart.
 
 The volume of the gaseous mixture per mass of dry air, or *specific volume*, is given by
 
@@ -153,7 +153,7 @@ $$
 {{W - W_{wet}} \over {T - T_{wet}}} = -{h \over {\lambda_{wet}\ k^*}}
 $$
 
-Therefore, the variation of humidity in the gaseous phase is fairly proportional to its variation in temperature, producing a fairly straight line in the psychromeric chart.
+Therefore, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature, producing a fairly straight line in the psychromeric chart.
 
 ### Empirical Equations
 
