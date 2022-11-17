@@ -153,7 +153,7 @@ $$
 {{W - W_{wet}} \over {T - T_{wet}}} = -{h \over {\lambda_{wet}\ k^*}}
 $$
 
-Therefore, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature, producing a fairly straight line in the psychromeric chart.
+Therefore, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature, producing a fairly straight line in the psychromeric chart for constant wet bulb temperature.
 
 ### Empirical Equations
 
