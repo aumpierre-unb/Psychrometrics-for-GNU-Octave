@@ -17,28 +17,87 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-% References:
-% 2017 ASHRAE Handbook Fundamentals Systems-International Metric System
-% CHAPTER 1 PSYCHROMETRICS
-% 4. THERMODYNAMIC PROPERTIES OF WATER AT SATURATION
-% Publisher: American Society of Heating, Refrigerating and Air-Conditioning Engineers, 2017
-% ISBN-10: ‎193920058X
-% ISBN-13: ‎978-1939200587
-% BiBTeX:
-% @book{ashrae2017ashrae,
-%   title={ASHRAE Handbook Fundamentals 2017: Inch-Pound Edition},
-%   author={Ashrae},
-%   isbn={9781939200587},
-%   series={ASHRAE Handbook Fundamentals Systems-International Metric System},
-%   url={https://books.google.com.br/books?id=6VhRswEACAAJ},
-%   year={2017},
-%   publisher={American Society of Heating, Refrigerating and Air-Conditioning Engineers}
-% }
-% Acknowledgements: Professor Brent Stephens, Ph.D. (Illinois Institute of Technology)
-%   for kindly suggesting the source reference for equations.
+# References:
+# 2017 ASHRAE Handbook Fundamentals Systems-International Metric System
+# CHAPTER 1 PSYCHROMETRICS
+# 4. THERMODYNAMIC PROPERTIES OF WATER AT SATURATION
+# Publisher: American Society of Heating, Refrigerating and Air-Conditioning Engineers, 2017
+# ISBN-10: ‎193920058X
+# ISBN-13: ‎978-1939200587
+# BiBTeX:
+# @book{ashrae2017ashrae,
+#   title={ASHRAE Handbook Fundamentals 2017: Inch-Pound Edition},
+#   author={Ashrae},
+#   isbn={9781939200587},
+#   series={ASHRAE Handbook Fundamentals Systems-International Metric System},
+#   url={https://books.google.com.br/books?id=6VhRswEACAAJ},
+#   year={2017},
+#   publisher={American Society of Heating, Refrigerating and Air-Conditioning Engineers}
+# }
+# Acknowledgements: Professor Brent Stephens, Ph.D. (Illinois Institute of Technology)
+#   for kindly suggesting the source reference for equations.
 
 function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
-        psychro(Tdry=-1,Twet=-1,Tdew=-1,W=-1,h=-1,v=-1,phi=-1)
+        psychro(Tdry=-1,Twet=-1,Tdew=-1,W=-1,h=-1,v=-1,phi=-1,fig=false)
+    # Syntax:
+    # e.g.
+    # given Tdry and W
+    # unknowns must be indicated by default value syntax
+    # [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+    # psychro(Tdry:,:,W,:,:,:)
+    #
+    # psychro computes
+    #  the dry bulb temperature Tdry,
+    #  the wet bulb temperature Twet,
+    #  the dew point temperature Tdew,
+    #  the humidit W,
+    #  the saturation humidity Wsat,
+    #  the saturation humidity at the wet bulb temperature Wsatwet,
+    #  the specific enthalpy h,
+    #  the specific volume v,
+    #  the the relative humidity phi,
+    #  the water vapor pressure pw,
+    #  the water saturation pressure psat,
+    #  the saturation pressure at the wet bulb temperature psatwet and
+    #  the density rho given
+    #  any two input arguments.
+    # Unknowns must be indicated by default value syntax.
+    # If fig = true is given, a schematic psychrometric chart
+    #  is plotted as a graphical representation
+    #  of the solution.
+    # psychro is a main function of
+    #  the psychrometrics toolbox for GNU Octave.
+    #
+    # Examples:
+    # # Compute the dry bulb temperature,
+    # # the wet bulb temperature,
+    # # the dew point temperature,
+    # # the humidity,
+    # # the saturation humidity,
+    # # the saturation humidity at wet bulb temperature,
+    # # the specific enthalpy,
+    # # the specific volume,
+    # # the relative humidity,
+    # # the water vapor pressure,
+    # # the saturation pressure,
+    # # the saturation pressure at wet bulb temperature and
+    # # the density given
+    # # the dew temperature $T_{dew}$ = 12 °C and
+    # # the relative humidity $\phi$ = 29 %.
+    #
+    # # This call computes the answer and
+    # # omits the psychrometric chart:
+    # Tdew=12+273.15;
+    # phi=.29;
+    # [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+    # psychro(:,:,Tdew,:,:,:,phi)
+    #
+    # # This call computes the answer and
+    # # plots a schematic psychrometric chart:
+    # [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+    # psychro(:,:,12+273.15,:,:,:,.29)
+    #
+    # See also: .
     a=[Tdry,Twet,Tdew,W,h,v,phi]==-1;
     if sum(a)~=5
         error(["Function psychro demands two and only two inputs.\nUnknowns must be assigned with ':'."]);
@@ -552,14 +611,18 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
         Wsatwet=humidity(psatwet,:); # using default p = 101325
         rho=(1+Wsatwet)/v;
     end
-    doPlot;
-    hold on;plotHumidity(phi,"k",2);
-    hold on;plotEnthalpy(h,"-.r",2);
-    hold on;plotVolume(v,"-.g",2);
-    hold on;plotWetBulbTemp(Twet,"b",2);
-    hold on;plot([Tdry Twet Tdew   ],[W Wsatwet W   ],"or","markersize",8,"markerfacecolor","r");
-    hold on;plot([Tdew Tdew 340],[0 W W],"--r");
-    hold on;plot([Twet Twet 340],[0 Wsatwet Wsatwet],"--r");
+    if fig
+        doPlot;
+        hold on;plotHumidity(phi,"k",2);
+        hold on;plotEnthalpy(h,"-.r",2);
+        hold on;plotVolume(v,"-.g",2);
+        hold on;plotWetBulbTemp(Twet,"b",2);
+        hold on;plot([Tdry Twet Tdew   ],[W Wsatwet W   ],"or",...
+                     "markersize",8,...
+                     "markerfacecolor","r");
+        hold on;plot([Tdew Tdew 340],[0 W W],"--r");
+        hold on;plot([Twet Twet 340],[0 Wsatwet Wsatwet],"--r");
+    end
 end
 
 #{
@@ -682,7 +745,4 @@ v=.88;
 phi=.27;
 [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,:,:,:,v,phi)
-
 #}
-
-

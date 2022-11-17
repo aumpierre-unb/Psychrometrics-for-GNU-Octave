@@ -211,20 +211,29 @@ where $\alpha = ln\ p_{vap}$, with water vapor pressure $p_{vap}$ given in kPa a
 # e.g.
 # given Tdry and W
 # unknowns must be indicated by default value syntax
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=psychro(Tdry:,:,W,:,:,:)
+[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+psychro(Tdry:,:,W,:,:,:[,fig])
 ```
 
 **Examples:**
 
 Compute the dry bulb temperature, the wet bulb temperature, the dew point temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given
 the dew temperature $T_{dew}$ = 12 °C and
-the relative humidity $\phi$ = 29 %:
+the relative humidity $\phi$ = 29 %.
+This call computes the answer and omits the psychrometric chart:
 
 ```dotnetcli
 Tdew=12+273.15;
 phi=.29;
 [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,Tdew,:,:,:,phi)
+```
+
+This call computes the answer and plots a schematic psychrometric chart:
+
+```dotnetcli
+[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+psychro(:,:,12+273.15,:,:,:,.29)
 ```
 
 ### Acknowledgements
