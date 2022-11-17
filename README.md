@@ -135,7 +135,7 @@ $$
 N = k\ (p_{wet} - p_{vap})
 $$
 
-where $h$ and $k_{dry}$ are the heat and mass transfer coefficients, $p_{wet}$ is the saturation pressure at the wet bulb temperature and $p_{vap}$ is water vapor pressure of the gaseous phase. In most cases, both pressures are much smaller than the total pressure, so the mass flux can be approximate to
+where $h$ and $k$ are the heat and mass transfer coefficients, $p_{wet}$ is the saturation pressure at the wet bulb temperature and $p_{vap}$ is water vapor pressure of the gaseous phase. In most cases, both pressures are much smaller than the total pressure, so the mass flux can be approximate to
 
 $$
 N = k^*\ (W_{wet} - W)
