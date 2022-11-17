@@ -185,7 +185,7 @@ $$
 h = 1.006\ t + W\ (2501 + 1.86\ t)
 $$
 
-with $v$ given in m<sup>3</sup>/kg of dry air, $h$ in kJ/kg, dry bulb temperature $t$ in °C, and total pressure $p$ in kPa.
+with $v$ given in m<sup>3</sup>/kg of dry air, $h$ in kJ/kg, dry bulb temperature $t$ in °C, $W$ in kg/kg<sub>dry</sub>, and total pressure $p$ in kPa.
 
 Dew point is given by
 
