@@ -1,6 +1,6 @@
 # `psychrometrics` Toolbox for GNU-Octave (*under construction*)
 
-[![DOI](https://zenodo.org/badge/565944451.svg)](https://zenodo.org/badge/latestdoi/565944451)
+[![DOI](https://zenodo.org/badge/565944452.svg)](https://zenodo.org/badge/latestdoi/565944452)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Psychrometrics-for-GNU-Octave)
 
