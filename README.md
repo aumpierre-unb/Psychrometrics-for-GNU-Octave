@@ -77,7 +77,7 @@ Note that relative humidity is not the ratio of humidity to saturation humidity.
 
 ### Specific Enthalpy & Specific Volume
 
-Consider the adiabatic saturation of humid air with water. The amount of water is the difference of humidity between the outlet and the inlet gaseous phases. The amount of dry gas is unchanged. That is all about material balances. Taking water at the outlet temperature as reference for enthalpy, the enthalpies per mass of dry air, or *specific enthalpy*, of the three streams are:
+Consider the adiabatic saturation of humid air with water. The amount of water required is the difference of humidity between the saturation and the inlet gaseous phases. The amount of dry gas is unchanged. That is all about material balances. Taking water at the saturation temperature as reference for enthalpy, the enthalpies per mass of dry air, or *specific enthalpy*, of the three streams are:
 
 $$
 h = c_{dry}\ (T - T_{sat}) + H\ (c_{vap}\ (T - T_{sat}) + \lambda_{sat})
@@ -91,13 +91,13 @@ $$
 h_{sat} = \lambda_{sat}\ H_{sat}
 $$
 
-where $c_{dry}$ and $c_{vap}$ are the heat capacities of the dry gas and of water and $\lambda_{sat}$ is the vaporization heat at the outlet temperature. All together, the energy balance gives
+where $c_{dry}$ and $c_{vap}$ are the heat capacities of the dry gas and of water and $\lambda_{sat}$ is the vaporization heat at the saturation temperature. All together, the energy balance gives
 
 $$
 {{H - H_{sat}} \over {T - T_{sat}}} = {c \over {-\lambda_{sat} + c_{vap}\ (T_{liq} - T_{sat})}}
 $$
 
-where $c_1$ is the heat capacity of the inlet humid air,
+where $c$ is the heat capacity of the inlet humid air,
 
 $$
 c = c_{dry} + c_{vap}\ (H_{sat} - H)
