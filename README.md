@@ -193,7 +193,28 @@ $$
 t_{dew} = C_{14} + C_{15}\ \alpha + C_{16}\ \alpha^2 + C_{17}\ \alpha^3 + C_{18}\ p_{vap}\ ^{0.1984}
 $$
 
-where $\alpha = ln\ p_{vap}$, with water vapor pressure $p_{vap}$ given in kPa and dew point temperature $t_{dew}$ in °C.
+where $\alpha = ln\ p_{vap}$, with water vapor pressure $p_{vap}$ given in kPa and dew point temperature $t_{dew}$ in °C. Constants for those equations ar given by
+
+$$
+C=[\ -5.6745359 \times 10^3\\
+    6.3925247\\
+   -9.6778430 \times 10^{-3}\\
+    6.2215701 \times 10^{-7}\\
+    2.0747825 \times 10^{-9}\\
+   -9.4840240 \times 10^{-13}\\
+    4.1635019\\
+   -5.8002206 \times 10^3\\
+    1.3914993\\
+   -4.8640239 \times 10^{-2}\\
+    4.1764768 \times 10^{-5}\\
+   -1.4452093 \times 10^{-8}\\
+    6.5459673\\
+    6.54\\
+   14.526\\
+    0.7389\\
+    0.09486\\
+    0.4569\ ]
+$$
 
 ## The `psychrometrics` Toolbox
 
@@ -203,7 +224,7 @@ where $\alpha = ln\ p_{vap}$, with water vapor pressure $p_{vap}$ given in kPa a
 
 ### `psychro`
 
-`psychro` computes the dry bulb temperature, the wet bulb temperature, the dew point temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given two of dry bulb temperature, wet bulb temperature, dew point temperature, humidity, specific enthalpy, specific volume or relative humidity. If a different number of inputs is given, execution will be aborted.
+`psychro` computes the dry bulb temperature, the wet bulb temperature, the dew point temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given any two input arguments, except the combination of water vapor pressure and dew point temperature, which are not independent. If a different number of inputs is given, execution will be aborted. The plot of a schematic psychrometric chart with the solution is optional.
 
 **Syntax:**
 
@@ -235,6 +256,12 @@ This call computes the answer and plots a schematic psychrometric chart:
 [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,12+273.15,:,:,:,.29)
 ```
+
+### Reference
+
+2017 ASHRAE Handbook Fundamentals Systems - International Metric System
+Chapter 1 - Psychrometrics
+Publisher: American Society of Heating, Refrigerating and Air-Conditioning Engineers, 2017
 
 ### Acknowledgements
 

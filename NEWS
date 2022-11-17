@@ -6,7 +6,7 @@ TODO
 internal-fluid-flow 0.1.2-alpha (2022-11-17)
 ======================================
 * Minor changes on documentation
-* Major changes in functions
+* Important bug concerning psychro fixed
 
 internal-fluid-flow 0.1.1 (2022-11-17)
 ======================================

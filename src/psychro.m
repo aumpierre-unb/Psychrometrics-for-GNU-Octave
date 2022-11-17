@@ -40,7 +40,9 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
     #  the water saturation pressure psat,
     #  the saturation pressure at the wet bulb temperature psatwet and
     #  the density rho given
-    #  any two input arguments.
+    #  any two input arguments,
+    #  except the combination of water vapor pressure and
+    #  dew point temperature, which are not independent.
     # Unknowns must be indicated by default value syntax.
     # If fig = true is given, a schematic psychrometric chart
     #  is plotted as a graphical representation
