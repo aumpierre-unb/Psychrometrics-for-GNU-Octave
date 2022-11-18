@@ -190,7 +190,7 @@ with $v$ given in m<sup>3</sup>/kg of dry air, $h$ in kJ/kg, dry bulb temperatur
 Dew point is given by
 
 $$
-t_{dew} = C_{14} + C_{15}\ \alpha + C_{16}\ \alpha^2 + C_{17}\ \alpha^3 + C_{18}\ p_{vap}\ ^{0.1984}
+t_{dew} = C_{14} + C_{15}\ \alpha + C_{16}\ \alpha^2 + C_{17}\ \alpha^3 + C_{18}\ p_{vap}^{0.1984}
 $$
 
 where $\alpha = ln\ p_{vap}$, with water vapor pressure $p_{vap}$ given in kPa and dew point temperature $t_{dew}$ in °C. Constants for those equations ar given by
