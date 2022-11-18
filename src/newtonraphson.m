@@ -17,21 +17,10 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotEnthalpy(h,c,w)
-    foo=@(T1) (h-enthalpy(T1,humidity(satPress(T1),:)));
-    T1=newtonraphson(foo,300,1);
-    #T1=bissection(foo,-100+273.15,100+273.15,1e-5);
-    foo=@(T2) (h-enthalpy(T2,0));
-    T2=newtonraphson(foo,T1,1);
-    #T2=bissection(foo,-100+273.15,100+273.15,1e-5);
-    if T2>60+273.15 T2=60+273.15; end
-    N=5;
-    for n=1:N
-        T(n)=T1+(T2-T1)/(N-1)*(n-1);
-        foo=@(W) (h-enthalpy(T(n),W));
-        W(n)=newtonraphson(foo,1e-3,1);
-        #W(n)=bissection(foo,0,1,1e-5);
+function x=newtonraphson(f,x,tol)
+    while abs(f(x))>tol
+        a=deriv(f,x);
+        x=x-f(x)/a;
     end
-    plot(T,W,c,"linewidth",w);
 end
 

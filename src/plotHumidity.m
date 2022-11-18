@@ -18,9 +18,9 @@
 # It is also available at https://www.gnu.org/licenses/.
 
 function plotHumidity(phi,c,w)
-    T1=1+273.15;
+    T1=273.15;
     T2=60+273.15;
-    N=100;
+    N=20;
     for n=1:N
         T(n)=T1+(T2-T1)/(N-1)*(n-1);
         psat=satPress(T(n));
@@ -30,6 +30,3 @@ function plotHumidity(phi,c,w)
     plot(T,W,c,"linewidth",w);
 end
 
-#{
-phi=.5;plotHumidity(phi)
-#}

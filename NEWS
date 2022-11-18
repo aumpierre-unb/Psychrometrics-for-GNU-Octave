@@ -3,10 +3,12 @@ TODO
 * Reduce time of computation
 * Increase precision
 
-internal-fluid-flow 0.1.2-alpha (2022-11-17)
+internal-fluid-flow 0.1.2 (2022-11-18)
 ======================================
 * Minor changes on documentation
-* Important bug concerning psychro fixed
+* Fixed important bug on the main function
+* Major changes to accelerate computation
+* Pkg optim included as dependency
 
 internal-fluid-flow 0.1.1 (2022-11-17)
 ======================================

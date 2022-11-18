@@ -477,114 +477,57 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
         Wsatwet=humidity(psatwet,:); # using default p = 101325
         rho=(1+Wsatwet)/v;
     elseif a==[1 1 1 1 0 1 0]
+        function [y,Tdry,psat]=foobar(pw,h,phi)
+            W=humidity(pw,:); # using default p = 101325
+            foo=@(Tdry) (h-enthalpy(Tdry,W));
+            Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
+            foo=@(psat) (psat-satPress(Tdry));
+            psat=newtonraphson(foo,pw,1);
+            y=pw/psat-phi;
+        end
         pw=0;
+        dp=1e3;
+        [y,Tdry,psat]=foobar(pw,h,phi);
+        while abs(y)>1e-3
+            if y<0
+                pw=pw+dp;
+            else
+                pw=pw-dp;
+                dp=dp/5;
+            end
+            [y,Tdry,psat]=foobar(pw,h,phi);
+        end
         W=humidity(pw,:); # using default p = 101325
-        foo=@(Tdry) (h-enthalpy(Tdry,W));
-        Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-        foo=@(psat) (psat-satPress(Tdry));
-        psat=bissection(foo,1e1,5e4,1e-5);
-        while pw/psat<phi
-            pw=pw+200;
-            W=humidity(pw,:); # using default p = 101325
-            foo=@(Tdry) (h-enthalpy(Tdry,W));
-            Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-            foo=@(psat) (psat-satPress(Tdry));
-            psat=bissection(foo,1e1,5e4,1e-5);
-        end
-        pw=pw-200;
-        while pw/psat<phi
-            pw=pw+50;
-            W=humidity(pw,:); # using default p = 101325
-            foo=@(Tdry) (h-enthalpy(Tdry,W));
-            Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-            foo=@(psat) (psat-satPress(Tdry));
-            psat=bissection(foo,1e1,5e4,1e-5);
-        end
-        pw=pw-50;
-        while pw/psat<phi
-            pw=pw+5;
-            W=humidity(pw,:); # using default p = 101325
-            foo=@(Tdry) (h-enthalpy(Tdry,W));
-            Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-            foo=@(psat) (psat-satPress(Tdry));
-            psat=bissection(foo,1e1,5e4,1e-5);
-        end
-        pw=pw-5;
-        while pw/psat<phi
-            pw=pw+.1;
-            W=humidity(pw,:); # using default p = 101325
-            foo=@(Tdry) (h-enthalpy(Tdry,W));
-            Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-            foo=@(psat) (psat-satPress(Tdry));
-            psat=bissection(foo,1e1,5e4,1e-5);
-        end
         Tdew=dewTemp(pw);
         Wsat=humidity(psat,:); # using default p = 101325
         foo=@(Twet) (W-humidity2(humidity(satPress(Twet),:),Tdry,Twet)); # using default p = 101325
         Twet=bissection(foo,Tdew,Tdry,1e-5);
         psatwet=satPress(Twet);
         Wsatwet=humidity(psatwet,:); # using default p = 101325
-        rho=(1+Wsatwet)/v;
         v=volume(Tdry,W,:); # using default p = 101325
         rho=(1+Wsatwet)/v;
     elseif a==[1 1 1 1 1 0 0]
+        function [y,Tdry,psat]=foobaz(pw,v,phi)
+            W=humidity(pw,:); # using default p = 101325
+            foo=@(Tdry) (v-volume(Tdry,W,:)); # using default p = 101325
+            Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
+            foo=@(psat) (psat-satPress(Tdry));
+            psat=newtonraphson(foo,pw,1);
+            y=pw/psat-phi;
+        end
         pw=0;
-        W=humidity(pw,:); # using default p = 101325
-        foo=@(Tdry) (v-volume(Tdry,W,:)); # using default p = 101325
-        Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-        foo=@(psat) (psat-satPress(Tdry));
-        psat=bissection(foo,1e1,5e4,1e-5);
-        while pw/psat<phi
-            pw=pw+200;
-            W=humidity(pw,:); # using default p = 101325
-            foo=@(Tdry) (v-volume(Tdry,W,:)); # using default p = 101325
-            Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-            foo=@(psat) (psat-satPress(Tdry));
-            psat=bissection(foo,1e1,5e4,1e-5);
+        dp=1e3;
+        [y,Tdry,psat]=foobaz(pw,v,phi);
+        while abs(y)>1e-3
+            if y<0
+                pw=pw+dp;
+            else
+                pw=pw-dp;
+                dp=dp/5;
+            end
+            [y,Tdry,psat]=foobaz(pw,v,phi);
         end
-        pw=pw-200;
         W=humidity(pw,:); # using default p = 101325
-        foo=@(Tdry) (v-volume(Tdry,W,:)); # using default p = 101325
-        Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-        foo=@(psat) (psat-satPress(Tdry));
-        psat=bissection(foo,1e1,5e4,1e-5);
-        while pw/psat<phi
-            pw=pw+50;
-            W=humidity(pw,:); # using default p = 101325
-            foo=@(Tdry) (v-volume(Tdry,W,:)); # using default p = 101325
-            Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-            foo=@(psat) (psat-satPress(Tdry));
-            psat=bissection(foo,1e1,5e4,1e-5);
-        end
-        pw=pw-50;
-        W=humidity(pw,:); # using default p = 101325
-        foo=@(Tdry) (v-volume(Tdry,W,:)); # using default p = 101325
-        Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-        foo=@(psat) (psat-satPress(Tdry));
-        psat=bissection(foo,1e1,5e4,1e-5);
-        while pw/psat<phi
-            pw=pw+5;
-            W=humidity(pw,:); # using default p = 101325
-            foo=@(Tdry) (v-volume(Tdry,W,:)); # using default p = 101325
-            Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-            foo=@(psat) (psat-satPress(Tdry));
-            psat=bissection(foo,1e1,5e4,1e-5);
-        end
-        pw=pw-5;
-        W=humidity(pw,:); # using default p = 101325
-        foo=@(Tdry) (v-volume(Tdry,W,:)); # using default p = 101325
-        Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-        foo=@(psat) (psat-satPress(Tdry));
-        psat=bissection(foo,1e1,5e4,1e-5);
-        while pw/psat<phi
-            pw=pw+.1;
-            W=humidity(pw,:); # using default p = 101325
-            foo=@(Tdry) (v-volume(Tdry,W,:)); # using default p = 101325
-            Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
-            foo=@(Tdry) (v-volume(Tdry,W,:)); # using default p = 101325
-            psat=bissection(foo,1e1,5e4,1e-5);
-        end
-        h=enthalpy(Tdry,W);
         Tdew=dewTemp(pw);
         Wsat=humidity(psat,:); # using default p = 101325
         foo=@(Twet) (W-humidity2(humidity(satPress(Twet),:),Tdry,Twet)); # using default p = 101325
@@ -592,6 +535,7 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
         psatwet=satPress(Twet);
         Wsatwet=humidity(psatwet,:); # using default p = 101325
         rho=(1+Wsatwet)/v;
+        h=enthalpy(Tdry,W);
     end
     if fig
         doPlot;
@@ -718,13 +662,13 @@ psychro(:,:,:,:,h,v,:)
 
 clear
 h=76e3;
-phi=.27;
+phi=.37;
 [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,:,:,h,:,phi)
 
 clear
 v=.88;
-phi=.27;
+phi=.37;
 [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,:,:,:,v,phi)
 #}
