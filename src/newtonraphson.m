@@ -18,6 +18,16 @@
 # It is also available at https://www.gnu.org/licenses/.
 
 function x=newtonraphson(f,x,tol)
+    # Syntax:
+    #
+    # [x]=newtonraphson(f,x,tol)
+    #
+    # newtonraphson computes the root of
+    #  a function f from a guess value
+    #  within a given tolerance tol
+    #  using the method of Newton-Raphson.
+    # newtonraphson is an internal function of
+    #  the psychrometrics toolbox for GNU Octave.
     while abs(f(x))>tol
         a=deriv(f,x);
         x=x-f(x)/a;

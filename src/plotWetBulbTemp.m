@@ -17,7 +17,18 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotWetBulbTemp(Twet,c,w)
+function plotWetBulbTemp(Twet,c="b",w=1)
+    # Syntax:
+    #
+    # plotWetBulbTemp(phi[,c][,w])
+    #
+    # plotWetBulbTemp plots a curve of
+    #  humidity and dry bulb temperature
+    #  with given constant wet bulb temperature (in K).
+    # By default, constant specific volume curves
+    #  are ploted with with blue solid thin lines.
+    # plotWetBulbTemp is an internal function of
+    #  the psychrometrics toolbox for GNU Octave.
     T1=Twet;
     foo=@(T2) (0-humidity2(humidity(satPress(Twet),:),T2,Twet)); # using default p = 101325
     #T2=bissection(foo,-100+273.15,200+273.15,1e-5);

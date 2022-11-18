@@ -18,14 +18,16 @@
 # It is also available at https://www.gnu.org/licenses/.
 
 function [x2]=bissection(f,x1,x2,tol)
-    while abs(f(x2))>tol*20
-        x=(x1+x2)/2;
-        if f(x)*f(x1)>0
-            x1=x;
-        else
-            x2=x;
-        end
-    end
+    # Syntax:
+    #
+    # [x2]=bissection(f,x1,x2)
+    #
+    # bissection computes the root of
+    #  a function f between x1 and x2
+    #  within a given tolerance tol
+    #  using the method of bissection.
+    # bissection is an internal function of
+    #  the psychrometrics toolbox for GNU Octave.
     while abs(f(x2))>tol
         x=(x1+x2)/2;
         if f(x)*f(x1)>0

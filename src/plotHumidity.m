@@ -17,7 +17,18 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotHumidity(phi,c,w)
+function plotHumidity(phi,c="k",w=1)
+    # Syntax:
+    #
+    # plotHumidity(phi[,c][,w])
+    #
+    # plotHumidity plots a curve of
+    #  humidity and dry bulb temperature
+    #  with given constant relative humidity.
+    # By default, constant relative humidity curves
+    #  are ploted with black solid thin lines.
+    # plotHumidity is an internal function of
+    #  the psychrometrics toolbox for GNU Octave.
     T1=273.15;
     T2=60+273.15;
     N=20;

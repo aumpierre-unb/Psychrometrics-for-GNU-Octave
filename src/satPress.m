@@ -18,6 +18,16 @@
 # It is also available at https://www.gnu.org/licenses/.
 
 function psat=satPress(Tdry)
+    # Syntax:
+    #
+    # [psat]=satPress(Tdry)
+    #
+    # satPress computes
+    #  the saturation pressure (in pa)
+    #  of humid air given
+    #  the dry bulb temperature (in K).
+    # satPress is an internal function of
+    #  the psychrometrics toolbox for GNU Octave.
     run("constants.m");
     if -100<=Tdry-273.15 & Tdry-273.15<0
         k=c(1)/Tdry+...

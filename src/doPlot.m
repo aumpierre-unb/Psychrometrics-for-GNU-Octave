@@ -18,44 +18,53 @@
 # It is also available at https://www.gnu.org/licenses/.
 
 function doPlot()
+    # Syntax:
+    #
+    # doPlot()
+    #
+    # doPlot plots a schematic psychrometric chart
+    #  which is a graphical representation
+    #  of the computed answer.
+    # doplots is an internal function of
+    #  the psychrometrics toolbox for GNU Octave.
     figure;
-    plotHumidity(.05,"k",1);
-    hold on;plotHumidity(.1,"k",1);
-    hold on;plotHumidity(.2,"k",1);
-    hold on;plotHumidity(.4,"k",1);
-    hold on;plotHumidity(.6,"k",1);
-    hold on;plotHumidity(.8,"k",1);
-    hold on;plotHumidity(1,"k",1);
-    hold on;plotEnthalpy(10e3,"-.r",1);
-    hold on;plotEnthalpy(20e3,"-.r",1);
-    hold on;plotEnthalpy(30e3,"-.r",1);
-    hold on;plotEnthalpy(40e3,"-.r",1);
-    hold on;plotEnthalpy(50e3,"-.r",1);
-    hold on;plotEnthalpy(60e3,"-.r",1);
-    hold on;plotEnthalpy(70e3,"-.r",1);
-    hold on;plotEnthalpy(80e3,"-.r",1);
-    hold on;plotEnthalpy(90e3,"-.r",1);
-    hold on;plotEnthalpy(100e3,"-.r",1);
-    hold on;plotEnthalpy(110e3,"-.r",1);
-    hold on;plotEnthalpy(120e3,"-.r",1);
-    hold on;plotEnthalpy(130e3,"-.r",1);
-    hold on;plotVolume(.78,"-.g",1);
-    hold on;plotVolume(.80,"-.g",1);
-    hold on;plotVolume(.82,"-.g",1);
-    hold on;plotVolume(.84,"-.g",1);
-    hold on;plotVolume(.86,"-.g",1);
-    hold on;plotVolume(.88,"-.g",1);
-    hold on;plotVolume(.90,"-.g",1);
-    hold on;plotVolume(.92,"-.g",1);
-    hold on;plotVolume(.94,"-.g",1);
-    hold on;plotVolume(.96,"-.g",1);
-    hold on;plotWetBulbTemp(5+273.15,"b",1);
-    hold on;plotWetBulbTemp(10+273.15,"b",1);
-    hold on;plotWetBulbTemp(15+273.15,"b",1);
-    hold on;plotWetBulbTemp(20+273.15,"b",1);
-    hold on;plotWetBulbTemp(25+273.15,"b",1);
-    hold on;plotWetBulbTemp(30+273.15,"b",1);
-    hold on;plotWetBulbTemp(35+273.15,"b",1);
+    plotHumidity(.05);
+    hold on;plotHumidity(.1);
+    hold on;plotHumidity(.2);
+    hold on;plotHumidity(.4);
+    hold on;plotHumidity(.6);
+    hold on;plotHumidity(.8);
+    hold on;plotHumidity(1);
+    hold on;plotEnthalpy(10e3);
+    hold on;plotEnthalpy(20e3);
+    hold on;plotEnthalpy(30e3);
+    hold on;plotEnthalpy(40e3);
+    hold on;plotEnthalpy(50e3);
+    hold on;plotEnthalpy(60e3);
+    hold on;plotEnthalpy(70e3);
+    hold on;plotEnthalpy(80e3);
+    hold on;plotEnthalpy(90e3);
+    hold on;plotEnthalpy(100e3);
+    hold on;plotEnthalpy(110e3);
+    hold on;plotEnthalpy(120e3);
+    hold on;plotEnthalpy(130e3);
+    hold on;plotVolume(.78);
+    hold on;plotVolume(.80);
+    hold on;plotVolume(.82);
+    hold on;plotVolume(.84);
+    hold on;plotVolume(.86);
+    hold on;plotVolume(.88);
+    hold on;plotVolume(.90);
+    hold on;plotVolume(.92);
+    hold on;plotVolume(.94);
+    hold on;plotVolume(.96);
+    hold on;plotWetBulbTemp(5+273.15);
+    hold on;plotWetBulbTemp(10+273.15);
+    hold on;plotWetBulbTemp(15+273.15);
+    hold on;plotWetBulbTemp(20+273.15);
+    hold on;plotWetBulbTemp(25+273.15);
+    hold on;plotWetBulbTemp(30+273.15);
+    hold on;plotWetBulbTemp(35+273.15);
     xlabel('Dry Bulb Temperature (K)');
     ylabel('Humidity (kg vapor / kg dry air)');
     axis([0+273.15 60+273.15 0 .03]);

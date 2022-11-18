@@ -17,7 +17,18 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotEnthalpy(h,c,w)
+function plotEnthalpy(h,c="-.r",w=1)
+    # Syntax:
+    #
+    # plotEnthalpy(h[,c][,w])
+    #
+    # plotEnthalpy plots a curve of
+    #  humidity and dry bulb temperature
+    #  with given constant specific enthalpy (in J/kg).
+    # By default, constant specific enthalpy curves
+    #  are ploted with red dot-dashed thin lines.
+    # plotEnthalpy is an internal function of
+    #  the psychrometrics toolbox for GNU Octave.
     foo=@(T1) (h-enthalpy(T1,humidity(satPress(T1),:)));
     T1=newtonraphson(foo,300,1);
     #T1=bissection(foo,-100+273.15,100+273.15,1e-5);

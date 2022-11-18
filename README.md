@@ -51,7 +51,7 @@ Consider a constant pressure control volume filled with humid air only. As tempe
 
 Once pressure is an indirect measure of the number of particles in the system, the amount of particles in the gaseous phase is indirectly refereed to as saturation pressure.
 
-The thermodynamic state where the smallest amount of energy removed from the gaseous phase produces an incipient condensed phase is called *dew point*. Dew point is characterized by the dew temperature and the saturation pressure.
+The thermodynamic state where the smallest amount of energy removed from the gaseous phase produces an incipient condensed phase is called *dew point*. Dew point is characterized by the dew point temperature and the saturation pressure.
 
 ### Humidity & Relative Humidity
 
@@ -238,14 +238,12 @@ psychro(Tdry:,:,W,:,:,:[,fig])
 
 **Examples:**
 
-Compute the dry bulb temperature, the wet bulb temperature, the dew point temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given
-the dew temperature $T_{dew}$ = 12 °C and
-the relative humidity $\phi$ = 29 %.
+Compute the dry bulb temperature, the wet bulb temperature, the dew point temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the dew point temperature is 12 °C and the relative humidity is 29 %.
 This call computes the answer and omits the psychrometric chart:
 
 ```dotnetcli
-Tdew=12+273.15;
-phi=.29;
+Tdew=12+273.15; # dew point temperarture
+phi=.29; # relative humidity
 [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,Tdew,:,:,:,phi)
 ```
@@ -254,12 +252,20 @@ This call computes the answer and plots a schematic psychrometric chart:
 
 ```dotnetcli
 [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(:,:,12+273.15,:,:,:,.29)
+psychro(:,:,12+273.15,:,:,:,.29,true)
+```
+
+Compute the dry bulb temperature, the wet bulb temperature,
+the dew point temperature, the dew point temperature the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the specific enthalpy is 79.5 kJ/kg and the relative humidity is 29 % and plot a graphical representation of the answer ina a schematic psychrometric chart.
+
+```dotnetcli
+[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+psychro(:,:,:,:,79.5e3,:,.29,true)
 ```
 
 ### Reference
 
-The theory and the adjusted equations used in this package were taken from chapter 1 of the *2017 ASHRAE Handbook Fundamentals Systems - International Metric System*, published by the American Society of Heating, Refrigerating and Air-Conditioning Engineers. A BiBTeX format reference is available [here](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/raw/main/doc/reference.txt).
+The theory and the adjusted equations used in this package were taken from the first chapter of the *2017 ASHRAE Handbook Fundamentals Systems - International Metric System*, published by the American Society of Heating, Refrigerating and Air-Conditioning Engineers. A BiBTeX format reference is available [here](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/raw/main/doc/reference.txt).
 
 ### Acknowledgements
 

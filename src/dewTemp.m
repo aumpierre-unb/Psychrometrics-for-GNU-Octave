@@ -18,6 +18,16 @@
 # It is also available at https://www.gnu.org/licenses/.
 
 function Tdew=dewTemp(pw)
+    # Syntax:
+    #
+    # [Tdew]=dewTemp(pw)
+    #
+    # dewTemp computes
+    #  the dew point temperature (in K)
+    #  of humid air given
+    #  the water vapor pressure (in Pa).
+    # dewTemp is an internal function of
+    #  the psychrometrics toolbox for GNU Octave.
     run("constants.m");
     alpha=log(pw/1000);
     Tdew=c(14)+...

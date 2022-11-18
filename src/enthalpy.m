@@ -18,5 +18,16 @@
 # It is also available at https://www.gnu.org/licenses/.
 
 function h=enthalpy(Tdry,W)
+    # Syntax:
+    #
+    # [h]=enthalpy(Tdry,W)
+    #
+    # enthalpy computes
+    #  the specific enthalpy (in J/kg of dry air)
+    #  of humid air given
+    #  the dry bulb temperature (in K) and
+    #  the humidity.
+    # enthalpy is an internal function of
+    #  the psychrometrics toolbox for GNU Octave.
     h=(1.006*(Tdry-273.15)+W*(2501+1.86*(Tdry-273.15)))*1e3;
 end

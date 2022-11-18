@@ -17,7 +17,18 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotVolume(v,c,w)
+function plotVolume(v,c=".-g",w=1)
+    # Syntax:
+    #
+    # plotVolume(phi[,c][,w])
+    #
+    # plotVolume plots a curve of
+    #  humidity and dry bulb temperature
+    #  with given constant specific volume (in cu. m/kg).
+    # By default, constant specific volume curves
+    #  are ploted with with green dot-dashed thin lines.
+    # plotVolume is an internal function of
+    #  the psychrometrics toolbox for GNU Octave.
     foo=@(T1) (v-volume(T1,humidity(satPress(T1),:),:));
     T1=newtonraphson(foo,273.15,1e-5);
     #T1=bissection(foo,-100+273.15,200+273.15,1e-5);

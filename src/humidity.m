@@ -18,6 +18,20 @@
 # It is also available at https://www.gnu.org/licenses/.
 
 function W=humidity(pw,p=101325)
+    # Syntax:
+    #
+    # [W]=humidity(pw[,p])
+    #
+    # humidity computes
+    #  the humidity
+    #  of humid air given
+    #  the water vapor pressure (in Pa) and
+    #  the total pressure (in Pa).
+    # By default, total pressure is assumed
+    #  to be the atmospheric pressure
+    #  at sea level (101325 Pa).
+    # humidity is an internal function of
+    #  the psychrometrics toolbox for GNU Octave.
     W=0.621945*pw/(p-pw);
 end
 
