@@ -571,8 +571,9 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
         hold on;plot(Twet,Wsatwet,"ob","markersize",8);
         hold on;plot(Tadiab,Wadiab,"or","markersize",8);
         hold on;plot(Tdew,W,"ok","markersize",8);
-        hold on;plot([Tdew Tdew 340],[0 W W],"--r");
-        hold on;plot([Twet Twet 340],[0 Wsatwet Wsatwet],"--r");
+        hold on;plot([Tdew Tdew 340],[0 W W],"--k");
+        hold on;plot([Tadiab Tadiab 340],[0 Wadiab Wadiab],"--r");
+        hold on;plot([Twet Twet 340],[0 Wsatwet Wsatwet],"-.b");
     end
 end
 
