@@ -197,7 +197,7 @@ where $\alpha = ln\ p_{vap}$, with water vapor pressure $p_{vap}$ given in kPa a
 
 $$
 \begin{align*}
-    C=\left[ -5&.6745359 \times 10^3 \\
+    C=[\ -5&.6745359 \times 10^3 \\
     6&.3925247 \\
    -9&.6778430 \times 10^{-3} \\
     6&.2215701 \times 10^{-7} \\
@@ -214,7 +214,7 @@ $$
    14&.526 \\
     0&.7389 \\
     0&.09486 \\
-    0&.4569 \right]
+    0&.4569\ ] \\
 \end{align*}
 $$
 
