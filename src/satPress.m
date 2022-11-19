@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function psat=satPress(Tdry)
+function [psat]=satPress(Tdry)
     # Syntax:
     #
     # [psat]=satPress(Tdry)
@@ -28,6 +28,15 @@ function psat=satPress(Tdry)
     #  the dry bulb temperature (in K).
     # satPress is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
+    #
+    # Examples:
+    # # Compute the saturation pressure given
+    # # the dry bulb temperature is 25 °C.
+    #
+    # Tdry=25+273.15; # dry bulb temperature in K
+    # psat=satPress(Tdry) # saturation pressure in Pa
+    #
+    # See also: psychro, humidity, enthalpy, volume, adiabSat.
     run("constants.m");
     if -100<=Tdry-273.15 & Tdry-273.15<0
         k=c(1)/Tdry+...

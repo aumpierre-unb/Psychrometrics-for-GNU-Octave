@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function Tdew=dewTemp(pw)
+function [Tdew]=dewTemp(pw)
     # Syntax:
     #
     # [Tdew]=dewTemp(pw)

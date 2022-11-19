@@ -4,7 +4,9 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Psychrometrics-for-GNU-Octave)
 
-![Illustrative graphical output](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/blob/main/pics/untitled.png "Example of graphical output")
+![Illustrative graphical output](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/blob/main/pics/untitled1.png "Example of graphical output")
+
+![Illustrative graphical output](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/blob/main/pics/untitled2.png "Example of graphical output")
 
 ## Installing and Loading `psychrometrics`
 
@@ -223,10 +225,17 @@ $$
 `psychrometrics` provides the following functions:
 
 - `psychro`
+- `humidity`
+- `satPress`
+- `enthalpy`
+- `volume`
+- `adiabSat`
+
+All inputs and outputs of all functions are given in units of the International System.
 
 ### `psychro`
 
-`psychro` computes the dry bulb temperature, the wet bulb temperature, the dew point temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given any two input arguments, except the combination of water vapor pressure and dew point temperature, which are not independent. If a different number of inputs is given, execution will be aborted. The plot of a schematic psychrometric chart with the solution is optional.
+`psychro` computes the dry bulb temperature, the wet bulb temperature, the dew point temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given any two input arguments, except the combination of water vapor pressure and dew point temperature, which are not independent. If a different number of inputs is given, execution will be aborted. If fig = true is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
 
 **Syntax:**
 
@@ -235,7 +244,7 @@ $$
 # given Tdry and W
 # unknowns must be indicated by default value syntax
 [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(Tdry:,:,W,:,:,:[,fig])
+psychro(Tdry:,:,W,:,:,:[,fig=false])
 ```
 
 **Examples:**
@@ -265,9 +274,111 @@ the dew point temperature, the dew point temperature the humidity, the saturatio
 psychro(:,:,:,:,79.5e3,:,.29,true)
 ```
 
+### `humidity`
+
+`humidity` computes
+the humidity of humid air in given the water vapor pressure and the total pressure. By default, total pressure is assumed to be the atmospheric pressure at sea level.
+
+**Syntax:**
+
+```dotnetcli
+[W]=humidity(pw[,p=101325])
+```
+
+**Examples:**
+
+Compute the humidity of humid air at atmospheric pressure given water vapor pressure is 1 kPa.
+
+```dotnetcli
+pw=1e3; # water vapor pressure in Pa
+W=humidity(pw) # saturation pressure in kg/kg of dry air
+```
+
+### `satPress`
+
+`satPress` computes the saturation pressure of humid air given the dry bulb temperature.
+
+**Syntax:**
+
+```dotnetcli
+[psat]=satPress(Tdry)
+```
+
+**Examples:**
+
+Compute the saturation pressure given the dry bulb temperature is 25 °C.
+
+```dotnetcli
+Tdry=25+273.15; # dry bulb temperature in K
+psat=satPress(Tdry) # saturation pressure in Pa
+```
+
+### `enthalpy`
+
+`enthalpy` computes the specific enthalpy of humid air given the dry bulb temperature and the humidity in.
+
+**Syntax:**
+
+```dotnetcli
+[h]=enthalpy(Tdry,W)
+```
+
+**Examples:**
+
+Compute the specific enthalpy given the dry bulb temperature is 25 °C and the humidity is 7 g/kg of dry air.
+
+```dotnetcli
+Tdry=25+273.15; # dry bulb temperature in K
+W=7e-3; # humidity in kg/kg of dry air
+h=enthalpy(Tdry,W) # specific enthalpy in J/kg of dry air
+```
+
+### `volume`
+
+`volume` computes computes the specific volume of humid air given
+ the dry bulb temperature, the humidity in and the total pressure.
+By default, total pressure is assumed to be the atmospheric pressure at sea level.
+
+**Syntax:**
+
+```dotnetcli
+[v]=volume(Tdry,W[,p=101325])
+```
+
+**Examples:**
+
+Compute the specific volume given the dry bulb temperature is 25 °C and the humidity is 7 g/kg of dry air.
+
+```dotnetcli
+Tdry=25+273.15; # dry bulb temperature in K
+W=7e-3; # humidity in kg/kg of dry air
+v=volume(Tdry,W) # specific volume in cu. m/kg of dry air
+```
+
+### `adiabSat`
+
+`adiabSat` computes the temperature of adiabatic saturation given the specific enthalpy h. If fig = true is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
+
+**Syntax:**
+
+```dotnetcli
+[Tadiab]=adiabSat(h[,fig=false])
+```
+
+**Examples:**
+
+Compute the temperature of adiabatic saturation given the specific enthalpy is 82.4 kJ/kG of dry air and plot a graphical representation of the answer in a schematic psychrometric chart.
+
+```dotnetcli
+h=82.4e3; # specific enthalpy in J/kG
+Tadiab=adiabSat(h,true) # temperature of adiabatic saturation in K
+```
+
 ### Reference
 
-The theory and the adjusted equations used in this package were taken from the first chapter of the *2017 ASHRAE Handbook Fundamentals Systems - International Metric System*, published by the American Society of Heating, Refrigerating and Air-Conditioning Engineers. A BiBTeX format reference is available [here](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/raw/main/doc/reference.txt).
+The theory and the adjusted equations used in this package were taken from the first chapter of the *2017 ASHRAE Handbook Fundamentals Systems - International Metric System*, published by the American Society of Heating, Refrigerating and Air-Conditioning Engineers.
+
+<!-- A BiBTeX format reference is available [here](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/raw/main/doc/reference.txt). -->
 
 ### Acknowledgements
 

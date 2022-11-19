@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function x=newtonraphson(f,x,tol)
+function [x]=newtonraphson(f,x,tol)
     # Syntax:
     #
     # [x]=newtonraphson(f,x,tol)

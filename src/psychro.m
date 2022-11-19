@@ -27,19 +27,19 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
     # psychro(Tdry:,:,W,:,:,:)
     #
     # psychro computes
-    #  the dry bulb temperature Tdry,
-    #  the wet bulb temperature Twet,
-    #  the dew point temperature Tdew,
-    #  the humidit W,
-    #  the saturation humidity Wsat,
-    #  the saturation humidity at the wet bulb temperature Wsatwet,
-    #  the specific enthalpy h,
-    #  the specific volume v,
+    #  the dry bulb temperature (in K),
+    #  the wet bulb temperature (in K),
+    #  the dew point temperature (in K),
+    #  the humidit W (in kg/kg of dry air),
+    #  the saturation humidity Wsat (in kg/kg of dry air),
+    #  the saturation humidity at the wet bulb temperature Wsatwet (in kg/kg of dry air),
+    #  the specific enthalpy h (in J/kg of dry air),
+    #  the specific volume v (in cu. m/kg of dry air),
     #  the the relative humidity phi,
-    #  the water vapor pressure pw,
-    #  the water saturation pressure psat,
-    #  the saturation pressure at the wet bulb temperature psatwet and
-    #  the density rho given
+    #  the water vapor pressure pw (in Pa),
+    #  the water saturation pressure psat (in Pa),
+    #  the saturation pressure at the wet bulb temperature psatwet (in Pa) and
+    #  the density rho (in kg/cu. m) given
     #  any two input arguments,
     #  except the combination of water vapor pressure and
     #  dew point temperature, which are not independent.
@@ -69,7 +69,7 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
     #
     # # This call computes the answer and
     # # omits the psychrometric chart:
-    # Tdew=12+273.15; # dew point temperarture
+    # Tdew=12+273.15; # dew point temperarture in K
     # phi=.29; # relative humidity
     # [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
     # psychro(:,:,Tdew,:,:,:,phi)
@@ -77,7 +77,7 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
     # # This call computes the answer and
     # # plots a schematic psychrometric chart:
     # [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
-    # psychro(:,:,12+273.15,:,:,:,.29,true)
+    # psychro(:,:,12+273.15,:,:,:,.29,true) # inputs and outputs in SI units
     #
     # # Compute the dry bulb temperature,
     # # the wet bulb temperature,
@@ -96,12 +96,12 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
     # # the specific enthalpy is 79.5 kJ/kg and
     # # the relative humidity is 29 % and
     # # plot a graphical representation of the
-    # # answer ina a schematic psychrometric chart.
+    # # answer in a schematic psychrometric chart.
     #
     # [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
-    # psychro(:,:,:,:,79.5e3,:,.29,true)
+    # psychro(:,:,:,:,79.5e3,:,.29,true) # inputs and outputs in SI units
     #
-    # See also: (new functions under construcion).
+    # See also: humidity, satPress, enthalpy, volume, adiabSat.
     a=[Tdry,Twet,Tdew,W,h,v,phi]==-1;
     if sum(a)~=5
         error(["Function psychro demands two and only two inputs.\nUnknowns must be assigned with ':'."]);
@@ -565,7 +565,7 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
         hold on;plotEnthalpy(h,"-.r",2);
         hold on;plotVolume(v,"-.g",2);
         hold on;plotWetBulbTemp(Twet,"b",2);
-        hold on;plot([Tdry Twet Tdew   ],[W Wsatwet W   ],"or",...
+        hold on;plot([Tdry Twet Tdew],[W Wsatwet W],"or",...
                      "markersize",8,...
                      "markerfacecolor","r");
         hold on;plot([Tdew Tdew 340],[0 W W],"--r");
