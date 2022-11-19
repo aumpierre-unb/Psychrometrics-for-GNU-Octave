@@ -48,9 +48,7 @@ function [Tadiab]=adiabSat(h,fig=false)
         doPlot;
         hold on;plotHumidity(1,"k",2);
         hold on;plotEnthalpy(h,"-.r",2);
-        hold on;plot(Tadiab,Wsat,"or",...
-                     "markersize",8,...
-                     "markerfacecolor","r");
+        hold on;plot(Tadiab,Wsat,"or","markersize",8);
     end
 end
 

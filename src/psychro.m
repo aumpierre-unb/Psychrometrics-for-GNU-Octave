@@ -559,15 +559,18 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
         rho=(1+Wsatwet)/v;
         h=enthalpy(Tdry,W);
     end
+    Tadiab=adiabSat(h);
+    Wadiab=humidity(satPress(Tadiab),:); # using default p = 101325 Pa
     if fig
         doPlot;
         hold on;plotHumidity(phi,"k",2);
         hold on;plotEnthalpy(h,"-.r",2);
         hold on;plotVolume(v,"-.g",2);
         hold on;plotWetBulbTemp(Twet,"b",2);
-        hold on;plot([Tdry Twet Tdew],[W Wsatwet W],"or",...
-                     "markersize",8,...
-                     "markerfacecolor","r");
+        hold on;plot(Tdry,W,"or","markersize",8,"markerfacecolor","r");
+        hold on;plot(Twet,Wsatwet,"ob","markersize",8);
+        hold on;plot(Tadiab,Wadiab,"or","markersize",8);
+        hold on;plot(Tdew,W,"ok","markersize",8);
         hold on;plot([Tdew Tdew 340],[0 W W],"--r");
         hold on;plot([Twet Twet 340],[0 Wsatwet Wsatwet],"--r");
     end
