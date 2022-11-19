@@ -1,4 +1,4 @@
-# `psychrometrics` Toolbox for GNU-Octave (*under construction*)
+# `psychrometrics` Toolbox for GNU-Octave
 
 [![DOI](https://zenodo.org/badge/565944452.svg)](https://zenodo.org/badge/latestdoi/565944452)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
