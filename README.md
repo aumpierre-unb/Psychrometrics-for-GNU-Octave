@@ -263,7 +263,7 @@ given any two of the following input arguments:
 - the dew point temperature,
 - the humidity,
 - the specific enthalpy,
-- the specific volume, or
+- the specific volume or
 - the relative humidity,
 
 except the combination of humidity and dew point temperature, which are not independent. If a different number of inputs is given, execution will be aborted. If *fig* = *true* is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
