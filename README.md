@@ -238,7 +238,35 @@ All inputs and outputs of all functions are given in units of the International 
 
 ### `psychro`
 
-`psychro` computes the dry bulb temperature, the wet bulb temperature, the dew point temperature, the adiabatic saturation temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given any two input arguments, except the combination of water vapor pressure and dew point temperature, which are not independent. If a different number of inputs is given, execution will be aborted. If *fig* = *true* is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
+`psychro` computes
+
+- the dry bulb temperature,
+- the wet bulb temperature,
+- the dew point temperature,
+- the adiabatic saturation temperature,
+- the humidity,
+- the saturation humidity,
+- the saturation humidity at wet bulb temperature,
+- the adiabatic saturation humidity,
+- the specific enthalpy,
+- the specific volume,
+- the relative humidity,
+- the water vapor pressure,
+- the saturation pressure, the saturation
+- pressure at wet bulb temperature and
+- the density
+
+given any two of the following input arguments:
+
+- the dry bulb temperature,
+- the wet bulb temperature,
+- the dew point temperature,
+- the humidity,
+- the specific enthalpy,
+- the specific volume, or
+- the relative humidity,
+
+except the combination of humidity and dew point temperature, which are not independent. If a different number of inputs is given, execution will be aborted. If *fig* = *true* is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
 
 **Syntax:**
 
