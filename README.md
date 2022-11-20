@@ -235,7 +235,7 @@ All inputs and outputs of all functions are given in units of the International 
 
 ### `psychro`
 
-`psychro` computes the dry bulb temperature, the wet bulb temperature, the dew point temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given any two input arguments, except the combination of water vapor pressure and dew point temperature, which are not independent. If a different number of inputs is given, execution will be aborted. If fig = true is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
+`psychro` computes the dry bulb temperature, the wet bulb temperature, the dew point temperature, the adiabatic saturation temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given any two input arguments, except the combination of water vapor pressure and dew point temperature, which are not independent. If a different number of inputs is given, execution will be aborted. If fig = true is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
 
 **Syntax:**
 
@@ -243,34 +243,34 @@ All inputs and outputs of all functions are given in units of the International 
 # e.g.
 # given Tdry and W
 # unknowns must be indicated by default value syntax
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(Tdry:,:,W,:,:,:[,fig=false])
 ```
 
 **Examples:**
 
-Compute the dry bulb temperature, the wet bulb temperature, the dew point temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the dew point temperature is 12 °C and the relative humidity is 29 %.
+Compute the dry bulb temperature, the wet bulb temperature, the adiabatic saturation temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the dew point temperature is 12 °C and the relative humidity is 29 %.
 This call computes the answer and omits the psychrometric chart:
 
 ```dotnetcli
 Tdew=12+273.15; # dew point temperarture
 phi=.29; # relative humidity
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,Tdew,:,:,:,phi)
 ```
 
 This call computes the answer and plots a schematic psychrometric chart:
 
 ```dotnetcli
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,12+273.15,:,:,:,.29,true)
 ```
 
 Compute the dry bulb temperature, the wet bulb temperature,
-the dew point temperature, the dew point temperature the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the specific enthalpy is 79.5 kJ/kg and the relative humidity is 29 % and plot a graphical representation of the answer ina a schematic psychrometric chart.
+the dew point temperature, adiabatic saturation temperature, the dew point temperature the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the specific enthalpy is 79.5 kJ/kg and the relative humidity is 29 % and plot a graphical representation of the answer ina a schematic psychrometric chart.
 
 ```dotnetcli
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,:,:,79.5e3,:,.29,true)
 ```
 
@@ -357,21 +357,21 @@ v=volume(Tdry,W) # specific volume in cu. m/kg of dry air
 
 ### `adiabSat`
 
-`adiabSat` computes the temperature of adiabatic saturation given the specific enthalpy h. If fig = true is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
+`adiabSat` computes the the adiabatic saturation temperature and the adiabatic saturation humidity given the specific enthalpy. If fig = true is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
 
 **Syntax:**
 
 ```dotnetcli
-[Tadiab]=adiabSat(h[,fig=false])
+[Tadiab,Wadiab]=adiabSat(h[,fig=false])
 ```
 
 **Examples:**
 
-Compute the temperature of adiabatic saturation given the specific enthalpy is 82.4 kJ/kG of dry air and plot a graphical representation of the answer in a schematic psychrometric chart.
+Compute the the adiabatic saturation temperature and the adiabatic saturation humidity given the specific enthalpy is 82.4 kJ/kG of dry air and plot a graphical representation of the answer in a schematic psychrometric chart.
 
 ```dotnetcli
 h=82.4e3; # specific enthalpy in J/kG
-Tadiab=adiabSat(h,true) # temperature of adiabatic saturation in K
+[Tadiab,Wadiab]=adiabSat(h,true) # inputs and outputs in SI units
 ```
 
 ### Reference

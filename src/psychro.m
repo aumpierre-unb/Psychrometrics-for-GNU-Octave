@@ -17,22 +17,24 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
         psychro(Tdry=-1,Twet=-1,Tdew=-1,W=-1,h=-1,v=-1,phi=-1,fig=false)
     # Syntax:
     # e.g.
     # given Tdry and W
     # unknowns must be indicated by default value syntax
-    # [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
-    # psychro(Tdry:,:,W,:,:,:)
+    # [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
+    # psychro(Tdry:,:,W,:,:,:[,fig=false])
     #
     # psychro computes
-    #  the dry bulb temperature (in K),
-    #  the wet bulb temperature (in K),
-    #  the dew point temperature (in K),
+    #  the dry bulb temperature Tdry (in K),
+    #  the wet bulb temperature Twet (in K),
+    #  the dew point temperature Tdew (in K),
+    #  the adiabatic saturation temperature Tadiab (in K),
     #  the humidit W (in kg/kg of dry air),
     #  the saturation humidity Wsat (in kg/kg of dry air),
     #  the saturation humidity at the wet bulb temperature Wsatwet (in kg/kg of dry air),
+    #  the adiabatic saturation humidity Wadiab (in kg/kg of dry air),
     #  the specific enthalpy h (in J/kg of dry air),
     #  the specific volume v (in cu. m/kg of dry air),
     #  the the relative humidity phi,
@@ -54,9 +56,11 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
     # # Compute the dry bulb temperature,
     # # the wet bulb temperature,
     # # the dew point temperature,
+    # # the adiabatic saturation temperature,
     # # the humidity,
     # # the saturation humidity,
     # # the saturation humidity at wet bulb temperature,
+    # # the adiabatic saturation humidity,
     # # the specific enthalpy,
     # # the specific volume,
     # # the relative humidity,
@@ -71,21 +75,22 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
     # # omits the psychrometric chart:
     # Tdew=12+273.15; # dew point temperarture in K
     # phi=.29; # relative humidity
-    # [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+    # [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
     # psychro(:,:,Tdew,:,:,:,phi)
     #
     # # This call computes the answer and
     # # plots a schematic psychrometric chart:
-    # [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+    # [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
     # psychro(:,:,12+273.15,:,:,:,.29,true) # inputs and outputs in SI units
     #
     # # Compute the dry bulb temperature,
     # # the wet bulb temperature,
     # # the dew point temperature,
-    # # the dew point temperature
+    # # the adiabatic saturation temperature,
     # # the humidity,
     # # the saturation humidity,
     # # the saturation humidity at wet bulb temperature,
+    # # the adiabatic saturation humidity,
     # # the specific enthalpy,
     # # the specific volume,
     # # the relative humidity,
@@ -98,7 +103,7 @@ function [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
     # # plot a graphical representation of the
     # # answer in a schematic psychrometric chart.
     #
-    # [Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+    # [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
     # psychro(:,:,:,:,79.5e3,:,.29,true) # inputs and outputs in SI units
     #
     # See also: humidity, satPress, enthalpy, volume, adiabSat.
@@ -581,120 +586,120 @@ end
 clear
 Tdry=30+273.15;
 Twet=18+273.15;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(Tdry,Twet,:,:,:,:,:)
 
 clear
 Tdry=30+273.15;
 Tdew=15+273.15;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(Tdry,:,Tdew,:,:,:,:)
 
 clear
 Tdry=26+273.15;
 W=.011;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(Tdry,:,:,W,:,:,:)
 
 clear
 Tdry=26+273.15;
 h=54e3;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(Tdry,:,:,:,h,:,:)
 
 clear
 Tdry=26+273.15;
 v=.87;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(Tdry,:,:,:,:,v,:)
 
 clear
 Tdry=22+273.15;
 phi=.50;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(Tdry,:,:,:,:,:,phi)
 
 clear
 Twet=19+273.15;
 Tdew=15+273.15;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,Twet,Tdew,:,:,:,:)
 
 clear
 Twet=25+273.15;
 W=.015;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,Twet,:,W,:,:,:)
 
 clear
 Twet=25+273.15;
 h=76e3;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,Twet,:,:,h,:,:)
 
 clear
 Twet=20+273.15;
 v=.88;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,Twet,:,:,:,v,:)
 
 clear
 Twet=20+273.15;
 phi=.29;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,Twet,:,:,:,:,phi)
 
 clear
 Tdew=12+273.15;
 h=76e3;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,Tdew,:,h,:,:)
 
 clear
 Tdew=12+273.15;
 v=.88;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,Tdew,:,:,v,:)
 
 clear
 Tdew=12+273.15;
 phi=.29;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,Tdew,:,:,:,phi)
 
 clear
 W=.017;
 h=76e3;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,:,W,h,:,:)
 
 clear
 W=.017;
 v=.88;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,:,W,:,v,:)
 
 clear
 W=.016;
 phi=.27;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,:,W,:,:,phi)
 
 clear
 h=76e3;
 v=.88;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,:,:,h,v,:)
 
 clear
 h=76e3;
 phi=.37;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,:,:,h,:,phi)
 
 clear
 v=.88;
 phi=.37;
-[Tdry,Twet,Tdew,W,Wsat,Wsatwet,h,v,phi,pw,psat,psatwet,rho]=...
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,:,:,:,v,phi)
 #}

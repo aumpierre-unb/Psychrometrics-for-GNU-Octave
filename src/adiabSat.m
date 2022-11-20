@@ -17,12 +17,13 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [Tadiab]=adiabSat(h,fig=false)
+function [Tadiab,Wadiab]=adiabSat(h,fig=false)
     # Syntax:
-    # [Tadiab]=adiabSat(h[,fig])
+    # [Tadiab,Wadiab]=adiabSat(h[,fig=false])
     #
     # adiabSat computes
-    #  the temperature of adiabatic saturation Tadiab (in K) given
+    #  the adiabatic saturation temperature (in K) and
+    #  the adiabatic saturation humidity (in Kg/kg of dry air) given
     #  the specific enthalpy h (in J/kg of dry air).
     # If fig = true is given, a schematic psychrometric chart
     #  is plotted as a graphical representation
@@ -31,24 +32,24 @@ function [Tadiab]=adiabSat(h,fig=false)
     #  the psychrometrics toolbox for GNU Octave.
     #
     # Examples:
-    # # Compute the temperature of adiabatic saturation given
+    # # Compute the adiabatic saturation temperature given
     # # the specific enthalpy is 82.4 kJ/kG of dry air and
     # # plot a graphical representation of the
     # # answer in a schematic psychrometric chart.
     #
     # h=82.4e3; # specific enthalpy in J/kG
-    # Tadiab=adiabSat(h,true) # temperature of adiabatic saturation in K
+    # [Tadiab,Wadiab]=adiabSat(h,true) # inputs and outputs in SI units
     #
     # See also: psychro, humidity, satPress, enthalpy, volume.
     foo=@(Tadiab) h-enthalpy(Tadiab,humidity(satPress(Tadiab),:));
     Tadiab=newtonraphson(foo,273.15,1e-5);
-    psat=satPress(Tadiab);
-    Wsat=humidity(psat,:);
+    padiab=satPress(Tadiab);
+    Wadiab=humidity(padiab,:);
     if fig
         doPlot;
         hold on;plotHumidity(1,"k",2);
         hold on;plotEnthalpy(h,"-.r",2);
-        hold on;plot(Tadiab,Wsat,"or","markersize",8);
+        hold on;plot(Tadiab,Wadiab,"or","markersize",8);
     end
 end
 
