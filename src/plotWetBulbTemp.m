@@ -30,15 +30,13 @@ function plotWetBulbTemp(Twet,c="b",w=1)
     # plotWetBulbTemp is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     T1=Twet;
-    foo=@(T2) (0-humidity2(humidity(satPress(Twet),:),T2,Twet)); # using default p = 101325
-    #T2=bissection(foo,-100+273.15,200+273.15,1e-5);
+    foo=@(T2) (0-humidity2(humidity(satPress(Twet),:),T2,Twet));
     T2=newtonraphson(foo,273.15,1e-5);
     if T2>60+273.15 T2=60+273.15; end
     N=5;
     for n=1:N
         T(n)=T1+(T2-T1)/(N-1)*(n-1);
-        foo=@(W) (W-humidity2(humidity(satPress(Twet),:),T(n),Twet)); # using default p = 101325
-        #W(n)=bissection(foo,0,1,1e-5);
+        foo=@(W) (W-humidity2(humidity(satPress(Twet),:),T(n),Twet));
         W(n)=newtonraphson(foo,1e-3,1e-5);
     end
     plot(T,W,c,"linewidth",w);

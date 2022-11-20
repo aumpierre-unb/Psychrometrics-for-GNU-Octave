@@ -252,11 +252,11 @@ psychro(Tdry:,:,W,:,:,:[,fig=false])
 
 **Examples:**
 
-Compute the dry bulb temperature, the wet bulb temperature, the adiabatic saturation temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the dew point temperature is 12 °C and the relative humidity is 29 %.
+Compute the dry bulb temperature, the wet bulb temperature, the adiabatic saturation temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the dew point temperature is 22 °C and the relative humidity is 29 %.
 This call computes the answer and omits the psychrometric chart:
 
 ```dotnetcli
-Tdew=12+273.15; # dew point temperarture
+Tdew=22+273.15; # dew point temperarture
 phi=.29; # relative humidity
 [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,Tdew,:,:,:,phi)
@@ -266,7 +266,7 @@ This call computes the answer and plots a schematic psychrometric chart:
 
 ```dotnetcli
 [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(:,:,12+273.15,:,:,:,.29,true)
+psychro(:,:,22+273.15,:,:,:,.29,true)
 ```
 
 Compute the dry bulb temperature, the wet bulb temperature,
