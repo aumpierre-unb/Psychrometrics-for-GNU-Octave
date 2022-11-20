@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotVolume(v,c=".-g",w=1)
+function plotVolume(v,c="-.g",w=1)
     # Syntax:
     #
     # plotVolume(phi[,c][,w])
