@@ -26,7 +26,7 @@ function plotEnthalpy(h,c="-.r",w=1)
     #  humidity and dry bulb temperature
     #  with given constant specific enthalpy (in J/kg).
     # By default, constant specific enthalpy curves
-    #  are ploted with red dot-dashed thin lines.
+    #  are ploted with red dash-doted thin lines.
     # plotEnthalpy is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     foo=@(T1) (h-enthalpy(T1,humidity(satPress(T1),:)));

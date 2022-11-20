@@ -26,7 +26,7 @@ function plotVolume(v,c="-.g",w=1)
     #  humidity and dry bulb temperature
     #  with given constant specific volume (in cu. m/kg).
     # By default, constant specific volume curves
-    #  are ploted with with green dot-dashed thin lines.
+    #  are ploted with with green dash-doted thin lines.
     # plotVolume is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     foo=@(T1) (v-volume(T1,humidity(satPress(T1),:),:));
