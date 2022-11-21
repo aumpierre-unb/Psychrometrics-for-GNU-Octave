@@ -6,7 +6,7 @@
 
 ![Illustrative graphical output](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/blob/main/pics/untitled1.png "Example of graphical output")
 
-![Illustrative graphical output](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/blob/main/pics/untitled2.png "Example of graphical output")
+<!-- ![Illustrative graphical output](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/blob/main/pics/untitled2.png "Example of graphical output") -->
 
 ## Installing and Loading `psychrometrics`
 
