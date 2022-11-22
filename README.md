@@ -348,7 +348,7 @@ psychro(Tdry5,:,:,W5)
 ```
 
 ```dotnetcli
-# The demands of energy and water vapor are
+# The energy and water vapor demands are
 (h5-h1)*(8.5/v1) # demand of energy
 (W5-W1)*(8.5/v1) # demand of water vapor
 ```
