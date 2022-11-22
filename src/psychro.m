@@ -111,7 +111,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # # wet bulb temperature of 288 K
     # # is subjected to two cycles of
     # # heating to 323 and adiabatic saturation.
-    # # Compute the energy and the water vapor demands.
+    # # Compute the energy and water vapor demands.
     #
     # # The initial condition is
     # Tdry1=293;

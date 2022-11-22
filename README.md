@@ -305,7 +305,7 @@ the dew point temperature, adiabatic saturation temperature, the dew point tempe
 psychro(:,:,:,:,79.5e3,:,.29,true)
 ```
 
-8.5 cubic meters of humid air at dry bulb temperature of 293 K and wet bulb temperature of 288 K is subjected to two cycles of heating to 323 K and adiabatic saturation. Compute the energy and the water vapor demands.
+8.5 cubic meters of humid air at dry bulb temperature of 293 K and wet bulb temperature of 288 K is subjected to two cycles of heating to 323 K and adiabatic saturation. Compute the energy and water vapor demands.
 
 ```dotnetcli
 # The initial condition is
