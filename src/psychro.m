@@ -110,19 +110,17 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # # dry bulb temperature of 293 K and
     # # wet bulb temperature of 288 K
     # # is subjected to two cycles of
-    # # heating to 323.15 K and adiabatical saturation.
+    # # heating to 323 and adiabatic saturation.
     # # Compute the energy and the water vapor demands.
     #
-    # # In a heating process, humidity is constant.
-    # # In a adiabatic saturation, specific enthalpy is constant.
     # # The initial condition is
-    # Tdry1=293.15;
-    # Twet1=288.15;
+    # Tdry1=293;
+    # Twet1=288;
     # [~,~,~,~,W1,~,~,~,h1,v1]=...
     # psychro(Tdry1,Twet1,:,:,:,:,:,true)
     #
     # # For the first heating one has:
-    # Tdry2=323.15
+    # Tdry2=323
     # W2=W1
     # [~,~,~,~,~,~,~,~,h2,v2]=...
     # psychro(Tdry2,:,:,W2,:,:,:,true)
@@ -133,7 +131,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # psychro(Tdry3,:,:,W3)
     #
     # # For the second heating one has:
-    # Tdry4=323.15
+    # Tdry4=323
     # W4=W3
     # [~,~,~,~,~,~,~,~,h4,v4]=...
     # psychro(Tdry4,:,:,W4,:,:,:,true)
