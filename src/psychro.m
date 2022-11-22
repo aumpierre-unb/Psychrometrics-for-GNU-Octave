@@ -106,6 +106,47 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
     # psychro(:,:,:,:,79.5e3,:,.29,true) # inputs and outputs in SI units
     #
+    # # 8.5 cubic meters of humid air at
+    # # dry bulb temperature of 293 K and
+    # # wet bulb temperature of 288 K
+    # # is subjected to two cycles of
+    # # heating to 323.15 K and adiabatical saturation.
+    # # Compute the energy and the water vapor demands.
+    #
+    # # In a heating process, humidity is constant.
+    # # In a adiabatic saturation, specific enthalpy is constant.
+    # # The initial condition is
+    # Tdry1=293.15;
+    # Twet1=288.15;
+    # [~,~,~,~,W1,~,~,~,h1,v1]=...
+    # psychro(Tdry1,Twet1,:,:,:,:,:,true)
+    #
+    # # For the first heating one has:
+    # Tdry2=323.15
+    # W2=W1
+    # [~,~,~,~,~,~,~,~,h2,v2]=...
+    # psychro(Tdry2,:,:,W2,:,:,:,true)
+    # # For the first saturation one has
+    # h3=h2
+    # [Tdry3,W3]=adiabSat(h3)
+    # [~,~,~,~,~,~,~,~,~,v3]=...
+    # psychro(Tdry3,:,:,W3)
+    #
+    # # For the second heating one has:
+    # Tdry4=323.15
+    # W4=W3
+    # [~,~,~,~,~,~,~,~,h4,v4]=...
+    # psychro(Tdry4,:,:,W4,:,:,:,true)
+    # # For the second saturation one has
+    # h5=h4
+    # [Tdry5,W5]=adiabSat(h5)
+    # [~,~,~,~,~,~,~,~,~,v5]=...
+    # psychro(Tdry5,:,:,W5)
+    #
+    # # The demands of energy and water vapor are
+    # (h5-h1)*(8.5/v1) # demand of energy
+    # (W5-W1)*(8.5/v1) # demand of water vapor
+    #
     # See also: humidity, satPress, enthalpy, volume, adiabSat.
     a=[Tdry,Twet,Tdew,W,h,v,phi]==-1;
     if sum(a)~=5
