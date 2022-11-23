@@ -316,7 +316,7 @@ psychro(Tdry1,Twet1,:,:,:,:,:,true)
 ```
 
 ```dotnetcli
-# For the first heating one has:
+# For the first heating one has
 Tdry2=323
 W2=W1
 [~,~,~,~,~,~,~,~,h2,v2]=...
@@ -332,7 +332,7 @@ psychro(Tdry3,:,:,W3)
 ```
 
 ```dotnetcli
-# For the second heating one has:
+# For the second heating one has
 Tdry4=323
 W4=W3
 [~,~,~,~,~,~,~,~,h4,v4]=...

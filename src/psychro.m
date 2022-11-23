@@ -119,7 +119,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # [~,~,~,~,W1,~,~,~,h1,v1]=...
     # psychro(Tdry1,Twet1,:,:,:,:,:,true)
     #
-    # # For the first heating one has:
+    # # For the first heating one has
     # Tdry2=323
     # W2=W1
     # [~,~,~,~,~,~,~,~,h2,v2]=...
@@ -130,7 +130,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # [~,~,~,~,~,~,~,~,~,v3]=...
     # psychro(Tdry3,:,:,W3)
     #
-    # # For the second heating one has:
+    # # For the second heating one has
     # Tdry4=323
     # W4=W3
     # [~,~,~,~,~,~,~,~,h4,v4]=...
