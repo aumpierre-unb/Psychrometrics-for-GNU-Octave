@@ -399,9 +399,7 @@ h=enthalpy(Tdry,W) # specific enthalpy in J/kg of dry air
 
 ### `volume`
 
-`volume` computes computes the specific volume of humid air given
- the dry bulb temperature, the humidity in and the total pressure.
-By default, total pressure is assumed to be the atmospheric pressure at sea level.
+`volume` computes computes the specific volume of humid air given  the dry bulb temperature, the humidity in and the total pressure. By default, total pressure is assumed to be the atmospheric pressure at sea level.
 
 **Syntax:**
 
