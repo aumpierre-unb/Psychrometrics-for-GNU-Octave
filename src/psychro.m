@@ -116,30 +116,25 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # # The initial condition is
     # Tdry1=293;
     # Twet1=288;
-    # [~,~,~,~,W1,~,~,~,h1,v1]=...
-    # psychro(Tdry1,Twet1,:,:,:,:,:,true)
+    # [~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1,Twet1,:,:,:,:,:,true)
     #
     # # For the first heating one has
     # Tdry2=323
     # W2=W1
-    # [~,~,~,~,~,~,~,~,h2,v2]=...
-    # psychro(Tdry2,:,:,W2,:,:,:,true)
+    # [~,~,~,~,~,~,~,~,h2,v2]=psychro(Tdry2,:,:,W2,:,:,:,true)
     # # For the first saturation one has
     # h3=h2
     # [Tdry3,W3]=adiabSat(h3)
-    # [~,~,~,~,~,~,~,~,~,v3]=...
-    # psychro(Tdry3,:,:,W3)
+    # [~,~,~,~,~,~,~,~,~,v3]=psychro(Tdry3,:,:,W3)
     #
     # # For the second heating one has
     # Tdry4=323
     # W4=W3
-    # [~,~,~,~,~,~,~,~,h4,v4]=...
-    # psychro(Tdry4,:,:,W4,:,:,:,true)
+    # [~,~,~,~,~,~,~,~,h4,v4]=psychro(Tdry4,:,:,W4,:,:,:,true)
     # # For the second saturation one has
     # h5=h4
     # [Tdry5,W5]=adiabSat(h5)
-    # [~,~,~,~,~,~,~,~,~,v5]=...
-    # psychro(Tdry5,:,:,W5)
+    # [~,~,~,~,~,~,~,~,~,v5]=psychro(Tdry5,:,:,W5)
     #
     # # The energy and water vapor demands are
     # (h5-h1)*(8.5/v1) # demand of energy
