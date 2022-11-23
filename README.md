@@ -298,7 +298,7 @@ psychro(:,:,22+273.15,:,:,:,.29,true)
 ```
 
 Compute the dry bulb temperature, the wet bulb temperature,
-the dew point temperature, adiabatic saturation temperature, the dew point temperature the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the specific enthalpy is 79.5 kJ/kg and the relative humidity is 29 % and plot a graphical representation of the answer ina a schematic psychrometric chart.
+the dew point temperature, adiabatic saturation temperature, the dew point temperature the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the specific enthalpy is 79.5 kJ/kg of dry air and the relative humidity is 29 % and plot a graphical representation of the answer ina a schematic psychrometric chart.
 
 ```dotnetcli
 [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
@@ -312,37 +312,27 @@ psychro(:,:,:,:,79.5e3,:,.29,true)
 Tdry1=293;
 Twet1=288;
 [~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1,Twet1,:,:,:,:,:,true)
-```
 
-```dotnetcli
 # For the first heating one has
 Tdry2=323
 W2=W1
 [~,~,~,~,~,~,~,~,h2,v2]=psychro(Tdry2,:,:,W2,:,:,:,true)
-```
 
-```dotnetcli
 # For the first saturation one has
 h3=h2
 [Tdry3,W3]=adiabSat(h3)
 [~,~,~,~,~,~,~,~,~,v3]=psychro(Tdry3,:,:,W3)
-```
 
-```dotnetcli
 # For the second heating one has
 Tdry4=323
 W4=W3
 [~,~,~,~,~,~,~,~,h4,v4]=psychro(Tdry4,:,:,W4,:,:,:,true)
-```
 
-```dotnetcli
 # For the second saturation one has
 h5=h4
 [Tdry5,W5]=adiabSat(h5)
 [~,~,~,~,~,~,~,~,~,v5]=psychro(Tdry5,:,:,W5)
-```
 
-```dotnetcli
 # The energy and water vapor demands are
 (h5-h1)*(8.5/v1) # demand of energy
 (W5-W1)*(8.5/v1) # demand of water vapor
