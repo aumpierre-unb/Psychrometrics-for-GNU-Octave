@@ -325,7 +325,7 @@ h3=h2;
 
 # The thermodynamic state after the second heating is
 Tdry4=323;
-W4=W3
+W4=W3;
 [~,~,~,~,~,~,~,~,h4,v4]=psychro(Tdry4,:,:,W4,:,:,:,true)
 
 # The thermodynamic state the after second adiabatic saturation is
