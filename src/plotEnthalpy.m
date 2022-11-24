@@ -30,7 +30,7 @@ function plotEnthalpy(h,c="-.r",w=1)
     # plotEnthalpy is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     foo=@(T1) (h-enthalpy(T1,humidity(satPress(T1),:)));
-    T1=newtonraphson(foo,300,1);
+    T1=newtonraphson(foo,273.15,1);
     foo=@(T2) (h-enthalpy(T2,0));
     T2=newtonraphson(foo,T1,1);
     if T2>60+273.15 T2=60+273.15; end
