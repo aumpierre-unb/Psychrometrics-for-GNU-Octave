@@ -17,10 +17,10 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [T,W]=buildVolume(v)#,c="-.g",w=1)
+function [T,W]=buildVolume(v)
     # Syntax:
     #
-    # buildVolume(phi)
+    # buildVolume(v)
     #
     # plotVolume generates a vector of
     #  humidity and dry bulb temperature
@@ -43,6 +43,5 @@ function [T,W]=buildVolume(v)#,c="-.g",w=1)
         foo=@(W) (v-volume(T(n),W,:));
         W=[W;newtonraphson(foo,1e-4,tol)];
     end
-    #plot(T,W,c,"linewidth",w);
 end
 

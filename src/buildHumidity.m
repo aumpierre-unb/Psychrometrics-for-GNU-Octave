@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [T,W]=buildHumidity(phi)#,c="k",w=1)
+function [T,W]=buildHumidity(phi)
     # Syntax:
     #
     # buildHumidity(phi)
@@ -40,6 +40,5 @@ function [T,W]=buildHumidity(phi)#,c="k",w=1)
         pw=psat*phi;
         W=[W;humidity(pw,:)];
     end
-    #plot(T,W,c,"linewidth",w);
 end
 

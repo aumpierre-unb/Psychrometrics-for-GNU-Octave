@@ -17,10 +17,10 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotHumidity(phi,c="k",w=1)
+function plotHumidity(phi)
     # Syntax:
     #
-    # plotHumidity(phi[,c][,w])
+    # plotHumidity(phi)
     #
     # plotHumidity plots a curve of
     #  humidity and dry bulb temperature
@@ -38,6 +38,5 @@ function plotHumidity(phi,c="k",w=1)
         pw=psat*phi;
         W(n)=humidity(pw,:);
     end
-    plot(T,W,c,"linewidth",w);
 end
 

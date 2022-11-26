@@ -17,10 +17,10 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotEnthalpy(h,c="-.r",w=1)
+function plotEnthalpy(h)
     # Syntax:
     #
-    # plotEnthalpy(h[,c][,w])
+    # plotEnthalpy(h)
     #
     # plotEnthalpy plots a curve of
     #  humidity and dry bulb temperature
@@ -41,6 +41,5 @@ function plotEnthalpy(h,c="-.r",w=1)
         foo=@(W) (h-enthalpy(T(n),W));
         W(n)=newtonraphson(foo,1e-3,1);
     end
-    plot(T,W,c,"linewidth",w);
 end
 

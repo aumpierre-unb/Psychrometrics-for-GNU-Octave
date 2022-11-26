@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [T,W]=buildEnthalpy(h)#,c="-.r",w=1)
+function [T,W]=buildEnthalpy(h)
     # Syntax:
     #
     # buildEnthalpy(h)
@@ -43,6 +43,5 @@ function [T,W]=buildEnthalpy(h)#,c="-.r",w=1)
         foo=@(W) (h-enthalpy(T(n),W));
         W=[W;newtonraphson(foo,1e-3,1)];
     end
-    #plot(T,W,c,"linewidth",w);
 end
 

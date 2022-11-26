@@ -17,17 +17,17 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [T,W]=buildVolume(v)#,c="-.g",w=1)
+function [T,W]=plotVolume(v)
     # Syntax:
     #
-    # buildVolume(phi)
+    # plotVolume(v)
     #
     # plotVolume generates a vector of
     #  humidity and dry bulb temperature
     #  with given constant specific volume (in cu. m/kg).
     # By default, constant specific volume curves
     #  are ploted with with green dash-doted thin lines.
-    # buildVolume is an internal function of
+    # plotVolume is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     foo=@(T1) (v-volume(T1,humidity(satPress(T1),:),:));
     tol=v/1e3;
@@ -41,6 +41,5 @@ function [T,W]=buildVolume(v)#,c="-.g",w=1)
         foo=@(W) (v-volume(T(n),W,:));
         W(n)=newtonraphson(foo,1e-4,tol);
     end
-    #plot(T,W,c,"linewidth",w);
 end
 

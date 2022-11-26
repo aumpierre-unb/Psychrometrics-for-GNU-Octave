@@ -17,10 +17,10 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [T,W]=buildWetBulbTemp(Twet)#,c="b",w=1)
+function [T,W]=buildWetBulbTemp(Twet)
     # Syntax:
     #
-    # plotWetBulbTemp(phi)
+    # plotWetBulbTemp(Twet)
     #
     # buildWetBulbTemp generates a vector of
     #  humidity and dry bulb temperature
@@ -39,6 +39,5 @@ function [T,W]=buildWetBulbTemp(Twet)#,c="b",w=1)
         foo=@(W) (W-humidity2(humidity(satPress(Twet),:),T(n),Twet));
         W(n)=newtonraphson(foo,1e-4,1e-5);
     end
-    #plot(T,W,c,"linewidth",w);
 end
 
