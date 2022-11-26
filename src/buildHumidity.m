@@ -22,7 +22,7 @@ function [T,W]=buildHumidity(phi)
     #
     # buildHumidity(phi)
     #
-    # buildHumidity generates a vector of
+    # buildHumidity generates a two column matrix of
     #  humidity and dry bulb temperature
     #  with given constant relative humidity.
     # By default, constant relative humidity curves
@@ -31,7 +31,7 @@ function [T,W]=buildHumidity(phi)
     #  the psychrometrics toolbox for GNU Octave.
     T1=273.15;
     T2=60+273.15;
-    N=10;
+    N=20;
     T=[];
     W=[];
     for n=1:N

@@ -22,7 +22,7 @@ function [T,W]=buildVolume(v)
     #
     # buildVolume(v)
     #
-    # plotVolume generates a vector of
+    # plotVolume generates a two column matrix of
     #  humidity and dry bulb temperature
     #  with given constant specific volume (in cu. m/kg).
     # By default, constant specific volume curves
@@ -35,7 +35,7 @@ function [T,W]=buildVolume(v)
     foo=@(T2) (v-volume(T2,0,:));
     T2=newtonraphson(foo,T1,tol);
     if T2>60+273.15 T2=60+273.15; end
-    N=5;
+    N=10;
     T=[];
     W=[];
     for n=1:N

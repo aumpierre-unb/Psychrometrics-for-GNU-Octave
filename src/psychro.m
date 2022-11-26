@@ -603,15 +603,15 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     Tadiab=adiabSat(h);
     Wadiab=humidity(satPress(Tadiab),:);
     if fig
+        [tv,wv]=buildVolume(v);
+        [tb,wb]=buildWetBulbTemp(Twet);
+        [te,we]=buildEnthalpy(h);
+        [th,wh]=buildHumidity(phi);
         run('doPlot.m');
-        [t,w]=buildVolume(v);
-        hold on;plot(t,w,"-.g",2);
-        [t,w]=buildWetBulbTemp(Twet);
-        hold on;plot(t,w,"b",2);
-        [t,w]=buildEnthalpy(h);
-        hold on;plot(t,w,"-.r",2);
-        [t,w]=buildHumidity(W);
-        hold on;plot(t,w,"k",2);
+        hold on;plot(tv,wv,"-.g",'linewidth',2);
+        hold on;plot(tb,wb,"b",'linewidth',2);
+        hold on;plot(te,we,"-.r",'linewidth',2);
+        hold on;plot(th,wh,"k",'linewidth',2);
         hold on;plot(Tdry,W,"or","markersize",8,"markerfacecolor","r");
         hold on;plot(Twet,Wsatwet,"ob","markersize",8);
         hold on;plot(Tadiab,Wadiab,"or","markersize",8);

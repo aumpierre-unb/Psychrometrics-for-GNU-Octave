@@ -22,7 +22,7 @@ function [T,W]=buildEnthalpy(h)
     #
     # buildEnthalpy(h)
     #
-    # buildEnthalpy generates a vector of
+    # buildEnthalpy generates a two column matrix of
     #  humidity and dry bulb temperature
     #  with given constant specific enthalpy (in J/kg).
     # By default, constant specific enthalpy curves
@@ -35,7 +35,7 @@ function [T,W]=buildEnthalpy(h)
     foo=@(T2) (h-enthalpy(T2,0));
     T2=newtonraphson(foo,T1,tol);
     if T2>60+273.15 T2=60+273.15; end
-    N=5;
+    N=10;
     T=[];
     W=[];
     for n=1:N

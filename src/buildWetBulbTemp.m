@@ -22,7 +22,7 @@ function [T,W]=buildWetBulbTemp(Twet)
     #
     # plotWetBulbTemp(Twet)
     #
-    # buildWetBulbTemp generates a vector of
+    # buildWetBulbTemp generates two column matrix of
     #  humidity and dry bulb temperature
     #  with given constant wet bulb temperature (in K).
     # By default, constant specific volume curves
@@ -33,7 +33,7 @@ function [T,W]=buildWetBulbTemp(Twet)
     foo=@(T2) (0-humidity2(humidity(satPress(Twet),:),T2,Twet));
     T2=newtonraphson(foo,273.15,1e-5);
     if T2>60+273.15 T2=60+273.15; end
-    N=5;
+    N=10;
     T=[];
     W=[];
     for n=1:N
