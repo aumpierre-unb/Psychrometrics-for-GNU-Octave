@@ -17,30 +17,30 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotEnthalpy(h,c="-.r",w=1)
+function [T,W]=buildWetBulbTemp(Twet)#,c="b",w=1)
     # Syntax:
     #
-    # plotEnthalpy(h[,c][,w])
+    # plotWetBulbTemp(phi)
     #
-    # plotEnthalpy plots a curve of
+    # buildWetBulbTemp generates a vector of
     #  humidity and dry bulb temperature
-    #  with given constant specific enthalpy (in J/kg).
-    # By default, constant specific enthalpy curves
-    #  are ploted with red dash-doted thin lines.
-    # plotEnthalpy is an internal function of
+    #  with given constant wet bulb temperature (in K).
+    # By default, constant specific volume curves
+    #  are ploted with with blue solid thin lines.
+    # buildWetBulbTemp is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
-    foo=@(T1) (h-enthalpy(T1,humidity(satPress(T1),:)));
-    tol=h/1e3;
-    T1=newtonraphson(foo,300,tol);
-    foo=@(T2) (h-enthalpy(T2,0));
-    T2=newtonraphson(foo,T1,tol);
+    T1=Twet;
+    foo=@(T2) (0-humidity2(humidity(satPress(Twet),:),T2,Twet));
+    T2=newtonraphson(foo,273.15,1e-5);
     if T2>60+273.15 T2=60+273.15; end
     N=5;
+    T=[];
+    W=[];
     for n=1:N
-        T(n)=T1+(T2-T1)/(N-1)*(n-1);
-        foo=@(W) (h-enthalpy(T(n),W));
-        W(n)=newtonraphson(foo,1e-3,1);
+        T=[T;T1+(T2-T1)/(N-1)*(n-1)];
+        foo=@(W) (W-humidity2(humidity(satPress(Twet),:),T(n),Twet));
+        W=[W;newtonraphson(foo,1e-4,1e-5)];
     end
-    plot(T,W,c,"linewidth",w);
+    #plot(T,W,c,"linewidth",w);
 end
 

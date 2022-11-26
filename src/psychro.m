@@ -155,7 +155,8 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         h=enthalpy(Tdry,W);
         v=volume(Tdry,W,:);
         foo=@(pw) (W-humidity(pw,:));
-        pw=bissection(foo,0,psat,1e-5);
+        tol=W/1e3;
+        pw=newtonraphson(foo,psat,tol);
         Tdew=dewTemp(pw);
         phi=pw/psat;
         rho=(1+Wsatwet)/v;
@@ -542,7 +543,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         function [y,Tdry,psat]=foobar(pw,h,phi)
             W=humidity(pw,:);
             foo=@(Tdry) (h-enthalpy(Tdry,W));
-            Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
+            Tdry=newtonraphson(foo,50+273.15,1e-5);
             foo=@(psat) (psat-satPress(Tdry));
             psat=newtonraphson(foo,pw,1);
             y=pw/psat-phi;
@@ -563,7 +564,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         Tdew=dewTemp(pw);
         Wsat=humidity(psat,:);
         foo=@(Twet) (W-humidity2(humidity(satPress(Twet),:),Tdry,Twet));
-        Twet=bissection(foo,Tdew,Tdry,1e-5);
+        Twet=newtonraphson(foo,Tdry,1e-5);
         psatwet=satPress(Twet);
         Wsatwet=humidity(psatwet,:);
         v=volume(Tdry,W,:);
@@ -572,7 +573,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         function [y,Tdry,psat]=foobaz(pw,v,phi)
             W=humidity(pw,:);
             foo=@(Tdry) (v-volume(Tdry,W,:));
-            Tdry=bissection(foo,-100+273.15,200+273.15,1e-5);
+            Tdry=newtonraphson(foo,50+273.15,1e-5);
             foo=@(psat) (psat-satPress(Tdry));
             psat=newtonraphson(foo,pw,1);
             y=pw/psat-phi;
@@ -593,7 +594,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         Tdew=dewTemp(pw);
         Wsat=humidity(psat,:);
         foo=@(Twet) (W-humidity2(humidity(satPress(Twet),:),Tdry,Twet));
-        Twet=bissection(foo,Tdew,Tdry,1e-5);
+        Twet=newtonraphson(foo,Tdry,1e-5);
         psatwet=satPress(Twet);
         Wsatwet=humidity(psatwet,:);
         rho=(1+Wsatwet)/v;
@@ -602,17 +603,23 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     Tadiab=adiabSat(h);
     Wadiab=humidity(satPress(Tadiab),:);
     if fig
-        doPlot;
-        hold on;plotVolume(v,"-.g",2);
-        hold on;plotWetBulbTemp(Twet,"b",2);
-        hold on;plotEnthalpy(h,"-.r",2);
-        hold on;plotHumidity(phi,"k",2);
+        run('doPlot.m');
+        [t,w]=buildVolume(v);
+        hold on;plot(t,w,"-.g",2);
+        [t,w]=buildWetBulbTemp(Twet);
+        hold on;plot(t,w,"b",2);
+        [t,w]=buildEnthalpy(h);
+        hold on;plot(t,w,"-.r",2);
+        [t,w]=buildHumidity(W);
+        hold on;plot(t,w,"k",2);
         hold on;plot(Tdry,W,"or","markersize",8,"markerfacecolor","r");
         hold on;plot(Twet,Wsatwet,"ob","markersize",8);
         hold on;plot(Tadiab,Wadiab,"or","markersize",8);
         hold on;plot(Tdew,W,"ok","markersize",8);
+        hold on;plot(Tdry,Wsat,"ok","markersize",8);
         hold on;plot([Tdew Tdew 340],[0 W W],"--k");
         hold on;plot([Tadiab Tadiab 340],[0 Wadiab Wadiab],"--r");
         hold on;plot([Twet Twet 340],[0 Wsatwet Wsatwet],"-.b");
+        hold on;plot([Tdry Tdry 340],[0 Wsat Wsat],"-.k");
     end
 end

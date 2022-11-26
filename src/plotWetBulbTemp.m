@@ -17,17 +17,17 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function plotWetBulbTemp(Twet,c="b",w=1)
+function [T,W]=buildWetBulbTemp(Twet)#,c="b",w=1)
     # Syntax:
     #
-    # plotWetBulbTemp(phi[,c][,w])
+    # plotWetBulbTemp(phi)
     #
-    # plotWetBulbTemp plots a curve of
+    # buildWetBulbTemp generates a vector of
     #  humidity and dry bulb temperature
     #  with given constant wet bulb temperature (in K).
     # By default, constant specific volume curves
     #  are ploted with with blue solid thin lines.
-    # plotWetBulbTemp is an internal function of
+    # buildWetBulbTemp is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     T1=Twet;
     foo=@(T2) (0-humidity2(humidity(satPress(Twet),:),T2,Twet));
@@ -37,8 +37,8 @@ function plotWetBulbTemp(Twet,c="b",w=1)
     for n=1:N
         T(n)=T1+(T2-T1)/(N-1)*(n-1);
         foo=@(W) (W-humidity2(humidity(satPress(Twet),:),T(n),Twet));
-        W(n)=newtonraphson(foo,1e-3,1e-5);
+        W(n)=newtonraphson(foo,1e-4,1e-5);
     end
-    plot(T,W,c,"linewidth",w);
+    #plot(T,W,c,"linewidth",w);
 end
 

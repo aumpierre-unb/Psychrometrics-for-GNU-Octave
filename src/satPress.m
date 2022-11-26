@@ -37,7 +37,7 @@ function [psat]=satPress(Tdry)
     # psat=satPress(Tdry) # saturation pressure in Pa
     #
     # See also: psychro, humidity, enthalpy, volume, adiabSat.
-    run("constants.m");
+    run('constants.m');
     if -100<=Tdry-273.15 & Tdry-273.15<0
         k=c(1)/Tdry+...
         c(2)+...
@@ -54,7 +54,7 @@ function [psat]=satPress(Tdry)
         c(12)*Tdry^3+...
         c(13)*log(Tdry);
     else
-        error("Temperature must be in the range from 173.15 K to 473.15 K");
+        error('Temperature must be in the range from 173.15 K to 473.15 K');
     end
     psat=exp(k);
 end
