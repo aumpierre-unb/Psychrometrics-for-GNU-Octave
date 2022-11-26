@@ -275,7 +275,7 @@ except the combination of humidity and dew point temperature, which are not inde
 # given Tdry and W
 # unknowns must be indicated by default value syntax
 [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(Tdry,:,:,W,:,:,:,false)
+psychro(Tdry,:,:,W,:,:,:[,fig=false])
 ```
 
 **Examples:**
