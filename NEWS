@@ -11,7 +11,8 @@ internal-fluid-flow 0.1.3-alpha (2022-11-18)
 * Guidelines of temperature of adiabatic saturation included
 * Guidelines of saturation at dry bulb temperature included
 * Psychrometric chart response built
-  from a built-in file (avoid unecessary computation)
+  from a built-in file (avoid unnecessary computation)
+* Dependency on optim removed
 
 internal-fluid-flow 0.1.2 (2022-11-18)
 ======================================
