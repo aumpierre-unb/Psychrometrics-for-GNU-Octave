@@ -36,7 +36,7 @@ function [T,W]=buildHumidity(phi)
     W=[];
     for n=1:N
         T=[T;T1+(T2-T1)/(N-1)*(n-1)];
-        psat=satPress(T(n));
+        psat=satPress(T(end));
         pw=psat*phi;
         W=[W;humidity(pw,:)];
     end

@@ -31,17 +31,18 @@ function [T,W]=buildVolume(v)
     #  the psychrometrics toolbox for GNU Octave.
     foo=@(T1) (v-volume(T1,humidity(satPress(T1),:),:));
     tol=v/1e3;
-    T1=newtonraphson(foo,273.15,tol);
+    T1=newtonraphson(foo,50+273.15,tol);
     foo=@(T2) (v-volume(T2,0,:));
     T2=newtonraphson(foo,T1,tol);
     if T2>60+273.15 T2=60+273.15; end
-    N=10;
+    N=5;
     T=[];
     W=[];
     for n=1:N
         T=[T;T1+(T2-T1)/(N-1)*(n-1)];
         foo=@(W) (v-volume(T(n),W,:));
-        W=[W;newtonraphson(foo,1e-4,tol)];
+        tol=abs(foo(1e-3)/1e3);
+        W=[W;newtonraphson(foo,1e-2,tol)];
     end
 end
 
