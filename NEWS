@@ -20,6 +20,7 @@ internal-fluid-flow 0.1.2 (2022-11-18)
 * Fixed important bug on the main function
 * Major changes to accelerate computation
 * Pkg optim included as dependency
+* Plots upgraded
 
 internal-fluid-flow 0.1.1 (2022-11-17)
 ======================================
