@@ -36,8 +36,11 @@ function buildChart()
     [T,W]=buildVolume(.90);u=[u T W];
     [T,W]=buildVolume(.92);u=[u T W];
     [T,W]=buildVolume(.94);u=[u T W];
-    [T,W]=buildVolume(.96);u=[u T W]
+    [T,W]=buildVolume(.96);u=[u T W];
+    [T,W]=buildVolume(.98);u=[u T W]
+
     u=[];
+    [T,W]=buildWetBulbTemp(00+273.15);u=[u T W];
     [T,W]=buildWetBulbTemp(05+273.15);u=[u T W];
     [T,W]=buildWetBulbTemp(10+273.15);u=[u T W];
     [T,W]=buildWetBulbTemp(15+273.15);u=[u T W];
@@ -45,6 +48,7 @@ function buildChart()
     [T,W]=buildWetBulbTemp(25+273.15);u=[u T W];
     [T,W]=buildWetBulbTemp(30+273.15);u=[u T W];
     [T,W]=buildWetBulbTemp(35+273.15);u=[u T W]
+
     u=[];
     [T,W]=buildEnthalpy(10e3);u=[u T W];
     [T,W]=buildEnthalpy(20e3);u=[u T W];
@@ -59,13 +63,20 @@ function buildChart()
     [T,W]=buildEnthalpy(11e4);u=[u T W];
     [T,W]=buildEnthalpy(12e4);u=[u T W];
     [T,W]=buildEnthalpy(13e4);u=[u T W]
+
     u=[];
-    [T,W]=buildHumidity(.05);u=[u T W];
-    [T,W]=buildHumidity(.10);u=[u T W];
+    [T,W]=buildHumidity(1.);u=[u T W];
+    [T,W]=buildHumidity(.8);u=[u T W];
+    [T,W]=buildHumidity(.6);u=[u T W];
+    [T,W]=buildHumidity(.4);u=[u T W]
+
+    u=[];
+    [T,W]=buildHumidity(.30);u=[u T W];
+    [T,W]=buildHumidity(.25);u=[u T W];
     [T,W]=buildHumidity(.20);u=[u T W];
-    [T,W]=buildHumidity(.40);u=[u T W];
-    [T,W]=buildHumidity(.60);u=[u T W];
-    [T,W]=buildHumidity(.80);u=[u T W];
-    [T,W]=buildHumidity(1.0);u=[u T W]
+    [T,W]=buildHumidity(.15);u=[u T W];
+    [T,W]=buildHumidity(.10);u=[u T W];
+    [T,W]=buildHumidity(.05);u=[u T W]
+
 end
 

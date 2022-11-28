@@ -144,7 +144,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # See also: humidity, satPress, enthalpy, volume, adiabSat.
     a=[Tdry,Twet,Tdew,W,h,v,phi]==-1;
     if sum(a)~=5
-        error(["Function psychro demands two and only two inputs.\nUnknowns must be assigned with ':'."]);
+        error(['Function psychro demands two and only two inputs.\nUnknowns must be assigned with ':'.']);
     end
     if a==[0 0 1 1 1 1 1]
         psat=satPress(Tdry);
@@ -566,18 +566,18 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         [te,we]=buildEnthalpy(h);
         [th,wh]=buildHumidity(phi);
         run('doPlot.m');
-        hold on;plot(tv,wv,"-.g",'linewidth',2);
-        hold on;plot(tb,wb,"b",'linewidth',2);
-        hold on;plot(te,we,"-.r",'linewidth',2);
-        hold on;plot(th,wh,"k",'linewidth',2);
-        hold on;plot(Tdry,W,"or","markersize",8,"markerfacecolor","r");
-        hold on;plot(Twet,Wsatwet,"ob","markersize",8);
-        hold on;plot(Tadiab,Wadiab,"or","markersize",8);
-        hold on;plot(Tdew,W,"ok","markersize",8);
-        hold on;plot(Tdry,Wsat,"ok","markersize",8);
-        hold on;plot([Tdew Tdew 340],[0 W W],"--k",'linewidth',.5);
-        hold on;plot([Tadiab Tadiab 340],[0 Wadiab Wadiab],"--r",'linewidth',.5);
-        hold on;plot([Twet Twet 340],[0 Wsatwet Wsatwet],"-.b",'linewidth',.5);
-        hold on;plot([Tdry Tdry 340],[0 Wsat Wsat],"-.k",'linewidth',.5);
+        hold on;plot(tv,wv,'-.g','color','#1D8B20','linewidth',2);
+        hold on;plot(tb,wb,'b','linewidth',2);
+        hold on;plot(te,we,'-.r','linewidth',2);
+        hold on;plot(th,wh,'k','linewidth',2);
+        hold on;plot(Tdry,W,'or','markersize',8,'markerfacecolor','r');
+        hold on;plot(Twet,Wsatwet,'ob','markersize',8);
+        hold on;plot(Tadiab,Wadiab,'or','markersize',8);
+        hold on;plot(Tdew,W,'ok','markersize',8);
+        hold on;plot(Tdry,Wsat,'ok','markersize',8);
+        hold on;plot([Tdew Tdew 340],[0 W W],'--k','linewidth',.5);
+        hold on;plot([Tadiab Tadiab 340],[0 Wadiab Wadiab],'--r','linewidth',.5);
+        hold on;plot([Twet Twet 340],[0 Wsatwet Wsatwet],'-.b','linewidth',.5);
+        hold on;plot([Tdry Tdry 340],[0 Wsat Wsat],'-.k','linewidth',.5);
     end
 end
