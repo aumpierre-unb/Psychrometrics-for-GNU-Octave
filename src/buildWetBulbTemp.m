@@ -30,6 +30,11 @@ function [T,W]=buildWetBulbTemp(Twet)
     # buildWetBulbTemp is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     T1=Twet;
+    if humidity(satPress(T1),:)>.03
+        foo=@(T1) (.03-humidity2(humidity(satPress(Twet),:),T1,Twet));
+        tol=abs(foo(50+273.15)/1e3);
+        T1=newtonraphson(foo,50+273.15,tol);
+    end
     foo=@(T2) (0-humidity2(humidity(satPress(Twet),:),T2,Twet));
     tol=abs(foo(50+273.15)/1e3);
     T2=newtonraphson(foo,50+273.15,tol);

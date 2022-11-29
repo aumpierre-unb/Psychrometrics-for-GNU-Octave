@@ -30,7 +30,10 @@ function [T,W]=buildHumidity(phi)
     # buildHumidity is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     T1=273.15;
-    T2=60+273.15;
+    foo=@(T2) (.03-humidity(satPress(T2)*phi,:));
+    tol=abs(foo(50+273.15)/1e3);
+    T2=newtonraphson(foo,50+273.15,tol);
+    if T2>60+273.15 T2=60+273.15; end
     N=20;
     T=[];
     W=[];

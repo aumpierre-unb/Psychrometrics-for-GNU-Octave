@@ -574,10 +574,17 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         hold on;plot(Twet,Wsatwet,'ob','markersize',8);
         hold on;plot(Tadiab,Wadiab,'or','markersize',8);
         hold on;plot(Tdew,W,'ok','markersize',8);
-        hold on;plot(Tdry,Wsat,'ok','markersize',8);
-        hold on;plot([Tdew Tdew 340],[0 W W],'--k','linewidth',.5);
-        hold on;plot([Tadiab Tadiab 340],[0 Wadiab Wadiab],'--r','linewidth',.5);
-        hold on;plot([Twet Twet 340],[0 Wsatwet Wsatwet],'-.b','linewidth',.5);
-        hold on;plot([Tdry Tdry 340],[0 Wsat Wsat],'-.k','linewidth',.5);
+        if Wsat>.03
+            wsat=.03;
+            hold on;plot([Tdry Tdry],[0 wsat],'-.k','linewidth',.5);
+        else
+            wsat=Wsat;
+            hold on;plot(Tdry,wsat,'ok','markersize',8);
+            hold on;plot([Tdry Tdry 60+273.15],[0 wsat wsat],'-.k','linewidth',.5);
+        end
+        hold on;plot([Tdew Tdew 60+273.15],[0 W W],'--k','linewidth',.5);
+        hold on;plot([Tadiab Tadiab 60+273.15],[0 Wadiab Wadiab],'--r','linewidth',.5);
+        hold on;plot([Twet Twet 60+273.15],[0 Wsatwet Wsatwet],'-.b','linewidth',.5);
+
     end
 end

@@ -32,7 +32,13 @@ function [T,W]=buildVolume(v)
     foo=@(T1) (v-volume(T1,humidity(satPress(T1),:),:));
     tol=v/1e3;
     T1=newtonraphson(foo,50+273.15,tol);
+    if humidity(satPress(T1),:)>.03
+        foo=@(T1) (v-volume(T1,.03,:));
+        tol=abs(foo(50+273.15)/1e3);
+        T1=newtonraphson(foo,50+273.15,tol);
+    end
     foo=@(T2) (v-volume(T2,0,:));
+    tol=abs(foo(50+273.15)/1e3);
     T2=newtonraphson(foo,T1,tol);
     if T2>60+273.15 T2=60+273.15; end
     N=5;
