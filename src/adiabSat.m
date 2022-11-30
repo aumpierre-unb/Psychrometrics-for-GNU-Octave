@@ -47,8 +47,8 @@ function [Tadiab,Wadiab]=adiabSat(h,fig=false)
     Wadiab=humidity(padiab,:);
     if fig
         doPlot;
-        hold on;plotHumidity(1,"k",2);
-        hold on;plotEnthalpy(h,"-.r",2);
-        hold on;plot(Tadiab,Wadiab,"or","markersize",8);
+        hold on;plotHumidity(1,'k',2);
+        hold on;plotEnthalpy(h,'-.r',2);
+        hold on;plot(Tadiab,Wadiab,'or','markersize',8);
     end
 end
