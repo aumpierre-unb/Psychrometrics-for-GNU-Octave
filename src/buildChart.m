@@ -38,7 +38,6 @@ function buildChart()
     [T,W]=buildVolume(.94);uv=[uv T W];
     [T,W]=buildVolume(.96);uv=[uv T W];
     [T,W]=buildVolume(.98);uv=[uv T W];
-
     uT=[];
     [T,W]=buildWetBulbTemp(00+273.15);uT=[uT T W];
     [T,W]=buildWetBulbTemp(05+273.15);uT=[uT T W];
@@ -48,7 +47,6 @@ function buildChart()
     [T,W]=buildWetBulbTemp(25+273.15);uT=[uT T W];
     [T,W]=buildWetBulbTemp(30+273.15);uT=[uT T W];
     [T,W]=buildWetBulbTemp(35+273.15);uT=[uT T W];
-
     ue=[];
     [T,W]=buildEnthalpy(10e3);ue=[ue T W];
     [T,W]=buildEnthalpy(20e3);ue=[ue T W];
@@ -63,13 +61,11 @@ function buildChart()
     [T,W]=buildEnthalpy(11e4);ue=[ue T W];
     [T,W]=buildEnthalpy(12e4);ue=[ue T W];
     [T,W]=buildEnthalpy(13e4);ue=[ue T W];
-
     uh=[];
     [T,W]=buildHumidity(1.);uh=[uh T W];
     [T,W]=buildHumidity(.8);uh=[uh T W];
     [T,W]=buildHumidity(.6);uh=[uh T W];
     [T,W]=buildHumidity(.4);uh=[uh T W];
-
     uH=[];
     [T,W]=buildHumidity(.30);uH=[uH T W];
     [T,W]=buildHumidity(.25);uH=[uH T W];
@@ -77,7 +73,6 @@ function buildChart()
     [T,W]=buildHumidity(.15);uH=[uH T W];
     [T,W]=buildHumidity(.10);uH=[uH T W];
     [T,W]=buildHumidity(.05);uH=[uH T W];
-
     save 'plotData.m' uv uT ue uh uH
 end
 

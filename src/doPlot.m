@@ -33,7 +33,7 @@ function doPlot()
     #  highly not recommended.
     # doPlot is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
-    load 'plotData.m';
+    run('plotData.m');
     hold on;
     figure;
     xlabel('Dry Bulb Temperature (K)');
