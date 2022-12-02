@@ -1,4 +1,5 @@
 # psychrometrics is a toolbox for air-water vapor psychrometrics for GNU Octave.
 toolbox >> Psychrometrics
 Functions
- psychro humidity satPress enthalpy volume adiabSat
+ psychro adiabSat
+ humidity satPress enthalpy volume
