@@ -29,7 +29,6 @@ function [x]=newtonraphson(f,x,tol)
     # newtonraphson is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     while abs(f(x))>tol
-        #a=deriv(f,x);
         a=(f(x+1e-7)-f(x))/1e-7;
         x=x-f(x)/a;
     end
