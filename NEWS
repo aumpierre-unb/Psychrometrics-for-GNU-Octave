@@ -1,9 +1,8 @@
 TODO
 ====
 * Reduce time of computation
-* Increase precision
 
-internal-fluid-flow 0.1.3-alpha (2022-11-18)
+internal-fluid-flow 0.2.0 (2022-12-03)
 ======================================
 * Minor changes on documentation
 * Help comments for internal functions included
