@@ -34,7 +34,7 @@ function doPlot()
     # doPlot is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     run('plotData.m');
-    hold on;
+
     figure;
     xlabel('Dry Bulb Temperature (K)');
     ylabel('Humidity (kg vapor / kg dry air)');
@@ -43,6 +43,7 @@ function doPlot()
         'fontsize',16,...
         'box','off',...
         'yaxislocation','right');
+    hold on;
 
     for i=1:size(uv,2)/2
         plot(uv(:,2*(i-1)+1),uv(:,2*(i-1)+2),'-.g','color',[29/256 139/256 32/256],'linewidth',1.2);
@@ -78,5 +79,4 @@ function doPlot()
     text(328.6,.015 ,'15 %','color','#4B4B4B');
     text(328.6,.0098,'10 %','color','#4B4B4B');
     text(328.6,.0046, '5 %','color','#4B4B4B');
-    hold off;
 end
