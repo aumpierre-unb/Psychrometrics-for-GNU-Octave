@@ -2,6 +2,10 @@ TODO
 ====
 * Reduce time of computation
 
+internal-fluid-flow 0.2.1 (2022-12-05)
+======================================
+* Important bug fixed
+
 internal-fluid-flow 0.2.0 (2022-12-03)
 ======================================
 * Minor changes on documentation
@@ -13,7 +17,7 @@ internal-fluid-flow 0.2.0 (2022-12-03)
   from a built-in file (avoid unnecessary computation)
 * Dependency on optim removed
 
-internal-fluid-flow 0.1.2 (2022-12-03)
+internal-fluid-flow 0.1.2 (2022-11-18)
 ======================================
 * Minor changes on documentation
 * Fixed important bug on the main function
