@@ -19,11 +19,10 @@ pkg install https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/archi
 
 You can cite all versions (both released and pre-released), by using
 [DOI 105281/zenodo.7325079](https://doi.org/10.5281/zenodo.7325079).
-
 This DOI represents all versions, and will always resolve to the latest one.
 
-To cite the last released version, please check
-https://zenodo.org/account/settings/github/repository/aumpierre-unb/Psychrometrics-for-GNU-Octave.
+<!--To cite the last released version, please check
+https://zenodo.org/account/settings/github/repository/aumpierre-unb/Psychrometrics-for-GNU-Octave.-->
 
 ---
 
