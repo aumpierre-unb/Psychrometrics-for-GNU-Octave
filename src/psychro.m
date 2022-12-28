@@ -355,7 +355,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         tol=abs(foo(1e3)/1e3);
         pw=newtonraphson(foo,1e3,tol);
         tdew=dewTemp(pw);
-        error('Dew point temperature and humidity\nare not independent variables.\nFor %g kg/kg humidity, one has\n%g K dew point temperature, and\nfor %g K dew point tempearature, one has\n%g kg/kg humidity.',W,tdew,Tdew,w);
+        error('Dew point temperature and humidity\nare not independent variables.\nFor %g kg/kg humidity, one has\n%g K dew point temperature, and\nfor %g K dew point temperature, one has\n%g kg/kg humidity.',W,tdew,Tdew,w);
     elseif a==[1 1 0 1 0 1 1]
         foo=@(pw) (dewTemp(pw)-Tdew);
         tol=abs(foo(1e3)/1e3);

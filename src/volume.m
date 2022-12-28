@@ -37,7 +37,8 @@ function [v]=volume(Tdry,W,p=101325)
     # Examples:
     # # Compute the specific volume given
     # # the dry bulb temperature is 25 °C and
-    # # the humidity is 7 g/kg of dry air.
+    # # the humidity is 7 g/kg of dry air
+    # # at 1 atm total pressure.
     #
     # Tdry=25+273.15; # dry bulb temperature in K
     # W=7e-3; # humidity in kg/kg of dry air

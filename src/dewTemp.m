@@ -28,6 +28,16 @@ function [Tdew]=dewTemp(pw)
     #  the water vapor pressure (in Pa).
     # dewTemp is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
+    #
+    # Examples:
+    # # Compute the dew temperature
+    # # of humid air given
+    # # the water vapor pressure is 1 kPa.
+    #
+    # pw=1e3; # water vapor pressure in Pa
+    # Tdew=dewTemp(pw) # dew temperature at K
+    #
+    # See also: psychro, humidity, satPress, enthalpy, volume.
     run('constants.m');
     alpha=log(pw/1000);
     Tdew=c(14)+...
