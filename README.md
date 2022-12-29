@@ -348,7 +348,7 @@ the humidity of humid air in given the water vapor pressure and the total pressu
 
 **Examples:**
 
-Compute the humidity of humid air at atmospheric pressure given water vapor pressure is 1 kPa.
+Compute the humidity of humid air at atmospheric pressure given water vapor pressure is 1 kPa at 1 atm total pressure.
 
 ```dotnetcli
 pw=1e3; # water vapor pressure in Pa
@@ -406,7 +406,7 @@ h=enthalpy(Tdry,W) # specific enthalpy in J/kg of dry air
 
 **Examples:**
 
-Compute the specific volume given the dry bulb temperature is 25 °C and the humidity is 7 g/kg of dry air.
+Compute the specific volume given the dry bulb temperature is 25 °C and the humidity is 7 g/kg of dry air at 1 atm total pressure.
 
 ```dotnetcli
 Tdry=25+273.15; # dry bulb temperature in K

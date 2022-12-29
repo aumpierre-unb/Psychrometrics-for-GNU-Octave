@@ -34,7 +34,6 @@ function doPlot()
     # doPlot is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     run('plotData.m');
-
     figure;
     xlabel('Dry Bulb Temperature (K)');
     ylabel('Humidity (kg vapor / kg dry air)');
@@ -44,32 +43,27 @@ function doPlot()
         'box','off',...
         'yaxislocation','right');
     hold on;
-
     for i=1:size(uv,2)/2
         plot(uv(:,2*(i-1)+1),uv(:,2*(i-1)+2),'-.g','color',[29/256 139/256 32/256],'linewidth',1.2);
     end
     text(286.8,.0180,'0.86 cu.m/kg','color','#1D8B20');
     text(282.0,.0135,'0.84 cu.m/kg','color','#1D8B20');
-
     for i=1:size(uT,2)/2
         plot(uT(:,2*(i-1)+1),uT(:,2*(i-1)+2),'-b','linewidth',1.2);
     end
     text(293.3,.0205,'25 °C','color','b');
-    text(298.3,.0275,'30 °C','color','b')
-
+    text(298.3,.0275,'30 °C','color','b');
     for i=1:size(ue,2)/2
         plot(ue(:,2*(i-1)+1),ue(:,2*(i-1)+2),'-.r','linewidth',1.2);
     end
     text(273,.0065,'20 kJ/kg','color','r');
     text(277,.0084,'30 kJ/kg','color','r');
-
     for i=1:size(uh,2)/2
         plot(uh(:,2*(i-1)+1),uh(:,2*(i-1)+2),'-k','linewidth',1.2);
     end
     text(308,.028,'80 %','color','k');
     text(313.2,.028,'60 %','color','k');
     text(321,.028,'40 %','color','k');
-
     for i=1:size(uH,2)/2
         plot(uH(:,2*(i-1)+1),uH(:,2*(i-1)+2),'color','#4B4B4B','linewidth',1.2);
     end
