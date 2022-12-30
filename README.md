@@ -108,7 +108,7 @@ $$
 c = c_{dry} + c_{vap}\ (W_{sat} - W)
 $$
 
-As the vaporization latent heat is usually much higher than the sensible heat, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature for constant specific enthalpy, producing fairly straight lines in the psychromeric chart.
+As the vaporization latent heat is usually much higher than the sensible heat, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature for constant specific enthalpy, producing fairly straight lines in the psychrometric chart.
 
 The volume of the gaseous mixture per mass of dry air, or *specific volume*, is given by
 
@@ -116,7 +116,7 @@ $$
 v = {\displaystyle{nRT_{dry} \over p} \over {m_{dry}}} = R_{air}T_{dry} {\displaystyle{1+{W \over 0.621945}} \over p}
 $$
 
-At room temperature at atmospheric pressure, humidity is closely proportional to dry bulb temperature for constant specific volume, producing fairly straight lines in the psychromeric chart.
+At room temperature at atmospheric pressure, humidity is closely proportional to dry bulb temperature for constant specific volume, producing fairly straight lines in the psychrometric chart.
 
 ### Dry Bulb Temperature & Wet Bulb Temperature
 
@@ -152,7 +152,7 @@ $$
 {{W - W_{wet}} \over {T - T_{wet}}} = -{h \over {\lambda_{wet}\ k^*}}
 $$
 
-Therefore, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature, producing fairly straight lines in the psychromeric chart for constant wet bulb temperature.
+Therefore, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature, producing fairly straight lines in the psychrometric chart for constant wet bulb temperature.
 
 ### Empirical Equations
 
@@ -281,7 +281,7 @@ Compute the dry bulb temperature, the wet bulb temperature, the adiabatic satura
 This call computes the answer and omits the psychrometric chart:
 
 ```dotnetcli
-Tdew=22+273.15; # dew point temperarture
+Tdew=22+273.15; # dew point temperature
 phi=.29; # relative humidity
 [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
 psychro(:,:,Tdew,:,:,:,phi)
@@ -295,7 +295,7 @@ psychro(:,:,22+273.15,:,:,:,.29,true)
 ```
 
 Compute the dry bulb temperature, the wet bulb temperature,
-the dew point temperature, adiabatic saturation temperature, the dew point temperature the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the specific enthalpy is 79.5 kJ/kg of dry air and the relative humidity is 29 % and plot a graphical representation of the answer ina a schematic psychrometric chart.
+the dew point temperature, adiabatic saturation temperature, the dew point temperature the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the specific enthalpy is 79.5 kJ/kg of dry air and the relative humidity is 29 % and plot a graphical representation of the answer in a schematic psychrometric chart.
 
 ```dotnetcli
 [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
