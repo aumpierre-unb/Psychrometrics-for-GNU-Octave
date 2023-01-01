@@ -20,6 +20,7 @@
 # plotData privides
 #  the data for a schematic
 #  air-water vapor psychrometric chart.
+# Edition of this file is highly not advised.
 # plotData is part of
 #  the psychrometrics toolbox for GNU Octave.
 uv=[

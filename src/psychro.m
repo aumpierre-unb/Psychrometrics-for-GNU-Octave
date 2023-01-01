@@ -120,25 +120,27 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # [~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1,Twet1,:,:,:,:,:,true)
     #
     # # The thermodynamic state the after first adiabatic saturation is
-    # Tdry2=323
-    # W2=W1
+    # Tdry2=323;
+    # W2=W1;
     # [~,~,~,~,~,~,~,~,h2,v2]=psychro(Tdry2,:,:,W2,:,:,:,true)
     # # The thermodynamic state the after first adiabatic saturation is
-    # h3=h2
+    # h3=h2;
     # [Tdry3,W3]=adiabSat(h3)
     # [~,~,~,~,~,~,~,~,~,v3]=psychro(Tdry3,:,:,W3)
     #
     # # The thermodynamic state after the second heating is
-    # Tdry4=323
-    # W4=W3
+    # Tdry4=323;
+    # W4=W3;
     # [~,~,~,~,~,~,~,~,h4,v4]=psychro(Tdry4,:,:,W4,:,:,:,true)
     # # The thermodynamic state the after second adiabatic saturation is
-    # h5=h4
+    # h5=h4;
     # [Tdry5,W5]=adiabSat(h5)
     # [~,~,~,~,~,~,~,~,~,v5]=psychro(Tdry5,:,:,W5)
     #
-    # # The energy and water vapor demands are
+    # # The energy demand is
     # (h5-h1)*(8.5/v1) # demand of energy
+    #
+    # # The water vapor demand is
     # (W5-W1)*(8.5/v1) # demand of water vapor
     #
     # See also: humidity, satPress, enthalpy, volume, adiabSat.

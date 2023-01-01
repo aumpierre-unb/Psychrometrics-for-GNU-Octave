@@ -29,8 +29,7 @@ function doPlot()
     #  constant specific volume,
     #  constant specific enthalpy and
     #  constant relative humidity.
-    # Edition of this file is
-    #  highly not recommended.
+    # Edition of this file is highly not advised.
     # doPlot is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     run('plotData.m');

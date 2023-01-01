@@ -23,9 +23,9 @@ function [psat]=satPress(Tdry)
     # [psat]=satPress(Tdry)
     #
     # satPress computes
-    #  the saturation pressure (in pa)
+    #  the saturation pressure psat (in pa)
     #  of humid air given
-    #  the dry bulb temperature (in K).
+    #  the dry bulb temperature Tdry (in K).
     # satPress is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     #

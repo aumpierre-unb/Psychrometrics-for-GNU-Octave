@@ -426,10 +426,10 @@ v=volume(Tdry,W) # specific volume in cu. m/kg of dry air
 
 **Examples:**
 
-Compute the the adiabatic saturation temperature and the adiabatic saturation humidity given the specific enthalpy is 82.4 kJ/kG of dry air and plot a graphical representation of the answer in a schematic psychrometric chart.
+Compute the the adiabatic saturation temperature and the adiabatic saturation humidity given the specific enthalpy is 82.4 kJ/kg of dry air and plot a graphical representation of the answer in a schematic psychrometric chart.
 
 ```dotnetcli
-h=82.4e3; # specific enthalpy in J/kG
+h=82.4e3; # specific enthalpy in J/kg
 [Tadiab,Wadiab]=adiabSat(h,true) # inputs and outputs in SI units
 ```
 

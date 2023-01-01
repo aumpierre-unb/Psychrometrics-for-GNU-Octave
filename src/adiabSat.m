@@ -22,8 +22,8 @@ function [Tadiab,Wadiab]=adiabSat(h,fig=false)
     # [Tadiab,Wadiab]=adiabSat(h[,fig=false])
     #
     # adiabSat computes
-    #  the adiabatic saturation temperature (in K) and
-    #  the adiabatic saturation humidity (in Kg/kg of dry air) given
+    #  the adiabatic saturation temperature Tadiab (in K) and
+    #  the adiabatic saturation humidity Wadiab (in Kg/kg of dry air) given
     #  the specific enthalpy h (in J/kg of dry air).
     # If fig = true is given, a schematic psychrometric chart
     #  is plotted as a graphical representation
@@ -33,11 +33,11 @@ function [Tadiab,Wadiab]=adiabSat(h,fig=false)
     #
     # Examples:
     # # Compute the adiabatic saturation temperature given
-    # # the specific enthalpy is 82.4 kJ/kG of dry air and
+    # # the specific enthalpy is 82.4 kJ/kg of dry air and
     # # plot a graphical representation of the
     # # answer in a schematic psychrometric chart.
     #
-    # h=82.4e3; # specific enthalpy in J/kG
+    # h=82.4e3; # specific enthalpy in J/kg
     # [Tadiab,Wadiab]=adiabSat(h,true) # inputs and outputs in SI units
     #
     # See also: psychro, humidity, satPress, enthalpy, volume.

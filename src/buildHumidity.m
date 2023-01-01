@@ -24,7 +24,7 @@ function [T,W]=buildHumidity(phi)
     #
     # buildHumidity generates a two column matrix of
     #  humidity and dry bulb temperature
-    #  with given constant relative humidity.
+    #  with given constant relative humidity phi.
     # By default, constant relative humidity curves
     #  are ploted with black solid thin lines.
     # buildHumidity is an internal function of

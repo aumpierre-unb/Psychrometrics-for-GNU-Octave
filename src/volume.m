@@ -19,18 +19,18 @@
 
 function [v]=volume(Tdry,W,p=101325)
     # Syntax:
-    #
+    #v 
     # [v]=volume(Tdry,W[,p])
     #
     # volume computes
     #  the specific volume (in cu. m/kg of dry air)
     #  of humid air given
-    #  the dry bulb temperature (in K),
-    #  the humidity in (kg/kg of dry air) and
-    #  the total pressure (in Pa).
+    #  the dry bulb temperature Tdry (in K),
+    #  the humidity W (in kg/kg of dry air) and
+    #  the total pressure p (in Pa).
     # By default, total pressure is assumed
     #  to be the atmospheric pressure
-    #  at sea level (101325 Pa).
+    #  at sea level (p = 101325).
     # volume is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     #

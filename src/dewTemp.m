@@ -23,9 +23,9 @@ function [Tdew]=dewTemp(pw)
     # [Tdew]=dewTemp(pw)
     #
     # dewTemp computes
-    #  the dew point temperature (in K)
+    #  the dew point temperature Tdew (in K)
     #  of humid air given
-    #  the water vapor pressure (in Pa).
+    #  the water vapor pressure pw (in Pa).
     # dewTemp is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     #

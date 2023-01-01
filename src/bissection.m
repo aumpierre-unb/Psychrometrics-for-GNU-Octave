@@ -23,8 +23,8 @@ function [x2]=bissection(f,x1,x2,tol)
     # [x2]=bissection(f,x1,x2)
     #
     # bissection computes the root of
-    #  a function f between x1 and x2
-    #  within a given tolerance tol
+    #  a function f(x) between x1 and x2
+    #  within a given tolerance tol for f(x)
     #  using the method of bissection.
     # bissection is an internal function of
     #  the psychrometrics toolbox for GNU Octave.

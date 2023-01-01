@@ -23,8 +23,8 @@ function [x]=newtonraphson(f,x,tol)
     # [x]=newtonraphson(f,x,tol)
     #
     # newtonraphson computes the root of
-    #  a function f from a guess value
-    #  within a given tolerance tol
+    #  a function f(x) from a guess value x
+    #  within a given tolerance tol fo f(x)
     #  using the method of Newton-Raphson.
     # newtonraphson is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
