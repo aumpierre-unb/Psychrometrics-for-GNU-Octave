@@ -73,6 +73,6 @@ function buildChart()
     [T,W]=buildHumidity(.15);uH=[uH T W];
     [T,W]=buildHumidity(.10);uH=[uH T W];
     [T,W]=buildHumidity(.05);uH=[uH T W];
-    save 'plotData.m' uv uT ue uh uH
+    save 'plotData.m' uv uT ue uh uH;
 end
 
