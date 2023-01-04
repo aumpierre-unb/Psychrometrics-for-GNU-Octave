@@ -21,9 +21,6 @@ You can cite all versions (both released and pre-released), by using
 [DOI 105281/zenodo.7325079](https://doi.org/10.5281/zenodo.7325079).
 This DOI represents all versions, and will always resolve to the latest one.
 
-<!--To cite the last released version, please check
-https://zenodo.org/account/settings/github/repository/aumpierre-unb/Psychrometrics-for-GNU-Octave.-->
-
 ---
 
 The following is a very short introduction to psychrometrics and to the `psychrometrics` toolbox for GNU Octave. This text is divided in two main sections: The Theory and The `psychrometrics` Toolbox.
@@ -447,6 +444,6 @@ The author of `psychrometrics` package acknowledges Professor Brent Stephens, Ph
 [Ponchon-Savarit-for-GNU-Octave](https://github.com/aumpierre-unb/Ponchon-Savarit-for-GNU-Octave),
 [Internal-Fluid-Flow-for-GNU-Octave](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave).
 
-Copyright &copy; 2022 Alexandre Umpierre
+Copyright &copy; 2022 2023 Alexandre Umpierre
 
 email: aumpierre@gmail.com
