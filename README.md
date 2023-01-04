@@ -437,11 +437,9 @@ h=82.4e3; # specific enthalpy in J/kg
 
 The theory and the adjusted equations used in this package were taken from the first chapter of the *2017 ASHRAE Handbook Fundamentals Systems - International Metric System*, published by the American Society of Heating, Refrigerating and Air-Conditioning Engineers.
 
-<!-- A BiBTeX format reference is available [here](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/raw/main/doc/reference.txt). -->
-
 ### Acknowledgements
 
-I would like to acknowledge Professor Brent Stephens, Ph.D. from the Illinois Institute of Technology for kindly suggesting the source reference for equations used for `psychrometrics` toolbox.
+The author of `psychrometrics` package acknowledges Professor Brent Stephens, Ph.D. from the Illinois Institute of Technology for kindly suggesting the source reference for equations used for this package.
 
 ### See Also
 
