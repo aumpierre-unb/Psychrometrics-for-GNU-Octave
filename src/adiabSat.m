@@ -40,7 +40,7 @@ function [Tadiab,Wadiab]=adiabSat(h,fig=false)
     # h=82.4e3; # specific enthalpy in J/kg
     # [Tadiab,Wadiab]=adiabSat(h,true) # inputs and outputs in SI units
     #
-    # See also: psychro, humidity, satPress, enthalpy, volume.
+    # See also: psychro, dewTemp, humidity, satPress, enthalpy, volume.
     foo=@(Tadiab) h-enthalpy(Tadiab,humidity(satPress(Tadiab),:));
     Tadiab=newtonraphson(foo,273.15,1e-5);
     padiab=satPress(Tadiab);

@@ -143,7 +143,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # # The water vapor demand is
     # (W5-W1)*(8.5/v1) # demand of water vapor
     #
-    # See also: humidity, satPress, enthalpy, volume, adiabSat.
+    # See also: dewTemp, humidity, satPress, enthalpy, volume, adiabSat.
     a=[Tdry,Twet,Tdew,W,h,v,phi]==-1;
     if sum(a)~=5
         error(['Function psychro demands two and only two inputs.\nUnknowns must be assigned with ':'.']);

@@ -39,6 +39,6 @@ function [h]=enthalpy(Tdry,W)
     # W=7e-3; # humidity in kg/kg of dry air
     # h=enthalpy(Tdry,W) # specific enthalpy in J/kg of dry air
     #
-    # See also: psychro, humidity, satPress, volume, adiabSat.
+    # See also: psychro, dewTemp, humidity, satPress, volume, adiabSat.
     h=(1.006*(Tdry-273.15)+W*(2501+1.86*(Tdry-273.15)))*1e3;
 end

@@ -36,7 +36,7 @@ function [psat]=satPress(Tdry)
     # Tdry=25+273.15; # dry bulb temperature in K
     # psat=satPress(Tdry) # saturation pressure in Pa
     #
-    # See also: psychro, humidity, enthalpy, volume, adiabSat.
+    # See also: psychro, dewTemp, humidity, enthalpy, volume, adiabSat.
     run('constants.m');
     if -100<=Tdry-273.15 & Tdry-273.15<0
         k=c(1)/Tdry+...

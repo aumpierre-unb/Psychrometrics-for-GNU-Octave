@@ -44,7 +44,7 @@ function [v]=volume(Tdry,W,p=101325)
     # W=7e-3; # humidity in kg/kg of dry air
     # v=volume(Tdry,W) # specific volume in cu. m/kg of dry air
     #
-    # See also: psychro, humidity, satPress, enthalpy, adiabSat.
+    # See also: psychro, dewTemp, humidity, satPress, enthalpy, adiabSat.
     v=0.287042*Tdry*(1+1.6078*W)/(p/1000);
 end
 

@@ -35,9 +35,9 @@ function [Tdew]=dewTemp(pw)
     # # the water vapor pressure is 1 kPa.
     #
     # pw=1e3; # water vapor pressure in Pa
-    # Tdew=dewTemp(pw) # dew temperature at K
+    # Tdew=dewTemp(pw) # dew temperature in K
     #
-    # See also: psychro, humidity, satPress, enthalpy, volume.
+    # See also: psychro, humidity, satPress, enthalpy, volume, adiabSat.
     run('constants.m');
     alpha=log(pw/1000);
     Tdew=c(14)+...

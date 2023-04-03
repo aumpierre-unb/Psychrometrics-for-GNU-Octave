@@ -42,7 +42,7 @@ function [W]=humidity(pw,p=101325)
     # pw=1e3; # water vapor pressure in Pa
     # W=humidity(pw) # saturation pressure in kg/kg of dry air
     #
-    # See also: psychro, satPress, enthalpy, volume, adiabSat.
+    # See also: psychro, dewTemp, satPress, enthalpy, volume, adiabSat.
     W=0.621945*pw/(p-pw);
 end
 
