@@ -45,10 +45,15 @@ function [Tadiab,Wadiab]=adiabSat(h,fig=false)
     Tadiab=newtonraphson(foo,273.15,1e-5);
     padiab=satPress(Tadiab);
     Wadiab=humidity(padiab,:);
+    v=volume(Tadiab,Wadiab);
     if fig
+        [tv,wv]=buildVolume(v);
+        [tb,wb]=buildWetBulbTemp(Tadiab);
         [te,we]=buildEnthalpy(h);
         [th,wh]=buildHumidity(1);
         doPlot();
+        hold on;plot(tv,wv,"-.g","linewidth",2);
+        hold on;plot(tb,wb,"-.b","linewidth",2);
         hold on;plot(te,we,"-.r","linewidth",2);
         hold on;plot(th,wh,"k","linewidth",2);
         hold on;plot(Tadiab,Wadiab,"or","markersize",8);
