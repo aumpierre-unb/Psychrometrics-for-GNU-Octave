@@ -46,9 +46,20 @@ function [Tadiab,Wadiab]=adiabSat(h,fig=false)
     padiab=satPress(Tadiab);
     Wadiab=humidity(padiab,:);
     if fig
-        doPlot;
-        hold on;plotHumidity(1,'k',2);
-        hold on;plotEnthalpy(h,'-.r',2);
-        hold on;plot(Tadiab,Wadiab,'or','markersize',8);
+        [te,we]=buildEnthalpy(h);
+        [th,wh]=buildHumidity(1);
+        doPlot();
+        hold on;plot(te,we,"-.r","linewidth",2);
+        hold on;plot(th,wh,"k","linewidth",2);
+        hold on;plot(Tadiab,Wadiab,"or","markersize",8);
+##        if Wsat>.03
+##            wsat=.03
+##        else
+##            wsat=Wsat
+##            hold on;plot(Tdry,wsat,"ok","markersize",8)
+##            hold on;plot([Tdry Tdry 60+273.15],[0 wsat wsat],"-.k","linewidth",.5)
+##        end
+        hold on;plot([Tadiab Tadiab 60+273.15],[0 Wadiab Wadiab],"--r","linewidth",.5);
+        hold off;
     end
 end
