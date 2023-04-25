@@ -13,6 +13,7 @@
 ```dotnetcli
 # e.g. this call installs version 0.2.1
 pkg install https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/archive/refs/tags/v0.2.1.tar.gz
+pkg load psychrometrics
 ```
 
 ## Citation of `psychrometrics`
