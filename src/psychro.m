@@ -18,7 +18,7 @@
 # It is also available at https://www.gnu.org/licenses/.
 
 function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-        psychro(Tdry=-1,Twet=-1,Tdew=-1,W=-1,h=-1,v=-1,phi=-1,fig=false)
+        psychro(Tdry=NaN,Twet=NaN,Tdew=NaN,W=NaN,h=NaN,v=NaN,phi=NaN,fig=false)
     # Syntax:
     # e.g.
     # given Tdry and W
@@ -144,7 +144,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # (W5-W1)*(8.5/v1) # demand of water vapor
     #
     # See also: dewTemp, humidity, satPress, enthalpy, volume, adiabSat.
-    a=[Tdry,Twet,Tdew,W,h,v,phi]==-1;
+    a=isnan([Tdry,Twet,Tdew,W,h,v,phi])==1;
     if sum(a)~=5
         error(['Function psychro demands two and only two inputs.\nUnknowns must be assigned with ':'.']);
     end
