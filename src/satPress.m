@@ -54,7 +54,7 @@ function psat=satPress(Tdry)
         c(12)*Tdry^3+...
         c(13)*log(Tdry);
     else
-        error('Temperature must be in the range from 173.15 K to 473.15 K');
+        error("Temperature must be in the range from 173.15 K to 473.15 K");
     end
     psat=exp(k);
 end

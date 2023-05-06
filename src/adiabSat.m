@@ -19,6 +19,7 @@
 
 function [Tadiab,Wadiab]=adiabSat(h,fig=false)
     # Syntax:
+    #
     # -- [Tadiab,Wadiab]=adiabSat(h[,fig])
     #
     # adiabSat computes
