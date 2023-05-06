@@ -17,10 +17,10 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [W]=humidity(pw,p=101325)
+function W=humidity(pw,p=101325)
     # Syntax:
     #
-    # [W]=humidity(pw[,p])
+    # -- W=humidity(pw[,p])
     #
     # humidity computes
     #  the humidity W (in kg/kg of dry air)

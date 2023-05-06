@@ -17,10 +17,10 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [psat]=satPress(Tdry)
+function psat=satPress(Tdry)
     # Syntax:
     #
-    # [psat]=satPress(Tdry)
+    # -- psat=satPress(Tdry)
     #
     # satPress computes
     #  the saturation pressure psat (in pa)
@@ -38,7 +38,7 @@ function [psat]=satPress(Tdry)
     #
     # See also: psychro, dewTemp, humidity, enthalpy, volume, adiabSat.
     run('constants.m');
-    if -100<=Tdry-273.15 & Tdry-273.15<0
+    if -100<=Tdry-273.15 && Tdry-273.15<0
         k=c(1)/Tdry+...
         c(2)+...
         c(3)*Tdry+...
@@ -46,7 +46,7 @@ function [psat]=satPress(Tdry)
         c(5)*Tdry^3+...
         c(6)*Tdry^4+...
         c(7)*log(Tdry);
-    elseif 0<=Tdry-273.15 & Tdry-273.15<=200
+    elseif 0<=Tdry-273.15 && Tdry-273.15<=200
         k=c(8)/Tdry+...
         c(9)+...
         c(10)*Tdry+...

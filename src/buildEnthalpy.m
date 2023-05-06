@@ -20,7 +20,7 @@
 function [T,W]=buildEnthalpy(h)
     # Syntax:
     #
-    # buildEnthalpy(h)
+    # -- [T,W]=buildEnthalpy(h)
     #
     # buildEnthalpy generates a two column matrix of
     #  humidity and dry bulb temperature

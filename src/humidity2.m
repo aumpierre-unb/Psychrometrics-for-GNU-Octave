@@ -17,10 +17,10 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [W]=humidity2(Wsatwet,Tdry,Twet)
+function W=humidity2(Wsatwet,Tdry,Twet)
     # Syntax:
     #
-    # [W]=humidity2(Wsatwet,Tdry,Twet)
+    # -- W=humidity2(Wsatwet,Tdry,Twet)
     #
     # humidity2 computes
     #  the humidity W (in kg/kg of dry air)

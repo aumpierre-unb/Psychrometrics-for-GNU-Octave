@@ -20,7 +20,7 @@
 function [T,W]=buildWetBulbTemp(Twet)
     # Syntax:
     #
-    # plotWetBulbTemp(Twet)
+    # -- [T,W]=buildWetBulbTemp(Twet)
     #
     # buildWetBulbTemp generates two column matrix of
     #  humidity and dry bulb temperature

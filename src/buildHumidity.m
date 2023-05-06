@@ -20,7 +20,7 @@
 function [T,W]=buildHumidity(phi)
     # Syntax:
     #
-    # buildHumidity(phi)
+    # -- [T,W]=buildHumidity(phi)
     #
     # buildHumidity generates a two column matrix of
     #  humidity and dry bulb temperature

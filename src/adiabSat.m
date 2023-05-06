@@ -19,7 +19,7 @@
 
 function [Tadiab,Wadiab]=adiabSat(h,fig=false)
     # Syntax:
-    # [Tadiab,Wadiab]=adiabSat(h[,fig=false])
+    # -- [Tadiab,Wadiab]=adiabSat(h[,fig])
     #
     # adiabSat computes
     #  the adiabatic saturation temperature Tadiab (in K) and

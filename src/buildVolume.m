@@ -20,7 +20,7 @@
 function [T,W]=buildVolume(v)
     # Syntax:
     #
-    # buildVolume(v)
+    # -- [T,W]=buildVolume(v)
     #
     # plotVolume generates a two column matrix of
     #  humidity and dry bulb temperature

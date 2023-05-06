@@ -17,10 +17,10 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [h]=enthalpy(Tdry,W)
+function h=enthalpy(Tdry,W)
     # Syntax:
     #
-    # [h]=enthalpy(Tdry,W)
+    # -- h=enthalpy(Tdry,W)
     #
     # enthalpy computes
     #  the specific enthalpy h (in J/kg of dry air)

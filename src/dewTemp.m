@@ -17,10 +17,10 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [Tdew]=dewTemp(pw)
+function Tdew=dewTemp(pw)
     # Syntax:
     #
-    # [Tdew]=dewTemp(pw)
+    # -- Tdew=dewTemp(pw)
     #
     # dewTemp computes
     #  the dew point temperature Tdew (in K)

@@ -17,10 +17,10 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [v]=volume(Tdry,W,p=101325)
+function v=volume(Tdry,W,p=101325)
     # Syntax:
-    #v 
-    # [v]=volume(Tdry,W[,p])
+    #
+    # -- v=volume(Tdry,W[,p])
     #
     # volume computes
     #  the specific volume (in cu. m/kg of dry air)

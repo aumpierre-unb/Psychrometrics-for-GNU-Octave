@@ -20,7 +20,7 @@
 function doPlot()
     # Syntax:
     #
-    # doPlot()
+    # -- doPlot()
     #
     # doPlot plots
     #  a schematic psychrometric chart with

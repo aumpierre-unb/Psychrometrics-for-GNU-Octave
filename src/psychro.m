@@ -20,11 +20,10 @@
 function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
         psychro(Tdry=NaN,Twet=NaN,Tdew=NaN,W=NaN,h=NaN,v=NaN,phi=NaN,fig=false)
     # Syntax:
-    # e.g.
-    # given Tdry and W
-    # unknowns must be indicated by default value syntax
-    # [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-    # psychro(Tdry:,:,W,:,:,:[,fig=false])
+    #
+    # -- [~,~,~,~,W,~,~,~,h,v]=psychro(:,:,Tdew=292,:,:,:,phi=.25,true)
+    # -- [~,~,Tdew,~,~,~,~,~,~,~,phi]=psychro(Tdry=298,:,:,:,W=.013)
+    # -- [...]=psychro(300,295)
     #
     # psychro computes
     #  the dry bulb temperature Tdry (in K),
@@ -42,11 +41,18 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     #  the water saturation pressure psat (in Pa),
     #  the saturation pressure at the wet bulb temperature psatwet (in Pa) and
     #  the density rho (in kg/cu. m) given
-    #  any two input arguments,
+    #  any two parameter among
+    #  the dry bulb temperature Tdry (in K),
+    #  the wet bulb temperature Twet (in K),
+    #  the dew point temperature Tdew (in K),
+    #  the humidit W (in kg/kg of dry air),
+    #  the specific enthalpy h (in J/kg of dry air),
+    #  the specific volume v (in cu. m/kg of dry air) and
+    #  the the relative humidity phi,
     #  except the combination of water vapor pressure and
     #  dew point temperature, which are not independent.
     # Unknowns must be indicated by default value syntax.
-    # If fig = true is given, a schematic psychrometric chart
+    # If fig=true is given, a schematic psychrometric chart
     #  is plotted as a graphical representation
     #  of the solution.
     # psychro is a main function of
@@ -144,6 +150,18 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # (W5-W1)*(8.5/v1) # demand of water vapor
     #
     # See also: dewTemp, humidity, satPress, enthalpy, volume, adiabSat.
+    foo1(pw)=W-humidity(pw,:);
+    foo2(Twet)=W-humidity2(humidity(satPress(Twet),:),Tdry,Twet);
+    foo3(Tdry)=W-humidity2(humidity(satPress(Twet),:),Tdry,Twet);
+    foo4(W)=h-enthalpy(Tdry,W);
+    foo5(Tdry)=h-enthalpy(Tdry,W);
+    foo6(W)=v-volume(Tdry,W);
+    foo7(Tdry)=v-volume(Tdry,W);
+    foo8(pw)=Tdew-dewTemp(pw);
+    foo9(Tdry)=W-humidity2(Wsatwet,Tdry,Twet);
+    foo10(Tdry)=phi-pw/satPress(Tdry);
+    foo11(Tdry)=W-humidity(phi*satPress(Tdry));
+    foo12(psat)=psat-satPress(Tdry);
     a=isnan([Tdry,Twet,Tdew,W,h,v,phi])==1;
     if sum(a)~=5
         error(['Function psychro demands two and only two inputs.\nUnknowns must be assigned with ':'.']);

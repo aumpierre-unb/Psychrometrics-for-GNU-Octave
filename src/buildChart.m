@@ -20,7 +20,7 @@
 function buildChart()
     # Syntax:
     #
-    # buildChart()
+    # -- buildChart()
     #
     # buildChart computes data for
     #  a schematic psychrometric chart.
