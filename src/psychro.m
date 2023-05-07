@@ -21,8 +21,10 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         psychro(Tdry=NaN,Twet=NaN,Tdew=NaN,W=NaN,h=NaN,v=NaN,phi=NaN,fig=false)
     # Syntax:
     #
-    # -- [~,~,~,~,W,~,~,~,h,v]=psychro(Tdry=300,Twet=295,:,:,:,:,:,true)
+    # -- [~,~,~,~,W,~,~,~,h,v]=psychro(Tdry=300,Twet=295)
     # -- [~,~,~,Tadiab,~,~,Wsatwet,Wadiab]=psychro(Tdry=298,:,:,:,:,:,phi=0.50,true)
+    # -- [Tdry,Twet,Tdew,~,~,~,~,~,~,~,phi,pw]=psychro(:,:,:,:,h=40e3,v=0.85)
+    # -- [Tdry,~,~,~,~,~,~,~,~,~,~,~,psat,psatwet,rho]=psychro(:,:,:,:,h=55e3,v=0.87,:,true)
     #
     # psychro computes
     #  the dry bulb temperature Tdry (in K),
@@ -309,10 +311,10 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         Wsatwet=humidity(psatwet,:);
         Tdry=Twet;
         foo=@(W) (v-volume(Tdry,W,:));
-        tol=abs(foo(Wsatwet)/1e3);
+        tol=v/1e3;
         W=newtonraphson(foo,Wsatwet,tol);
         while W>humidity2(Wsatwet,Tdry,Twet)
-            Tdry=Tdry+5e-3;
+            Tdry=Tdry+1e-1;#5e-3;
             foo=@(W) (v-volume(Tdry,W,:));
             tol=v/1e3;
             W=newtonraphson(foo,Wsatwet,tol);
