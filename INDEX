@@ -2,4 +2,5 @@
 toolbox >> Psychrometrics
 Functions
  psychro adiabSat
- humidity satPress enthalpy volume
+ humidity satPress
+ enthalpy volume
