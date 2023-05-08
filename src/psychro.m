@@ -88,8 +88,8 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # # Compute the energy and water vapor demands.
     # # Assume the amount of dry air is constant.
     #
-    # All parameters and returns in SI units
-    # The initial condition is
+    # # All parameters and returns in SI units
+    # # The initial condition is
     # [~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1=293,Twet1=288,:,:,:,:,:,true)
     # 
     # # The thermodynamic state after the first heating is
