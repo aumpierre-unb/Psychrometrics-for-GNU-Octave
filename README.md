@@ -11,8 +11,8 @@
 ## Installing and Loading `psychrometrics`
 
 ```dotnetcli
-# e.g. this call installs version 0.2.1
-pkg install https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/archive/refs/tags/v0.2.1.tar.gz
+# e.g. this call installs version 1.0.0
+pkg install https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/archive/refs/tags/v1.0.0.tar.gz
 pkg load psychrometrics
 ```
 
