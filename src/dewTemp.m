@@ -19,7 +19,6 @@
 
 function Tdew=dewTemp(pw)
     # Syntax:
-    #
     # -- Tdew=dewTemp(pw)
     #
     # dewTemp computes

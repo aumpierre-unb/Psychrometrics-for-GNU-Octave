@@ -19,7 +19,6 @@
 
 function buildChart()
     # Syntax:
-    #
     # -- buildChart()
     #
     # buildChart computes data for

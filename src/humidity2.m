@@ -19,7 +19,6 @@
 
 function W=humidity2(Wsatwet,Tdry,Twet)
     # Syntax:
-    #
     # -- W=humidity2(Wsatwet,Tdry,Twet)
     #
     # humidity2 computes

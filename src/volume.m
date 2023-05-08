@@ -19,7 +19,6 @@
 
 function v=volume(Tdry,W,p=101325)
     # Syntax:
-    #
     # -- v=volume(Tdry,W[,p])
     #
     # volume computes

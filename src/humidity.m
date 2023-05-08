@@ -19,7 +19,6 @@
 
 function W=humidity(pw,p=101325)
     # Syntax:
-    #
     # -- W=humidity(pw[,p])
     #
     # humidity computes

@@ -19,7 +19,6 @@
 
 function [T,W]=buildVolume(v)
     # Syntax:
-    #
     # -- [T,W]=buildVolume(v)
     #
     # plotVolume generates a two column matrix of

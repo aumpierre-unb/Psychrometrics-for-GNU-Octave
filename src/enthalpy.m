@@ -19,7 +19,6 @@
 
 function h=enthalpy(Tdry,W)
     # Syntax:
-    #
     # -- h=enthalpy(Tdry,W)
     #
     # enthalpy computes

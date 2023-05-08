@@ -19,7 +19,6 @@
 
 function [T,W]=buildEnthalpy(h)
     # Syntax:
-    #
     # -- [T,W]=buildEnthalpy(h)
     #
     # buildEnthalpy generates a two column matrix of

@@ -19,7 +19,6 @@
 
 function psat=satPress(Tdry)
     # Syntax:
-    #
     # -- psat=satPress(Tdry)
     #
     # satPress computes

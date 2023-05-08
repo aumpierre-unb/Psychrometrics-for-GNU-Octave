@@ -19,7 +19,6 @@
 
 function [T,W]=buildWetBulbTemp(Twet)
     # Syntax:
-    #
     # -- [T,W]=buildWetBulbTemp(Twet)
     #
     # buildWetBulbTemp generates two column matrix of

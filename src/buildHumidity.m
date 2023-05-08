@@ -19,7 +19,6 @@
 
 function [T,W]=buildHumidity(phi)
     # Syntax:
-    #
     # -- [T,W]=buildHumidity(phi)
     #
     # buildHumidity generates a two column matrix of

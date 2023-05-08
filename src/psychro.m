@@ -20,7 +20,6 @@
 function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
         psychro(Tdry=NaN,Twet=NaN,Tdew=NaN,W=NaN,h=NaN,v=NaN,phi=NaN,fig=false)
     # Syntax:
-    #
     # -- [~,~,~,~,W,~,~,~,h,v]=psychro(Tdry=300,Twet=295)
     # -- [~,~,~,Tadiab,~,~,Wsatwet,Wadiab]=psychro(Tdry=298,:,:,:,:,:,phi=0.50,true)
     # -- [Tdry,Twet,Tdew,~,~,~,~,~,~,~,phi,pw]=psychro(:,:,:,:,h=40e3,v=0.85)

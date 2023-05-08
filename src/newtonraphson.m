@@ -19,7 +19,6 @@
 
 function x=newtonraphson(f,x,tol)
     # Syntax:
-    #
     # -- x=newtonraphson(f,x,tol)
     #
     # newtonraphson computes the root of

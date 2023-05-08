@@ -19,7 +19,6 @@
 
 function doPlot()
     # Syntax:
-    #
     # -- doPlot()
     #
     # doPlot plots
