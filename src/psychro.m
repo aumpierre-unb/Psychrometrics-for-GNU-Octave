@@ -83,7 +83,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # # 8.5 cubic meters of humid air at
     # # dry bulb temperature of 293 K and
     # # wet bulb temperature of 288 K
-    # # is subjected to two cycles of
+    # # is subject to two cycles of
     # # heating to 323 and adiabatic saturation.
     # # Compute the energy and water vapor demands.
     # # Assume the amount of dry air is constant.

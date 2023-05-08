@@ -283,7 +283,7 @@ Compute the dry bulb temperature, the wet bulb temperature, the adiabatic satura
 psychro(:,:,Tdew=22+273.15,:,:,:,phi=0.29) # parameters and returns in SI units
 ```
 
-8.5 cubic meters of humid air at dry bulb temperature of 293 K and wet bulb temperature of 288 K is subjected to two cycles of heating to 323 K followed by adiabatic saturation. Compute the energy and water vapor demands. Assume the amount of dry air is constant.
+8.5 cubic meters of humid air at dry bulb temperature of 293 K and wet bulb temperature of 288 K is subject to two cycles of heating to 323 K followed by adiabatic saturation. Compute the energy and water vapor demands. Assume the amount of dry air is constant.
 
 ```dotnetcli
 # All parameters and returns in SI units
