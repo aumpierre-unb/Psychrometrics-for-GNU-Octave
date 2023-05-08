@@ -235,42 +235,43 @@ All inputs and outputs of all functions are given in units of the International 
 
 `psychro` computes
 
-- the dry bulb temperature,
-- the wet bulb temperature,
-- the dew point temperature,
-- the adiabatic saturation temperature,
-- the humidity,
-- the saturation humidity,
-- the saturation humidity at wet bulb temperature,
-- the adiabatic saturation humidity,
-- the specific enthalpy,
-- the specific volume,
-- the relative humidity,
-- the water vapor pressure,
-- the saturation pressure, the saturation
-- pressure at wet bulb temperature and
-- the density
+- the dry bulb temperature Tdry (in K),
+- the wet bulb temperature Twet (in K),
+- the dew point temperature Tdew (in K),
+- the adiabatic saturation temperature Tadiab (in K),
+- the humidit W (in kg/kg of dry air),
+- the saturation humidity Wsat (in kg/kg of dry air),
+- the saturation humidity at the wet bulb temperature Wsatwet (in kg/kg of dry air),
+- the adiabatic saturation humidity Wadiab (in kg/kg of dry air),
+- the specific enthalpy h (in J/kg of dry air),
+- the specific volume v (in cu. m/kg of dry air),
+- the the relative humidity phi,
+- the water vapor pressure pw (in Pa),
+- the water saturation pressure psat (in Pa),
+- the saturation pressure at the wet bulb temperature psatwet (in Pa) and
+- the density rho (in kg/cu. m)
 
-given any two of the following input arguments:
+given any two parameters among
 
-- the dry bulb temperature,
-- the wet bulb temperature,
-- the dew point temperature,
-- the humidity,
-- the specific enthalpy,
-- the specific volume or
-- the relative humidity,
+- the dry bulb temperature Tdry (in K),
+- the wet bulb temperature Twet (in K),
+- the dew point temperature Tdew (in K),
+- the humidit W (in kg/kg of dry air),
+- the specific enthalpy h (in J/kg of dry air),
+- the specific volume v (in cu. m/kg of dry air) and
+- the the relative humidity phi,
+- except the combination of water vapor pressure and
+- dew point temperature, which are not independent.
 
-except the combination of humidity and dew point temperature, which are not independent. If a different number of inputs is given, execution will be aborted. If *fig* = *true* is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
+If *fig* = *true* is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
 
 **Syntax:**
 
 ```dotnetcli
-# e.g.
-# given Tdry and W
-# unknowns must be indicated by default value syntax
-[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(Tdry,:,:,W,:,:,:[,fig=false])
+[~,~,~,~,W,~,~,~,h,v]=psychro(Tdry=300,Twet=295)
+[~,~,~,Tadiab,~,~,Wsatwet,Wadiab]=psychro(Tdry=298,:,:,:,:,:,phi=0.50,true)
+[Tdry,Twet,Tdew,~,~,~,~,~,~,~,phi,pw]=psychro(:,:,:,:,h=40e3,v=0.85)
+[Tdry,~,~,~,~,~,~,~,~,~,~,~,psat,psatwet,rho]=psychro(:,:,:,:,h=55e3,v=0.87,:,true)
 ```
 
 **Examples:**
@@ -341,7 +342,7 @@ the humidity of humid air in given the water vapor pressure and the total pressu
 **Syntax:**
 
 ```dotnetcli
-[W]=humidity(pw[,p=101325])
+W=humidity(pw[,p])
 ```
 
 **Examples:**
@@ -360,7 +361,7 @@ W=humidity(pw) # saturation pressure in kg/kg of dry air
 **Syntax:**
 
 ```dotnetcli
-[psat]=satPress(Tdry)
+psat=satPress(Tdry)
 ```
 
 **Examples:**
@@ -379,7 +380,7 @@ psat=satPress(Tdry) # saturation pressure in Pa
 **Syntax:**
 
 ```dotnetcli
-[h]=enthalpy(Tdry,W)
+h=enthalpy(Tdry,W)
 ```
 
 **Examples:**
@@ -399,7 +400,7 @@ h=enthalpy(Tdry,W) # specific enthalpy in J/kg of dry air
 **Syntax:**
 
 ```dotnetcli
-[v]=volume(Tdry,W[,p=101325])
+v=volume(Tdry,W[,p])
 ```
 
 **Examples:**
@@ -419,7 +420,7 @@ v=volume(Tdry,W) # specific volume in cu. m/kg of dry air
 **Syntax:**
 
 ```dotnetcli
-[Tadiab,Wadiab]=adiabSat(h[,fig=false])
+[Tadiab,Wadiab]=adiabSat(h[,fig])
 ```
 
 **Examples:**
