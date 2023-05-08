@@ -280,12 +280,13 @@ Compute the dry bulb temperature, the wet bulb temperature, the adiabatic satura
 
 ```dotnetcli
 [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(:,:,Tdew=22+273.15,:,:,:,phi=0.29)
+psychro(:,:,Tdew=22+273.15,:,:,:,phi=0.29) # parameters and returns in SI units
 ```
 
 8.5 cubic meters of humid air at dry bulb temperature of 293 K and wet bulb temperature of 288 K is subjected to two cycles of heating to 323 K followed by adiabatic saturation. Compute the energy and water vapor demands. Assume the amount of dry air is constant.
 
 ```dotnetcli
+# All parameters and returns in SI units
 # The initial condition is
 [~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1=293,Twet1=288,:,:,:,:,:,true)
 
