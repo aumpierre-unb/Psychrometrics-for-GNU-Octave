@@ -366,7 +366,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     elseif a==[1 1 0 1 0 1 1]
         foo=@(pw) (Tdew-dewTemp(pw));
         tol=Tdew/1e3;
-        pw=newtonraphson(foo,1e3,tol)
+        pw=newtonraphson(foo,1e3,tol);
         W=humidity(pw,:);
         foo=@(Tdry) (h-enthalpy(Tdry,W));
         tol=h/1e3;
@@ -505,7 +505,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
             tol=h/1e3;
             Tdry=newtonraphson(foo,50+273.15,tol);
             foo=@(psat) (psat-satPress(Tdry));
-            tol=psat/1e3;
+            tol=satPress(Tdry)/1e3;
             psat=newtonraphson(foo,pw,tol);
             y=pw/psat-phi;
         end
@@ -538,7 +538,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
             tol=v/1e3;
             Tdry=newtonraphson(foo,50+273.15,tol);
             foo=@(psat) (psat-satPress(Tdry));
-            tol=psat/1e3;
+            tol=satPress(Tdry)/1e3;
             psat=newtonraphson(foo,pw,tol);
             y=pw/psat-phi;
         end
