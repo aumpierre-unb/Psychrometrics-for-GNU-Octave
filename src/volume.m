@@ -47,4 +47,3 @@ function v=volume(Tdry,W,p=101325)
     # See also: psychro, dewTemp, humidity, satPress, enthalpy, adiabSat.
     v=0.287042*Tdry*(1+1.6078*W)/(p/1000);
 end
-

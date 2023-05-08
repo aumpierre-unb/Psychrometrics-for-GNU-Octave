@@ -33,4 +33,3 @@ function W=humidity2(Wsatwet,Tdry,Twet)
     W=((2501-2.326*(Twet-273.15))*Wsatwet-1.006*(Tdry-Twet))/...
       (2501+1.86*(Tdry-273.15)-4.186*(Twet-273.15));
 end
-

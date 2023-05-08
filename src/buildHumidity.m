@@ -44,4 +44,3 @@ function [T,W]=buildHumidity(phi)
         W=[W;humidity(pw,:)];
     end
 end
-

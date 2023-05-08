@@ -49,4 +49,3 @@ function [T,W]=buildWetBulbTemp(Twet)
         W=[W;newtonraphson(foo,1e-2,tol)];
     end
 end
-

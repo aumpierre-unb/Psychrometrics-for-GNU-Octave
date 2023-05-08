@@ -51,4 +51,3 @@ function [T,W]=buildVolume(v)
         W=[W;newtonraphson(foo,1e-2,tol)];
     end
 end
-

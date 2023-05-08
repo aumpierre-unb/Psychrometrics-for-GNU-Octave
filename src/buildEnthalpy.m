@@ -50,4 +50,3 @@ function [T,W]=buildEnthalpy(h)
         W=[W;newtonraphson(foo,1e-2,tol)];
     end
 end
-

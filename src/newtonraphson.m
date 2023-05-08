@@ -33,4 +33,3 @@ function x=newtonraphson(f,x,tol)
         x=x-f(x)/a;
     end
 end
-
