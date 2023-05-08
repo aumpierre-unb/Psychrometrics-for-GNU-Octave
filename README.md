@@ -276,56 +276,30 @@ If *fig* = *true* is given, a schematic psychrometric chart is plotted as a grap
 
 **Examples:**
 
-Compute the dry bulb temperature, the wet bulb temperature, the adiabatic saturation temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the dew point temperature is 22 °C and the relative humidity is 29 %.
-This call computes the answer and omits the psychrometric chart:
-
-```dotnetcli
-Tdew=22+273.15; # dew point temperature
-phi=.29; # relative humidity
-[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(:,:,Tdew,:,:,:,phi)
-```
-
-This call computes the answer and plots a schematic psychrometric chart:
+Compute the dry bulb temperature, the wet bulb temperature, the adiabatic saturation temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the dew point temperature is 22 °C and the relative humidity is 29 %:
 
 ```dotnetcli
 [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(:,:,22+273.15,:,:,:,.29,true)
-```
-
-Compute the dry bulb temperature, the wet bulb temperature,
-the dew point temperature, adiabatic saturation temperature, the dew point temperature the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the specific enthalpy is 79.5 kJ/kg of dry air and the relative humidity is 29 % and plot a graphical representation of the answer in a schematic psychrometric chart.
-
-```dotnetcli
-[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(:,:,:,:,79.5e3,:,.29,true)
+psychro(:,:,Tdew=22+273.15,:,:,:,phi=0.29)
 ```
 
 8.5 cubic meters of humid air at dry bulb temperature of 293 K and wet bulb temperature of 288 K is subjected to two cycles of heating to 323 K followed by adiabatic saturation. Compute the energy and water vapor demands. Assume the amount of dry air is constant.
 
 ```dotnetcli
 # The initial condition is
-;
-;
 [~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1=293,Twet1=288,:,:,:,:,:,true)
 
 # The thermodynamic state after the first heating is
-;
-;
 [~,~,~,~,~,~,~,~,h2,v2]=psychro(Tdry2=323,:,:,W2=W1,:,:,:,true)
 
 # The thermodynamic state the after first adiabatic saturation is
-;
 [Tdry3,W3]=adiabSat(h3=h2)
 [~,~,~,~,~,~,~,~,~,v3]=psychro(Tdry3,:,:,W3)
 
 # The thermodynamic state after the second heating is
-;
-;
 [~,~,~,~,~,~,~,~,h4,v4]=psychro(Tdry4=323,:,:,W4=W3,:,:,:,true)
 
 # The thermodynamic state the after second adiabatic saturation is
-;
 [Tdry5,W5]=adiabSat(h5=h4)
 [~,~,~,~,~,~,~,~,~,v5]=psychro(Tdry5,:,:,W5)
 
@@ -350,8 +324,7 @@ W=humidity(pw[,p])
 Compute the humidity of humid air at atmospheric pressure given water vapor pressure is 1 kPa at 1 atm total pressure.
 
 ```dotnetcli
-pw=1e3; # water vapor pressure in Pa
-W=humidity(pw) # saturation pressure in kg/kg of dry air
+W=humidity(pw=1e3) # parameters and returns in SI units
 ```
 
 ### `satPress`
@@ -369,8 +342,7 @@ psat=satPress(Tdry)
 Compute the saturation pressure given the dry bulb temperature is 25 °C.
 
 ```dotnetcli
-Tdry=25+273.15; # dry bulb temperature in K
-psat=satPress(Tdry) # saturation pressure in Pa
+psat=satPress(Tdry=25+273.15) # parameters and returns in SI units
 ```
 
 ### `enthalpy`
@@ -388,9 +360,7 @@ h=enthalpy(Tdry,W)
 Compute the specific enthalpy given the dry bulb temperature is 25 °C and the humidity is 7 g/kg of dry air.
 
 ```dotnetcli
-Tdry=25+273.15; # dry bulb temperature in K
-W=7e-3; # humidity in kg/kg of dry air
-h=enthalpy(Tdry,W) # specific enthalpy in J/kg of dry air
+h=enthalpy(Tdry=25+273.15,W=7e-3) # parameters and returns in SI units
 ```
 
 ### `volume`
@@ -408,9 +378,7 @@ v=volume(Tdry,W[,p])
 Compute the specific volume given the dry bulb temperature is 25 °C and the humidity is 7 g/kg of dry air at 1 atm total pressure.
 
 ```dotnetcli
-Tdry=25+273.15; # dry bulb temperature in K
-W=7e-3; # humidity in kg/kg of dry air
-v=volume(Tdry,W) # specific volume in cu. m/kg of dry air
+v=volume(Tdry=25+273.15,W=7e-3) # parameters and returns in SI units
 ```
 
 ### `adiabSat`
@@ -428,8 +396,7 @@ v=volume(Tdry,W) # specific volume in cu. m/kg of dry air
 Compute the the adiabatic saturation temperature and the adiabatic saturation humidity given the specific enthalpy is 82.4 kJ/kg of dry air and plot a graphical representation of the answer in a schematic psychrometric chart.
 
 ```dotnetcli
-h=82.4e3; # specific enthalpy in J/kg
-[Tadiab,Wadiab]=adiabSat(h,true) # inputs and outputs in SI units
+[Tadiab,Wadiab]=adiabSat(h=82.4e3,true) # parameters and returns in SI units
 ```
 
 ### Reference

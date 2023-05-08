@@ -76,42 +76,9 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # # the saturation pressure at wet bulb temperature and
     # # the density given
     # # the dew point temperature is 22 °C and
-    # # the relative humidity is 29 %.
-    #
-    # # This call computes the answer and
-    # # omits the psychrometric chart:
-    # Tdew=22+273.15; # dew point temperarture in K
-    # phi=.29; # relative humidity
+    # # the relative humidity is 29 %:
     # [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-    # psychro(:,:,Tdew,:,:,:,phi)
-    #
-    # # This call computes the answer and
-    # # plots a schematic psychrometric chart:
-    # [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-    # psychro(:,:,22+273.15,:,:,:,.29,true) # inputs and outputs in SI units
-    #
-    # # Compute the dry bulb temperature,
-    # # the wet bulb temperature,
-    # # the dew point temperature,
-    # # the adiabatic saturation temperature,
-    # # the humidity,
-    # # the saturation humidity,
-    # # the saturation humidity at wet bulb temperature,
-    # # the adiabatic saturation humidity,
-    # # the specific enthalpy,
-    # # the specific volume,
-    # # the relative humidity,
-    # # the water vapor pressure,
-    # # the saturation pressure,
-    # # the saturation pressure at wet bulb temperature and
-    # # the density given
-    # # the specific enthalpy is 79.5 kJ/kg and
-    # # the relative humidity is 29 # and
-    # # plot a graphical representation of the
-    # # answer in a schematic psychrometric chart.
-    #
-    # [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-    # psychro(:,:,:,:,79.5e3,:,.29,true) # inputs and outputs in SI units
+    # psychro(:,:,Tdew=22+273.15,:,:,:,phi=0.29) # parameters and returns in SI units
     #
     # # 8.5 cubic meters of humid air at
     # # dry bulb temperature of 293 K and
@@ -121,29 +88,24 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # # Compute the energy and water vapor demands.
     # # Assume the amount of dry air is constant.
     #
-    # # The initial condition is
-    # Tdry1=293;
-    # Twet1=288;
-    # [~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1,Twet1,:,:,:,:,:,true)
-    #
+    # All parameters and returns in SI units
+    # The initial condition is
+    # [~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1=293,Twet1=288,:,:,:,:,:,true)
+    # 
+    # # The thermodynamic state after the first heating is
+    # [~,~,~,~,~,~,~,~,h2,v2]=psychro(Tdry2=323,:,:,W2=W1,:,:,:,true)
+    # 
     # # The thermodynamic state the after first adiabatic saturation is
-    # Tdry2=323
-    # W2=W1
-    # [~,~,~,~,~,~,~,~,h2,v2]=psychro(Tdry2,:,:,W2,:,:,:,true)
-    # # The thermodynamic state the after first adiabatic saturation is
-    # h3=h2
-    # [Tdry3,W3]=adiabSat(h3)
+    # [Tdry3,W3]=adiabSat(h3=h2)
     # [~,~,~,~,~,~,~,~,~,v3]=psychro(Tdry3,:,:,W3)
-    #
+    # 
     # # The thermodynamic state after the second heating is
-    # Tdry4=323
-    # W4=W3
-    # [~,~,~,~,~,~,~,~,h4,v4]=psychro(Tdry4,:,:,W4,:,:,:,true)
+    # [~,~,~,~,~,~,~,~,h4,v4]=psychro(Tdry4=323,:,:,W4=W3,:,:,:,true)
+    # 
     # # The thermodynamic state the after second adiabatic saturation is
-    # h5=h4
-    # [Tdry5,W5]=adiabSat(h5)
+    # [Tdry5,W5]=adiabSat(h5=h4)
     # [~,~,~,~,~,~,~,~,~,v5]=psychro(Tdry5,:,:,W5)
-    #
+    # 
     # # The energy and water vapor demands are
     # (h5-h1)*(8.5/v1) # demand of energy
     # (W5-W1)*(8.5/v1) # demand of water vapor

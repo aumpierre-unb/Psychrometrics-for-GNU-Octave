@@ -40,9 +40,7 @@ function v=volume(Tdry,W,p=101325)
     # # the humidity is 7 g/kg of dry air
     # # at 1 atm total pressure.
     #
-    # Tdry=25+273.15; # dry bulb temperature in K
-    # W=7e-3; # humidity in kg/kg of dry air
-    # v=volume(Tdry,W) # specific volume in cu. m/kg of dry air
+    # v=volume(Tdry=25+273.15,W=7e-3) # parameters and returns in SI units
     #
     # See also: psychro, dewTemp, humidity, satPress, enthalpy, adiabSat.
     v=0.287042*Tdry*(1+1.6078*W)/(p/1000);

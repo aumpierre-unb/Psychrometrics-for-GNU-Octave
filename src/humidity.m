@@ -39,8 +39,7 @@ function W=humidity(pw,p=101325)
     # # water vapor pressure is 1 kPa
     # # at 1 atm total pressure.
     #
-    # pw=1e3; # water vapor pressure in Pa
-    # W=humidity(pw) # saturation pressure in kg/kg of dry air
+    # W=humidity(pw=1e3) # parameters and returns in SI units
     #
     # See also: psychro, dewTemp, satPress, enthalpy, volume, adiabSat.
     W=0.621945*pw/(p-pw);

@@ -38,8 +38,7 @@ function [Tadiab,Wadiab]=adiabSat(h,fig=false)
     # # plot a graphical representation of the
     # # answer in a schematic psychrometric chart.
     #
-    # h=82.4e3; # specific enthalpy in J/kg
-    # [Tadiab,Wadiab]=adiabSat(h,true) # inputs and outputs in SI units
+    # [Tadiab,Wadiab]=adiabSat(h=82.4e3,true) # parameters and returns in SI units
     #
     # See also: psychro, dewTemp, humidity, satPress, enthalpy, volume.
     foo=@(Tadiab) h-enthalpy(Tadiab,humidity(satPress(Tadiab),:));
