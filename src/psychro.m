@@ -90,21 +90,21 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     # # All parameters and returns in SI units
     # # The initial condition is
     # [~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1=293,Twet1=288,:,:,:,:,:,true)
-    #
+    # 
     # # The thermodynamic state after the first heating is
     # [~,~,~,~,~,~,~,~,h2,v2]=psychro(Tdry2=323,:,:,W2=W1,:,:,:,true)
-    #
+    # 
     # # The thermodynamic state the after first adiabatic saturation is
     # [Tdry3,W3]=adiabSat(h3=h2)
     # [~,~,~,~,~,~,~,~,~,v3]=psychro(Tdry3,:,:,W3)
-    #
+    # 
     # # The thermodynamic state after the second heating is
     # [~,~,~,~,~,~,~,~,h4,v4]=psychro(Tdry4=323,:,:,W4=W3,:,:,:,true)
-    #
+    # 
     # # The thermodynamic state the after second adiabatic saturation is
     # [Tdry5,W5]=adiabSat(h5=h4)
     # [~,~,~,~,~,~,~,~,~,v5]=psychro(Tdry5,:,:,W5)
-    #
+    # 
     # # The energy and water vapor demands are
     # (h5-h1)*(8.5/v1) # demand of energy
     # (W5-W1)*(8.5/v1) # demand of water vapor
@@ -535,9 +535,9 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         [th,wh]=buildHumidity(phi);
         run('doPlot.m');
         hold on
-        plot(tv,wv,'color','#1D8B20','linewidth',2);
+        plot(tv,wv,'-.g','color','#1D8B20','linewidth',2);
         plot(tb,wb,'b','linewidth',2);
-        plot(te,we,'color','red','linewidth',2);
+        plot(te,we,'-.r','linewidth',2);
         plot(th,wh,'k','linewidth',2);
         plot(Tdry,W,'or','markersize',8,'markerfacecolor','r');
         plot(Twet,Wsatwet,'ob','markersize',8);
