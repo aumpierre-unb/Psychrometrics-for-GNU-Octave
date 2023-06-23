@@ -535,10 +535,10 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         [th,wh]=buildHumidity(phi);
         run('doPlot.m');
         hold on
-        plot(tv,wv,'-.g','color','#1D8B20','linewidth',2);
-        plot(tb,wb,'b','linewidth',2);
-        plot(te,we,'-.r','linewidth',2);
-        plot(th,wh,'k','linewidth',2);
+        plot(tv,wv,'-.g','color','#1D8B20','linewidth',1.4);
+        plot(tb,wb,'b','linewidth',1.4);
+        plot(te,we,'-.r','linewidth',1.4);
+        plot(th,wh,'k','linewidth',1.4);
         plot(Tdry,W,'or','markersize',8,'markerfacecolor','r');
         plot(Twet,Wsatwet,'ob','markersize',8);
         plot(Tadiab,Wadiab,'or','markersize',8);
@@ -549,11 +549,11 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         else
             wsat=Wsat;
             hold on;plot(Tdry,wsat,'ok','markersize',8);
-            hold on;plot([Tdry Tdry 60+273.15],[0 wsat wsat],'-.k','linewidth',.5);
+            hold on;plot([Tdry Tdry 60+273.15],[0 wsat wsat],'-.k','linewidth',.6);
         end
         plot([Tdew Tdew 60+273.15],[0 W W],'--k','linewidth',.5);
         plot([Tadiab Tadiab 60+273.15],[0 Wadiab Wadiab],'--r','linewidth',.5);
-        plot([Twet Twet 60+273.15],[0 Wsatwet Wsatwet],'-.b','linewidth',.5);
+        plot([Twet Twet 60+273.15],[0 Wsatwet Wsatwet],'-.b','linewidth',.6);
         hold off;
     end
 end
