@@ -17,15 +17,15 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function x2=bissection(f,x1,x2,tol)
+function x2=bisection(f,x1,x2,tol)
     # Syntax:
-    # -- x2=bissection(f,x1,x2)
+    # -- x2=bisection(f,x1,x2)
     #
-    # bissection computes the root of
+    # bisection computes the root of
     #  a function f(x) between x1 and x2
     #  within a given tolerance tol for f(x)
-    #  using the method of bissection.
-    # bissection is an internal function of
+    #  using the method of bisection.
+    # bisection is an internal function of
     #  the psychrometrics toolbox for GNU Octave.
     while abs(f(x2))>tol
         x=(x1+x2)/2;
