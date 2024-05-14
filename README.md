@@ -263,6 +263,8 @@ given any two parameters among
 - except the combination of water vapor pressure and
 - dew point temperature, which are not independent.
 
+except the combination of water vapor pressure and dew point temperature, which are not mutually independent.
+
 If *fig* = *true* is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
 
 **Syntax:**
