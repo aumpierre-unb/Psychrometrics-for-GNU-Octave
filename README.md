@@ -24,7 +24,7 @@ This DOI represents all versions, and will always resolve to the latest one.
 
 ---
 
-The following is a very short introduction to psychrometrics and to the `psychrometrics` toolbox for GNU Octave. This text is divided in two main sections: The Theory and The `psychrometrics` Toolbox.
+The following is a very short introduction to psychrometrics and to the `psychrometrics` toolbox for GNU Octave. This text is divided in two main sections: **The Theory** and **The `psychrometrics` Toolbox**.
 
 ## The Theory
 
