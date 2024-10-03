@@ -394,7 +394,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         tol=W/1e3;
         Twet=newtonraphson(foo,Tdew,tol);
         psatwet=satPress(Twet);
-        Wsatwet=humidity(psatwet,:)
+        Wsatwet=humidity(psatwet,:);
         rho=(1+Wsatwet)/v;
     elseif a==[1 1 1 0 1 0 1]
         foo=@(pw) (W-humidity(pw,:));
