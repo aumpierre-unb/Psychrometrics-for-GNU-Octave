@@ -416,6 +416,6 @@ The author of `psychrometrics` package acknowledges Professor Brent Stephens, Ph
 [Ponchon-Savarit-for-GNU-Octave](https://github.com/aumpierre-unb/Ponchon-Savarit-for-GNU-Octave),
 [Internal-Fluid-Flow-for-GNU-Octave](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave).
 
-Copyright &copy; 2022 2023 Alexandre Umpierre
+Copyright &copy; 2022 2023 2024 Alexandre Umpierre
 
 email: aumpierre@gmail.com
